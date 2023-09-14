@@ -1,2 +1,3 @@
 9/14 2pm - 3pm: Research testing in React
 9/14 3-3:30pm: Implement and pass first test
+9/14 3:30-4:45pm: Create and add cat images to project
