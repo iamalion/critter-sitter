@@ -2,10 +2,9 @@ import React from 'react';
 
 function PetProfile({}) {
   return (
-    <div>
+    <div data-testid="pet-profile-1">
         Hello world!
     </div>
-    
-  );
+    )
 }
 export default PetProfile;
