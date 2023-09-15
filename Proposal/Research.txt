@@ -5,3 +5,4 @@
 9/15 7:15-7:45am: Research KendoReact Forms
 9/15 8:00-8:45am: Reasearch Formik Forms
 9/15 8:45-9:00am: Begin pet profile form, attempt login form with Formik
+9/15 9:00-9:30: Research React Hook Form
