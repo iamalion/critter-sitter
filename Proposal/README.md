@@ -17,3 +17,5 @@
 9/15 9:30-10:15am: Research multi-page forms
 
 9/15 10:15-10:30am: Research .pngs vs .svgs
+
+9/15 11:00-11:45am: Research React Native
