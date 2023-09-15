@@ -11,7 +11,7 @@ Critter Sitter is a web application that is targeted to cat and dog owners who w
 
 - Create pet profile
 - Full CRUD
-- Ability to add at least two animals"
+- Ability to add at least two animals
 
 #### What tools, frameworks, libraries, APIs, modules and/or other resources (whatever is specific to your track, and your language) will you use to create this MVP? List them all here. Be specific.
 
@@ -26,5 +26,8 @@ Critter Sitter is a web application that is targeted to cat and dog owners who w
 - Ability for others to add notes"
 
 What additional tools, frameworks, libraries, APIs, or other resources will these additional features require?
+
+- Possibly Tailwind, which is a CSS library for React
+- Auth0 or Axios for authentication
 
 Is there anything else you'd like your instructor to know?
