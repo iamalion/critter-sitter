@@ -3,6 +3,7 @@
 9/14 3:30-4:45pm: Create and add cat images to project
 
 9/15 7:15-7:45am: Research KendoReact Forms
-9/15 8:00-8:45am: Reasearch Formik Forms
+9/15 8:00-8:45am: Research Formik Forms
 9/15 8:45-9:00am: Begin pet profile form, attempt login form with Formik
-9/15 9:00-9:30: Research React Hook Form
+9/15 9:00-9:30am: Research React Hook Form
+9/15 9:30-10:15am: Research multi-page forms
