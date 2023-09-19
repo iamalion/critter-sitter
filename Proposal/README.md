@@ -19,3 +19,13 @@
 9/15 10:15-10:30am: Research .pngs vs .svgs
 
 9/15 11:00-11:45am: Research React Native
+
+#### 9/19
+9/19 8:00am-12:00pm:
+Work on capstone (see commits for critter-sitter)
+
+1:00-3:00pm:
+Work on capstone (see commits for critter-sitter)
+
+3:00-4:00pm:
+Research typescript and react, test out creating Vite app
