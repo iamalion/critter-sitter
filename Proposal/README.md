@@ -35,3 +35,4 @@ Research typescript and react, test out creating Vite app
 
 9:00-10:00am: Dave Gray React Tutorial
 
+10:00-11:00: Dave Gray React Tutorial
