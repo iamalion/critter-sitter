@@ -1,6 +1,7 @@
 import React, { useReducer } from 'react';
 import { generateYears } from '../utils/utils';
 import petInfoReducer from '../reducers/petInfoReducer';
+import NameInput from './NameInput';
 import avCat1Full from '../images/catImages/avCat1Full.svg';
 import avCat2Full from '../images/catImages/avCat2Full.svg';
 import avCat3Full from '../images/catImages/avCat3Full.svg';
@@ -68,17 +69,7 @@ function PetProfile() {
   const steps = [
     {label: 'Name',
     component: (
-        <div>
-            <label htmlFor="name">First, what's their name?</label>
-            <input
-                type="text"
-                name="name"
-                id="name"
-                value={petInfo.name}
-                onChange={handleInputChange}
-                required
-            />
-        </div>
+        <NameInput name={petInfo.name} setName={(value) => dispatch({type: 'UPDATE_FIELD', field: 'name', value })} />
         )
     },
     {label: 'Species',
