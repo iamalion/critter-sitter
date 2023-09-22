@@ -50,6 +50,44 @@ describe('petInfoReducer', () => {
         expect(petInfoReducer({}, action)).toEqual({
             species: species,
         });
-    })
+    });
+
+    test ('should update avatar state slice when passed UPDATE_FIELD action', () => {
+        const { avatar } = petInfoData;
+        action = {
+            type: 'UPDATE_FIELD',
+            field: 'avatar',
+            value: avatar,
+        };
+        expect(petInfoReducer({}, action)).toEqual({
+            avatar: avatar,
+        });
+    });
+
+    test ('should update birthdayMonth state slice when passed UPDATE_FIELD action', () => {
+        const { birthdayMonth } = petInfoData;
+        action = {
+            type: 'UPDATE_FIELD',
+            field: 'birthdayMonth',
+            value: birthdayMonth,
+        };
+        expect(petInfoReducer({}, action)).toEqual({
+            birthdayMonth: birthdayMonth,
+        });
+    });
+
+    test ('should update birthdayYear state slice when passed UPDATE_FIELD action', () => {
+        const { birthdayYear } = petInfoData;
+        action = {
+            type: 'UPDATE_FIELD',
+            field: 'birthdayYear',
+            value: birthdayYear,
+        };
+        expect(petInfoReducer({}, action)).toEqual({
+            birthdayYear: birthdayYear,
+        });
+    });
+
+    
 });
 
