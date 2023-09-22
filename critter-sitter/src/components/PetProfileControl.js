@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import PetProfile from './PetProfile'
+import PetProfile from './PetProfileForm'
 import PetProfileList from './PetProfileList'
 
 function PetProfileControl() {
