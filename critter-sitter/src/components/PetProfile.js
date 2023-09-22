@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useReducer } from 'react';
 import { generateYears } from '../utils/utils';
+import petInfoReducer from '../reducers/petInfoReducer';
 import avCat1Full from '../images/catImages/avCat1Full.svg';
 import avCat2Full from '../images/catImages/avCat2Full.svg';
 import avCat3Full from '../images/catImages/avCat3Full.svg';
@@ -17,31 +18,34 @@ import avDog6Full from '../images/dogImages/avDog6Full.svg';
 import avDog7Full from '../images/dogImages/avDog7Full.svg';
 import avDog8Full from '../images/dogImages/avDog8Full.svg';
 
-
-function PetProfile() {
-  const [petInfo, setPetInfo] = React.useState({
+const initialPetInfo = {
     name: '',
     species: '',
     avatar: '',
     birthdayMonth: '',
     birthdayYear: '',
     microchip: '',
+    insuranceSelect: '',
     insurance: '',
     funFact: '',
-  });
+    };
+
+function PetProfile() {
+    const [petInfo, dispatch] = useReducer(petInfoReducer, initialPetInfo);
+  
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setPetInfo({ ...petInfo, [name]: value });
+    dispatch({ type: 'UPDATE_FIELD', field: name, value });
   };
 
   const handleRadioChange = (e, field) => {
     const value = e.target.value;
-    setPetInfo({ ...petInfo, [field]: value });
+    dispatch({ type: 'UPDATE_FIELD', field, value });
   };
 
   const handleAvatarSelect = (selectedAvatar: string) => {
-    setPetInfo({ ...petInfo, avatar: selectedAvatar });
+    dispatch({ type: 'UPDATE_FIELD', field: 'avatar', value: selectedAvatar });
   };
   
   const [step, setStep] = React.useState(1);
@@ -56,7 +60,7 @@ function PetProfile() {
     setStep(step === 1 ? 1 : step - 1);
   };
 
-  const handleSubmit = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(petInfo);
   };
@@ -365,7 +369,7 @@ function PetProfile() {
         </div>
         )
     },
-  ]
+    ];
 
   return (
     <>
