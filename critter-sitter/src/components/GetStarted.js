@@ -1,4 +1,4 @@
-mport React from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom'; // Import Link for navigation
 
 function GetStarted() {
@@ -6,10 +6,10 @@ function GetStarted() {
     <div>
       <h1>Welcome to Pet Profiles!</h1>
       <p>Choose an option below:</p>
-      <Link to="/pet-profile-form">
+      <Link to="/add">
         <button>Get Started</button>
       </Link>
-      <Link to="/view-pet-profiles">
+      <Link to="/view">
         <button>View Pet Profiles</button>
       </Link>
     </div>

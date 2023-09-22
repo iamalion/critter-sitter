@@ -22,11 +22,6 @@ function PetProfile() {
     dispatch({ type: 'UPDATE_FIELD', field: name, value });
   };
 
-//   const handleRadioChange = (e, field) => {
-//     const value = e.target.value;
-//     dispatch({ type: 'UPDATE_FIELD', field, value });
-//   };
-
   const handleAvatarSelect = (selectedAvatar: string) => {
     dispatch({ type: 'UPDATE_FIELD', field: 'avatar', value: selectedAvatar });
   };
@@ -45,9 +40,20 @@ function PetProfile() {
     setStep(step === 1 ? 1 : step - 1);
   };
 
-  const handleAddingPetProfile = async (newPetProfile) => {
-    newPetProfile.preventDefault();
-    console.log(petInfo);
+  const handleAddingPetProfile = () => {
+    const newPetProfile = {
+      name: name,
+      species: species,
+      avatar: avatar,
+      birthdayMonth: birthdayMonth,
+      birthdayYear: birthdayYear,
+      microchip: microchip,
+      insuranceSelect: insuranceSelect,
+      insuranceProvider: insuranceProvider,
+      funFact: funFact,
+      // id: petInfo.id,
+    }
+    
   };
     
   const steps = [
