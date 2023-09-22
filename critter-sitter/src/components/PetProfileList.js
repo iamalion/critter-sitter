@@ -26,4 +26,9 @@ function PetProfileList(props) {
     );
 }
 
+PetProfileList.propTypes = {
+    petProfiles: PropTypes.object,
+    onProfileSelection: PropTypes.func
+};
+
 export default PetProfileList;
