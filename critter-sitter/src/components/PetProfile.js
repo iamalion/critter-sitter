@@ -1,5 +1,6 @@
 import React, { useReducer } from 'react';
-import petInfoReducer from '../reducers/petInfoReducer';
+import petInfoReducer from '../reducers/pet-info-reducer';
+import { initialPetInfo } from '../reducers/pet-info-reducer';
 import NameInput from './NameInput';
 import SpeciesInput from './SpeciesInput';
 import AvatarInput from './AvatarInput';
@@ -8,18 +9,6 @@ import MicrochipInput from './MicrochipInput';
 import InsuranceInput from './InsuranceInput';
 import FunFact from './FunFact';
 import Confirmation from './Confirmation';
-
-const initialPetInfo = {
-    name: '',
-    species: '',
-    avatar: '',
-    birthdayMonth: '',
-    birthdayYear: '',
-    microchip: '',
-    insuranceSelect: '',
-    insuranceProvider: '',
-    funFact: '',
-    };
 
 function PetProfile() {
   const [petInfo, dispatch] = useReducer(petInfoReducer, initialPetInfo);

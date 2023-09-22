@@ -1,4 +1,4 @@
-import petInfoReducer from "../../reducers/petInfoReducer";
+import petInfoReducer from "../../reducers/pet-info-reducer";
 
 describe('petInfoReducer', () => {
     test('should return the initial state', () => {
