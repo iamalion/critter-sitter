@@ -10,6 +10,7 @@ import InsuranceInput from './InsuranceInput';
 import FunFact from './FunFact';
 import Confirmation from './Confirmation';
 
+
 function PetProfile() {
   const [petInfo, dispatch] = useReducer(petInfoReducer, initialPetInfo);
   
@@ -42,10 +43,11 @@ function PetProfile() {
     setStep(step === 1 ? 1 : step - 1);
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const handleAddingPetProfile = async (newPetProfile) => {
+    newPetProfile.preventDefault();
+    console.log(petInfo);
   };
-
+    
   const steps = [
     {label: 'Name',
     component: (
@@ -139,13 +141,23 @@ function PetProfile() {
     <>
       <div>
         <h2>Let's talk about your critter!</h2>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleAddingPetProfile}>
           {steps[step - 1] && (
             <>
               <h3>Step {step} of {steps.length}</h3>
               {steps[step - 1].component}
-              {step !== 1 && <button onClick={prevStep}>Back</button>}
-              {step !== steps.length && <button onClick={nextStep}>Next</button>}
+              {step !== 1 && 
+              <button type="button" onClick={prevStep}>
+                Back
+              </button>}
+              {step !== steps.length && 
+              <button type="button" onClick={nextStep}>
+                Next
+              </button>}
+              {step === steps.length &&
+              <button type="submit">
+                Submit
+              </button>}
             </>
           )}
         </form>
@@ -153,4 +165,4 @@ function PetProfile() {
     </>
   );
 }
-  export default PetProfile;
+export default PetProfile;
