@@ -1,7 +1,7 @@
 import React from 'react';
 import { generateYears } from '../utils/utils';
 
-function BirthdayInput({ birthday, setBirthday, handleInputChange, petInfo }) {
+function BirthdayInput({ birthdayMonth, setBirthdayMonth,birthdayYear, setbirthdayYear, handleInputChange, petInfo }) {
     return (
         <>
         <select
