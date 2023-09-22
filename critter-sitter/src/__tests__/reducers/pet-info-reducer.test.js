@@ -1,6 +1,19 @@
 import petInfoReducer from "../../reducers/pet-info-reducer";
 
 describe('petInfoReducer', () => {
+    let action;
+    const petInfoData = {
+        name: 'Fluffy',
+        species: 'Cat',
+        avatar: 'https://i.imgur.com/1q2xP1o.png',
+        birthdayMonth: 'January',
+        birthdayYear: '2019',
+        microchip: '123456789',
+        insuranceSelect: 'Yes',
+        insuranceProvider: 'PetPlan',
+        funFact: 'Fluffy loves to play fetch!',
+    };
+
     test('should return the initial state', () => {
         expect(petInfoReducer(undefined, {})).toEqual({
             name: '',
@@ -14,5 +27,29 @@ describe('petInfoReducer', () => {
             funFact: '',
         });
     });
+
+    test('should update name state slice when passed UPDATE_FIELD action', () => {
+        const { name } = petInfoData;
+        action = {
+            type: 'UPDATE_FIELD',
+            field: 'name',
+            value: name,
+        };
+        expect(petInfoReducer({}, action)).toEqual({
+            name: name,
+        });
+    });
+
+    test('should update species state slice when passed UPDATE_FIELD action', () => {
+        const { species } = petInfoData;
+        action = {
+            type: 'UPDATE_FIELD',
+            field: 'species',
+            value: species,
+        };
+        expect(petInfoReducer({}, action)).toEqual({
+            species: species,
+        });
+    })
 });
 
