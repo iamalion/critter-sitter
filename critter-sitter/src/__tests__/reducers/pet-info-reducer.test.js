@@ -109,5 +109,27 @@ describe('petInfoReducer', () => {
             insuranceSelect: insuranceSelect,
         });
     });
+    test ('should update insuranceProvider state slice when passed UPDATE_FIELD action', () => {
+        const { insuranceProvider } = petInfoData;
+        action = {
+            type: 'UPDATE_FIELD',
+            field: 'insuranceProvider',
+            value: insuranceProvider,
+        };
+        expect(petInfoReducer({}, action)).toEqual({
+            insuranceProvider: insuranceProvider,
+        });
+    });
+    test ('should update funFact state slice when passed UPDATE_FIELD action', () => {
+        const { funFact } = petInfoData;
+        action = {
+            type: 'UPDATE_FIELD',
+            field: 'funFact',
+            value: funFact,
+        };
+        expect(petInfoReducer({}, action)).toEqual({
+            funFact: funFact,
+        });
+    });
 });
 
