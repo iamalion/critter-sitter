@@ -87,7 +87,27 @@ describe('petInfoReducer', () => {
             birthdayYear: birthdayYear,
         });
     });
-
-    
+    test ('should update microchip state slice when passed UPDATE_FIELD action', () => {
+        const { microchip } = petInfoData;
+        action = {
+            type: 'UPDATE_FIELD',
+            field: 'microchip',
+            value: microchip,
+        };
+        expect(petInfoReducer({}, action)).toEqual({
+            microchip: microchip,
+        });
+    });
+    test ('should update insuranceSelect state slice when passed UPDATE_FIELD action', () => {
+        const { insuranceSelect } = petInfoData;
+        action = {
+            type: 'UPDATE_FIELD',
+            field: 'insuranceSelect',
+            value: insuranceSelect,
+        };
+        expect(petInfoReducer({}, action)).toEqual({
+            insuranceSelect: insuranceSelect,
+        });
+    });
 });
 
