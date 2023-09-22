@@ -4,6 +4,7 @@ import NameInput from './NameInput';
 import SpeciesInput from './SpeciesInput';
 import AvatarInput from './AvatarInput';
 import BirthdayInput from './BirthdayInput';
+import MicrochipInput from './MicrochipInput';
 
 const initialPetInfo = {
     name: '',
@@ -101,13 +102,10 @@ function PetProfile() {
     {label: 'Microchip',
     component: (
         <div>
-            <label htmlFor="microchip">What is {petInfo.name}'s microchip number? <p>If they don't have one, or if you don't know, you can skip this step.</p></label>
-            <input
-                type="text"
-                name="microchip"
-                id="microchip"
-                value={petInfo.microchip}
-                onChange={handleInputChange}
+            <MicrochipInput 
+                microchip={petInfo.microchip}
+                setMicrochip={(value) => dispatch({type: 'UPDATE_FIELD', field: 'microchip', value })}
+                petInfo={petInfo}
             />
         </div>
         )

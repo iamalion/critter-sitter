@@ -14,3 +14,5 @@ function MicrochipInput({ microchip, setMicrochip, petInfo }) {
         </>
     )
 }
+
+export default MicrochipInput
