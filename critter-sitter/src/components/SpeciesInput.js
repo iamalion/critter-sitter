@@ -1,8 +1,10 @@
 import React from 'react'
+import NameInput from './NameInput'
 
-function SpeciesInput({ species, setSpecies }) {
+function SpeciesInput({ species, setSpecies, petInfo, setPetInfo}) {
     return (
         <>
+        <p>Love it. Is {petInfo.name} a cat or a dog?</p>
         <input
             type="radio"
             name="species"

@@ -18,12 +18,15 @@ import avDog7Full from '../images/dogImages/avDog7Full.svg';
 import avDog8Full from '../images/dogImages/avDog8Full.svg';
 
 
-function AvatarInput({species, setSpecies, avatar, selectedAvatar, handleAvatarSelect, petInfo }) {
+function AvatarInput({species, setSpecies, avatar, selectedAvatar, handleAvatarSelect, petInfo, setPetInfo }) {
+    
     if (!petInfo){
         return null;
     }
+    
     return (
         <>
+        <label htmlFor="avatar">Let's pick an avatar for your {petInfo.species}, {petInfo.name}.</label>
         {petInfo.species === 'cat' ? (
                 <>
                 <input

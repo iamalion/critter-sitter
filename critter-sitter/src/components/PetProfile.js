@@ -1,5 +1,4 @@
 import React, { useReducer } from 'react';
-import { generateYears } from '../utils/utils';
 import petInfoReducer from '../reducers/petInfoReducer';
 import NameInput from './NameInput';
 import SpeciesInput from './SpeciesInput';
@@ -63,17 +62,18 @@ function PetProfile() {
     {label: 'Species',
     component: (
         <div>
-            <p>Love it. Is {petInfo.name} a cat or a dog?</p>
             <SpeciesInput 
                 species={petInfo.species} 
-                setSpecies={(value) => dispatch({type: 'UPDATE_FIELD', field: 'species', value })} />
+                setSpecies={(value) => dispatch({type: 'UPDATE_FIELD', field: 'species', value })} 
+                petInfo={petInfo}
+                />
         </div>
     )
     },
     {label: 'Avatar',
     component: (
         <div>
-            <label htmlFor="avatar">Let's pick an avatar for your {petInfo.species}, {petInfo.name}.</label>
+            {/* <label htmlFor="avatar">Let's pick an avatar for your {petInfo.species}, {petInfo.name}.</label> */}
             <AvatarInput 
                 species={petInfo.species} 
                 avatar={petInfo.avatar} 
@@ -95,37 +95,6 @@ function PetProfile() {
                 handleInputChange={handleInputChange}
                 petInfo={petInfo}
             />
-            {/* <select
-                name="birthdayMonth"
-                id="birthdayMonth"
-                value={petInfo.birthdayMonth}
-                onChange={handleInputChange}
-            >
-                <option value="">Month</option>
-                <option value="01">January</option>
-                <option value="02">February</option>
-                <option value="03">March</option>
-                <option value="04">April</option>
-                <option value="05">May</option>
-                <option value="06">June</option>
-                <option value="07">July</option>
-                <option value="08">August</option>
-                <option value="09">September</option>
-                <option value="10">October</option>
-                <option value="11">November</option>
-                <option value="12">December</option>
-            </select>
-
-            <select
-                name="birthdayYear"
-                id="birthdayYear"
-                value={petInfo.birthdayYear}
-                onChange={handleInputChange}
-            >
-            <option value="">Year</option>
-            {generateYears()}
-            </select> */}
-
         </div>
         )
     },
