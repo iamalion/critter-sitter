@@ -22,7 +22,10 @@ const initialPetInfo = {
     };
 
 function PetProfile() {
-    const [petInfo, dispatch] = useReducer(petInfoReducer, initialPetInfo);
+  const [petInfo, dispatch] = useReducer(petInfoReducer, initialPetInfo);
+  
+  // deconstructed petInfo object to clean up code below
+  const { name, species, avatar, birthdayMonth, birthdayYear, microchip, insuranceSelect, insuranceProvider, funFact } = petInfo;
   
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -52,14 +55,13 @@ function PetProfile() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(petInfo);
   };
 
   const steps = [
     {label: 'Name',
     component: (
         <div>
-            <NameInput name={petInfo.name} setName={(value) => dispatch({type: 'UPDATE_FIELD', field: 'name', value })} />
+            <NameInput name={name} setName={(value) => dispatch({type: 'UPDATE_FIELD', field: 'name', value })} />
         </div>
         )
     },
@@ -67,7 +69,7 @@ function PetProfile() {
     component: (
         <div>
             <SpeciesInput 
-                species={petInfo.species} 
+                species={species} 
                 setSpecies={(value) => dispatch({type: 'UPDATE_FIELD', field: 'species', value })} 
                 petInfo={petInfo}
                 />
@@ -78,9 +80,9 @@ function PetProfile() {
     component: (
         <div>
             <AvatarInput 
-                species={petInfo.species} 
-                avatar={petInfo.avatar} 
-                selectedAvatar={petInfo.avatar} handleAvatarSelect={handleAvatarSelect} 
+                species={species} 
+                avatar={avatar} 
+                selectedAvatar={avatar} handleAvatarSelect={handleAvatarSelect} 
                 petInfo={petInfo}
             />
         </div>
@@ -90,9 +92,9 @@ function PetProfile() {
     component: (
         <div>
             <BirthdayInput 
-                birthdayMonth={petInfo.birthdayMonth}
+                birthdayMonth={birthdayMonth}
                 setBirthdayMonth={(value) => dispatch({type: 'UPDATE_FIELD', field: 'birthdayMonth', value })}
-                birthdayYear={petInfo.birthdayYear}
+                birthdayYear={birthdayYear}
                 setBirthdayYear={(value) => dispatch({type: 'UPDATE_FIELD', field: 'birthdayYear', value })}
                 handleInputChange={handleInputChange}
                 petInfo={petInfo}
@@ -104,7 +106,7 @@ function PetProfile() {
     component: (
         <div>
             <MicrochipInput 
-                microchip={petInfo.microchip}
+                microchip={microchip}
                 setMicrochip={(value) => dispatch({type: 'UPDATE_FIELD', field: 'microchip', value })}
                 petInfo={petInfo}
             />
@@ -115,9 +117,9 @@ function PetProfile() {
     component: (
         <div>
             <InsuranceInput
-                insuranceSelect={petInfo.insuranceSelect}
+                insuranceSelect={insuranceSelect}
                 setInsuranceSelect={(value) => dispatch({type: 'UPDATE_FIELD', field: 'insuranceSelect', value })}
-                insuranceProvider={petInfo.insuranceProvider}
+                insuranceProvider={insuranceProvider}
                 setInsuranceProvider={(value) => dispatch({type: 'UPDATE_FIELD', field: 'insuranceProvider', value })}
                 petInfo={petInfo}
             />
@@ -128,7 +130,7 @@ function PetProfile() {
     component: (
         <div>
             <FunFact
-                funFact={petInfo.funFact}
+                funFact={funFact}
                 setFunFact={(value) => dispatch({type: 'UPDATE_FIELD', field: 'funFact', value })}
                 petInfo={petInfo}
             />
