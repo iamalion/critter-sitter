@@ -5,6 +5,7 @@ import SpeciesInput from './SpeciesInput';
 import AvatarInput from './AvatarInput';
 import BirthdayInput from './BirthdayInput';
 import MicrochipInput from './MicrochipInput';
+import InsuranceInput from './InsuranceInput';
 
 const initialPetInfo = {
     name: '',
@@ -14,7 +15,7 @@ const initialPetInfo = {
     birthdayYear: '',
     microchip: '',
     insuranceSelect: '',
-    insurance: '',
+    insuranceProvider: '',
     funFact: '',
     };
 
@@ -86,7 +87,6 @@ function PetProfile() {
     {label: 'Birthday',
     component: (
         <div>
-            {/* <label htmlFor="birthday">When is {petInfo.name}'s birthday? Your best guess is fine!</label> */}
             <BirthdayInput 
                 birthdayMonth={petInfo.birthdayMonth}
                 setBirthdayMonth={(value) => dispatch({type: 'UPDATE_FIELD', field: 'birthdayMonth', value })}
@@ -112,42 +112,14 @@ function PetProfile() {
     {label: 'Insurance',
     component: (
         <div>
-            <label htmlFor="insuranceSelect">Does {petInfo.name} have pet insurance? 
-            </label>
-            
-            <input
-                type="radio"
-                name="insuranceSelect"
-                id="insuranceSelectYes"
-                value="yes"
-                onChange={(e) => handleRadioChange(e, 'insuranceSelect')}
+            <InsuranceInput
+                insuranceSelect={petInfo.insuranceSelect}
+                setInsuranceSelect={(value) => dispatch({type: 'UPDATE_FIELD', field: 'insuranceSelect', value })}
+                insuranceProvider={petInfo.insuranceProvider}
+                setInsuranceProvider={(value) => dispatch({type: 'UPDATE_FIELD', field: 'insuranceProvider', value })}
+                petInfo={petInfo}
             />
-            <label htmlFor="yes">Yes</label>
-            <input
-                type="radio"
-                name="insuranceSelect"
-                id="insuranceSelectNo"
-                value="no"
-                onChange={(e) => handleRadioChange(e, 'insuranceSelect')}
-            />
-            <label htmlFor="no">No</label>
-            <br />
-            {petInfo.insuranceSelect === 'yes' ? (
-                <>
-                <label htmlFor="insurance">What's the name of their insurance provider?</label>
-                <input
-                    type="text"
-                    name="insurance"
-                    id="insurance"
-                    value={petInfo.insurance}
-                    onChange={handleInputChange}
-                />
-                </>
-            ) : (
-                <></>
-            )}
-
-        </div>
+            </div>
         )
     },
     {label: 'Fun Fact',

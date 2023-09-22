@@ -1,14 +1,46 @@
 import React from "react";
 
-function InsuranceInput({ insurance, setInsurance, petInfo }) {
+function InsuranceInput({ insuranceSelect, setInsuranceSelect, insuranceProvider, setInsuranceProvider, petInfo }) {
     return (
         <>
-        <label htmlFor="insurance">
+        <label htmlFor="insuranceSelect">
             Does {petInfo.name} have pet insurance?
         </label>
         <input
-            
+            type="radio"
+            name="insurance"
+            id="insuranceYes"
+            value="yes"
+            onChange={(e) => setInsuranceSelect(e.target.value)}
         />
+        <label htmlFor="yes">Yes</label>
+        <input
+            type="radio"
+            name="insurance"
+            id="insuranceNo"
+            value="no"
+            onChange={(e) => setInsuranceSelect(e.target.value)}
+        />
+        <label htmlFor="no">No</label>
+        <br />
+        {insuranceSelect === "yes" ? (
+            <>
+            <label htmlFor="insuranceProvider">
+                What's the name of their insurance provider?
+            </label>
+            <input
+                type="text"
+                name="insuranceProvider"
+                id="insuranceProvider"
+                value={petInfo.insuranceProvider}
+                onChange={(e) => setInsuranceProvider(e.target.value)}
+            />
+            </>
+        ) : (
+            <></>
+        )}
         </>
-    );
-    }
+    )
+}
+
+export default InsuranceInput;
