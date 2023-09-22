@@ -4,6 +4,7 @@ import { generateYears } from '../utils/utils';
 function BirthdayInput({ birthdayMonth, setBirthdayMonth,birthdayYear, setbirthdayYear, handleInputChange, petInfo }) {
     return (
         <>
+        <label htmlFor="birthday">When is {petInfo.name}'s birthday? Your best guess is fine!</label>
         <select
                 name="birthdayMonth"
                 id="birthdayMonth"

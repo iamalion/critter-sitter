@@ -74,7 +74,6 @@ function PetProfile() {
     {label: 'Avatar',
     component: (
         <div>
-            {/* <label htmlFor="avatar">Let's pick an avatar for your {petInfo.species}, {petInfo.name}.</label> */}
             <AvatarInput 
                 species={petInfo.species} 
                 avatar={petInfo.avatar} 
@@ -87,7 +86,7 @@ function PetProfile() {
     {label: 'Birthday',
     component: (
         <div>
-            <label htmlFor="birthday">When is {petInfo.name}'s birthday? Your best guess is fine!</label>
+            {/* <label htmlFor="birthday">When is {petInfo.name}'s birthday? Your best guess is fine!</label> */}
             <BirthdayInput 
                 birthdayMonth={petInfo.birthdayMonth}
                 setBirthdayMonth={(value) => dispatch({type: 'UPDATE_FIELD', field: 'birthdayMonth', value })}
