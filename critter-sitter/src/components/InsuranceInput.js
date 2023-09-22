@@ -26,7 +26,7 @@ function InsuranceInput({ insuranceSelect, setInsuranceSelect, insuranceProvider
         {insuranceSelect === "yes" ? (
             <>
             <label htmlFor="insuranceProvider">
-                What's the name of their insurance provider?
+                What's the name of the insurance provider?
             </label>
             <input
                 type="text"

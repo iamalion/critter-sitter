@@ -6,6 +6,7 @@ import AvatarInput from './AvatarInput';
 import BirthdayInput from './BirthdayInput';
 import MicrochipInput from './MicrochipInput';
 import InsuranceInput from './InsuranceInput';
+import FunFact from './FunFact';
 
 const initialPetInfo = {
     name: '',
@@ -125,13 +126,10 @@ function PetProfile() {
     {label: 'Fun Fact',
     component: (
         <div>
-            <label htmlFor="funFact">Tell us a fun fact about {petInfo.name}!</label>
-            <input
-                type="text"
-                name="funFact"
-                id="funFact"
-                value={petInfo.funFact}
-                onChange={handleInputChange}
+            <FunFact
+                funFact={petInfo.funFact}
+                setFunFact={(value) => dispatch({type: 'UPDATE_FIELD', field: 'funFact', value })}
+                petInfo={petInfo}
             />
         </div>
         )
