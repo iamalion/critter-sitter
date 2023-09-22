@@ -2,6 +2,7 @@ import React, { useReducer } from 'react';
 import { generateYears } from '../utils/utils';
 import petInfoReducer from '../reducers/petInfoReducer';
 import NameInput from './NameInput';
+import SpeciesInput from './SpeciesInput';
 import avCat1Full from '../images/catImages/avCat1Full.svg';
 import avCat2Full from '../images/catImages/avCat2Full.svg';
 import avCat3Full from '../images/catImages/avCat3Full.svg';
@@ -74,25 +75,7 @@ function PetProfile() {
     },
     {label: 'Species',
     component: (
-        <div>
-            <label htmlFor="species">Love it. Is {petInfo.name} a cat or a dog?</label>
-            <input
-                type="radio"
-                name="species"
-                id="cat"
-                value="cat"
-                onChange={(e) => handleRadioChange(e, 'species')}
-            />
-            <label htmlFor="cat">Meow!</label>
-            <input
-                type="radio"
-                name="species"
-                id="dog"
-                value="dog"
-                onChange={(e) => handleRadioChange(e, 'species')}
-            />
-            <label htmlFor="dog">Woof!</label>
-        </div>
+        <SpeciesInput species={petInfo.species} setSpecies={(value) => dispatch({type: 'UPDATE_FIELD', field: 'species', value })} />
         )
     },
     {label: 'Avatar',
