@@ -1,5 +1,5 @@
 import React from 'react'
-import NameInput from './NameInput'
+// import NameInput from './NameInput'
 
 function SpeciesInput({ species, setSpecies, petInfo, setPetInfo}) {
     return (

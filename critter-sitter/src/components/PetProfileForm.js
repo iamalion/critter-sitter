@@ -9,6 +9,9 @@ import MicrochipInput from './MicrochipInput';
 import InsuranceInput from './InsuranceInput';
 import FunFact from './FunFact';
 import Confirmation from './Confirmation';
+import db from "../firebase.js"
+import { collection, addDoc } from "firebase/firestore";
+import { handleAddingPetProfileToList } from './PetProfileControl';
 
 
 function PetProfile() {
@@ -40,23 +43,6 @@ function PetProfile() {
     setStep(step === 1 ? 1 : step - 1);
   };
 
-  const handleAddingPetProfile = (e) => {
-    e.preventDefault();
-    const newPetProfile = {
-      name: name,
-      species: species,
-      avatar: avatar,
-      birthdayMonth: birthdayMonth,
-      birthdayYear: birthdayYear,
-      microchip: microchip,
-      insuranceSelect: insuranceSelect,
-      insuranceProvider: insuranceProvider,
-      funFact: funFact,
-      // id: petInfo.id,
-    }
-    
-  };
-    
   const steps = [
     {label: 'Name',
     component: (
@@ -150,7 +136,7 @@ function PetProfile() {
     <>
       <div>
         <h2>Let's talk about your critter!</h2>
-        <form onSubmit={handleAddingPetProfile}>
+        <form onSubmit={handleAddingPetProfileToList}>
           {steps[step - 1] && (
             <>
               <h3>Step {step} of {steps.length}</h3>
