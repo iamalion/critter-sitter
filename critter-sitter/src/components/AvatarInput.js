@@ -1,5 +1,5 @@
 import React from 'react';
-// import SpeciesInput from './SpeciesInput';
+import SpeciesInput from './SpeciesInput';
 import avCat1Full from '../images/catImages/avCat1Full.svg';
 import avCat2Full from '../images/catImages/avCat2Full.svg';
 import avCat3Full from '../images/catImages/avCat3Full.svg';

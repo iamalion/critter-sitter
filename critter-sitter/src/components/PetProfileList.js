@@ -1,11 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import PetProfile from "./PetProfile";
-import PetProfileControl from "./PetProfileControl";
 
 function PetProfileList(props) {
     return (
         <>
+            <hr />
             {Object.values(props.petProfiles).map((petProfile) => {
                 return <PetProfile
                     whenProfileClicked={props.onProfileSelection}
