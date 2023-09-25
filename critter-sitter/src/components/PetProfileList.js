@@ -5,9 +5,8 @@ import PetProfile from "./PetProfile";
 function PetProfileList(props) {
     return (
         <>
-            <hr />
-            {Object.values(props.petProfiles).map((petProfile) => {
-                return <PetProfile
+            {props.PetProfileList.map((petProfile) => 
+                 <PetProfile
                     whenProfileClicked={props.onProfileSelection}
                     name={petProfile.name}
                     species={petProfile.species}
@@ -20,14 +19,13 @@ function PetProfileList(props) {
                     id={petProfile.id}
                     key={petProfile.id}
                 />
-            }
-         )}
+            )}
         </>
     );
 }
 
 PetProfileList.propTypes = {
-    petProfiles: PropTypes.object,
+    petProfiles: PropTypes.array,
     onProfileSelection: PropTypes.func
 };
 
