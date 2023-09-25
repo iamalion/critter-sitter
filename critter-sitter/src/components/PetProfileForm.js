@@ -40,7 +40,8 @@ function PetProfile() {
     setStep(step === 1 ? 1 : step - 1);
   };
 
-  const handleAddingPetProfile = () => {
+  const handleAddingPetProfile = (e) => {
+    e.preventDefault();
     const newPetProfile = {
       name: name,
       species: species,
