@@ -1,10 +1,10 @@
 import React from 'react'
-import NameInput from './NameInput'
 
 function SpeciesInput({ species, setSpecies, petInfo, setPetInfo}) {
+    <p>Love it. And {petInfo.name} is a...</p>
     return (
         <>
-        <p>Love it. Is {petInfo.name} a cat or a dog?</p>
+        {/* <p>Love it. Is {petInfo.name} a cat or a dog?</p> */}
         <input
             type="radio"
             name="species"
@@ -13,7 +13,7 @@ function SpeciesInput({ species, setSpecies, petInfo, setPetInfo}) {
             onChange={(e) => setSpecies(e.target.value)}
             checked={species === 'cat'}
         />
-        <label htmlFor="cat">Meow!</label>
+        <label htmlFor="cat">Cat</label>
         <input
             type="radio"
             name="species"
@@ -22,7 +22,7 @@ function SpeciesInput({ species, setSpecies, petInfo, setPetInfo}) {
             onChange={(e) => setSpecies(e.target.value)}
             checked={species === 'dog'}
         />
-        <label htmlFor="dog">Woof!</label>
+        <label htmlFor="dog">Dog</label>
         </>
     )
 }

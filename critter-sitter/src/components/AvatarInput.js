@@ -21,10 +21,10 @@ function AvatarInput({species, setSpecies, avatar, selectedAvatar, handleAvatarS
     if (!petInfo){
         return null;
     }
-    
+    <label htmlFor="avatar">Let's pick an avatar for your {petInfo.species}, {petInfo.name}.</label>
     return (
         <>
-        <label htmlFor="avatar">Let's pick an avatar for your {petInfo.species}, {petInfo.name}.</label>
+        {/* <label htmlFor="avatar">Let's pick an avatar for your {petInfo.species}, {petInfo.name}.</label> */}
         {petInfo.species === 'cat' ? (
             <>
                 <label htmlFor="avCatWhite">

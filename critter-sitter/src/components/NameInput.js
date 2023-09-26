@@ -1,6 +1,7 @@
 import React from 'react'
 
 function NameInput({ name, setName }) {
+
   return (
     <>
     <label htmlFor="name">First up, what is your pet's name?</label>

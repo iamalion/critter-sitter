@@ -1,11 +1,9 @@
 import React from "react";
 
 function InsuranceInput({ insuranceSelect, setInsuranceSelect, insuranceProvider, setInsuranceProvider, petInfo }) {
+    <label htmlFor="insuranceSelect">Does {petInfo.name} have pet insurance? </label>
     return (
         <>
-        <label htmlFor="insuranceSelect">
-            Does {petInfo.name} have pet insurance?
-        </label>
         <input
             type="radio"
             name="insurance"

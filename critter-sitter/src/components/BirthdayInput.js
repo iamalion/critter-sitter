@@ -2,9 +2,10 @@ import React from 'react';
 import { generateYears } from '../utils/utils';
 
 function BirthdayInput({ birthdayMonth, setBirthdayMonth,birthdayYear, setbirthdayYear, handleInputChange, petInfo }) {
+    <label htmlFor="birthday">When is {petInfo.name}'s birthday? Your best guess is fine!</label>
     return (
         <>
-        <label htmlFor="birthday">When is {petInfo.name}'s birthday? Your best guess is fine!</label>
+        {/* <label htmlFor="birthday">When is {petInfo.name}'s birthday? Your best guess is fine!</label> */}
         <select
                 name="birthdayMonth"
                 id="birthdayMonth"
