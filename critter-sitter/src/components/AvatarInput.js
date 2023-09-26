@@ -1,5 +1,4 @@
 import React from 'react';
-import SpeciesInput from './SpeciesInput';
 import avCat1Full from '../images/catImages/avCat1Full.svg';
 import avCat2Full from '../images/catImages/avCat2Full.svg';
 import avCat3Full from '../images/catImages/avCat3Full.svg';
@@ -17,7 +16,6 @@ import avDog6Full from '../images/dogImages/avDog6Full.svg';
 import avDog7Full from '../images/dogImages/avDog7Full.svg';
 import avDog8Full from '../images/dogImages/avDog8Full.svg';
 
-
 function AvatarInput({species, setSpecies, avatar, selectedAvatar, handleAvatarSelect, petInfo, setPetInfo }) {
     
     if (!petInfo){
@@ -28,7 +26,7 @@ function AvatarInput({species, setSpecies, avatar, selectedAvatar, handleAvatarS
         <>
         <label htmlFor="avatar">Let's pick an avatar for your {petInfo.species}, {petInfo.name}.</label>
         {petInfo.species === 'cat' ? (
-                <>
+            <>
                 <label htmlFor="avCatWhite">
                     <input
                         type="radio"
@@ -119,7 +117,7 @@ function AvatarInput({species, setSpecies, avatar, selectedAvatar, handleAvatarS
                 </label>
                 
                 </>
-              ) : (
+            ) : (
                 <>
                 <label htmlFor="avDogWhite">
                     <input
@@ -209,9 +207,8 @@ function AvatarInput({species, setSpecies, avatar, selectedAvatar, handleAvatarS
                     />
                         <img className="avatar" src={avDog8Full} alt="Brown and White Dog Avatar" />
                 </label>
-        
-                </>
-                )}
+            </>
+            )}
         </>
     )
 }

@@ -1,5 +1,4 @@
 import React from "react";
-// import PropTypes from "prop-types";
 import NameInput from './NameInput';
 import SpeciesInput from './SpeciesInput';
 import AvatarInput from './AvatarInput';
@@ -15,7 +14,7 @@ import db from '../firebase';
 import { collection, addDoc } from "firebase/firestore";
 
 function ReusableForm() {
-    // const { formSubmissionHandler } = props;
+   
     
     const [petInfo, dispatch] = useReducer(petInfoReducer, initialPetInfo);
 
@@ -39,13 +38,10 @@ function ReusableForm() {
     const maxStep = Object.keys(petInfo).length + 1;
     
     const nextStep = (e) => {
-            // e.preventDefault();
-            console.log("Next step")
             setStep(step === maxStep ? maxStep : step + 1);
         };
 
     const prevStep = () => {
-        console.log("Previous step")
         setStep(step === 1 ? 1 : step - 1);
     };
 
@@ -53,23 +49,22 @@ function ReusableForm() {
         e.preventDefault();
         if (submitted) {
             const newPetProfile = {
-            name: name,
-            species: species,
-            avatar: avatar,
-            birthdayMonth: birthdayMonth,
-            birthdayYear: birthdayYear,
-            microchip: microchip,
-            insuranceSelect: insuranceSelect,
-            insuranceProvider: insuranceProvider,
-            funFact: funFact,
+                name: name,
+                species: species,
+                avatar: avatar,
+                birthdayMonth: birthdayMonth,
+                birthdayYear: birthdayYear,
+                microchip: microchip,
+                insuranceSelect: insuranceSelect,
+                insuranceProvider: insuranceProvider,
+                funFact: funFact,
             };
 
-            console.log(newPetProfile);
             try {
                 const docRef = await addDoc(collection(db, "petProfiles"), newPetProfile);
-                console.log("Profile added with ID: ", docRef.id);
+                console.log("Document written with ID: ", docRef.id);
             } catch (error) {
-                console.error("Error adding profile: ", error);
+                alert("Error adding document: ", error);
             }
         }
     };
@@ -193,9 +188,5 @@ function ReusableForm() {
     </>
   );
 }
-
-// ReusableForm.propTypes = {
-//   formSubmissionHandler: PropTypes.func,
-// };
 
 export default ReusableForm;
