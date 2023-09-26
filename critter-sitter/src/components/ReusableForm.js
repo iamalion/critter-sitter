@@ -18,6 +18,9 @@ function ReusableForm() {
     // const { formSubmissionHandler } = props;
     
     const [petInfo, dispatch] = useReducer(petInfoReducer, initialPetInfo);
+
+    // adding state to track if form has been submitted; only want to add to firebase if form has been submitted
+    const [submitted, setSubmitted] = React.useState(false);
   
     //  deconstructed petInfo object to clean up code below
     const { name, species, avatar, birthdayMonth, birthdayYear, microchip, insuranceSelect, insuranceProvider, funFact } = petInfo;
@@ -48,6 +51,7 @@ function ReusableForm() {
 
     const handleAddingPetProfile = async (e) => {
         e.preventDefault();
+        if (submitted) {
             const newPetProfile = {
             name: name,
             species: species,
@@ -58,8 +62,8 @@ function ReusableForm() {
             insuranceSelect: insuranceSelect,
             insuranceProvider: insuranceProvider,
             funFact: funFact,
-            // id: petInfo.id,
             };
+
             console.log(newPetProfile);
             try {
                 const docRef = await addDoc(collection(db, "petProfiles"), newPetProfile);
@@ -67,7 +71,8 @@ function ReusableForm() {
             } catch (error) {
                 console.error("Error adding profile: ", error);
             }
-        };
+        }
+    };
             
         const steps = [
             {label: 'Name',
@@ -178,7 +183,7 @@ function ReusableForm() {
                 Next
               </button>}
               {step === steps.length &&
-              <button type="submit">
+              <button type="submit" onClick={() => setSubmitted(true)}>
                 Submit
               </button>}
             </>
