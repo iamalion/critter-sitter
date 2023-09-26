@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import NameInput from './NameInput';
 import SpeciesInput from './SpeciesInput';
 import AvatarInput from './AvatarInput';
@@ -11,9 +11,11 @@ import Confirmation from './Confirmation';
 import { useReducer } from 'react';
 import petInfoReducer from '../reducers/pet-info-reducer';
 import { initialPetInfo } from '../reducers/pet-info-reducer';
+import db from '../firebase';
+import { collection, addDoc } from "firebase/firestore";
 
-function ReusableForm(props) {
-    const { formSubmissionHandler, buttonText } = props;
+function ReusableForm() {
+    // const { formSubmissionHandler } = props;
     
     const [petInfo, dispatch] = useReducer(petInfoReducer, initialPetInfo);
   
@@ -33,7 +35,8 @@ function ReusableForm(props) {
 
     const maxStep = Object.keys(petInfo).length + 1;
     
-    const nextStep = () => {
+    const nextStep = (e) => {
+            // e.preventDefault();
             console.log("Next step")
             setStep(step === maxStep ? maxStep : step + 1);
         };
@@ -43,7 +46,7 @@ function ReusableForm(props) {
         setStep(step === 1 ? 1 : step - 1);
     };
 
-    const handleAddingPetProfile = (e) => {
+    const handleAddingPetProfile = async (e) => {
         e.preventDefault();
             const newPetProfile = {
             name: name,
@@ -56,8 +59,14 @@ function ReusableForm(props) {
             insuranceProvider: insuranceProvider,
             funFact: funFact,
             // id: petInfo.id,
+            };
+            console.log(newPetProfile);
+            try {
+                const docRef = await addDoc(collection(db, "petProfiles"), newPetProfile);
+                console.log("Profile added with ID: ", docRef.id);
+            } catch (error) {
+                console.error("Error adding profile: ", error);
             }
-            
         };
             
         const steps = [
@@ -151,7 +160,6 @@ function ReusableForm(props) {
         ];
 
 
-
   return (
     <>
       <div>
@@ -181,9 +189,8 @@ function ReusableForm(props) {
   );
 }
 
-ReusableForm.propTypes = {
-  formSubmissionHandler: PropTypes.func,
-  buttonText: PropTypes.string
-};
+// ReusableForm.propTypes = {
+//   formSubmissionHandler: PropTypes.func,
+// };
 
 export default ReusableForm;

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'; // Import Link for navigation
 function GetStarted() {
   return (
     <div>
-      <h1>Welcome to Pet Profiles!</h1>
+      <h1>Critter Sitter</h1>
       <p>Choose an option below:</p>
       <Link to="/add">
         <button>Get Started</button>
