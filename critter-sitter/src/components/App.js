@@ -13,7 +13,7 @@ function App() {
         <Routes>
         <Route path="/" element={<GetStarted />} />
         <Route path="/add" element={<ReusableForm />} />
-        <Route path="/view" element={<PetProfileList />} />
+        <Route path="/view" element={<PetProfileControl />} />
         </Routes>
     </Router>
   );

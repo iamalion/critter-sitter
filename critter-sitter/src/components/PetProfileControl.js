@@ -1,95 +1,52 @@
-import React, { useState } from 'react'
-import PetProfileForm from './PetProfileForm'
+import React, { useEffect, useState } from 'react'
 import PetProfileList from './PetProfileList'
-import EditPetProfileForm from './EditPetProfileForm'
-import PetProfileDetail from './PetProfileDetail'
-
+import { collection, onSnapshot, addDoc } from "firebase/firestore";
+import db from './../firebase'
 
 function PetProfileControl() {
     const [formVisibleOnPage, setFormVisibleOnPage] = useState(false);
     const [petProfileList, setPetProfileList] = useState([]);
-    const [selectedPetProfile, setSelectedPetProfile] = useState(null);
-    const [editing, setEditing] = useState(false);
 
-    const handleClick = () => {
-        if (selectedPetProfile != null) {
-            setFormVisibleOnPage(false);
-            setSelectedPetProfile(null);
-            setEditing(false);
-        } else {
-            setFormVisibleOnPage(!formVisibleOnPage );
+    useEffect(() => {
+        const unSubscribe = onSnapshot(collection(db, "petProfiles"), (collectionSnapshot) => {
+            const petProfiles = [];
+            collectionSnapshot.forEach((doc) => {
+                petProfiles.push({
+                    ...doc.data(),
+                    id: doc.id,
+                });
+            });
+            console.log("Fetched: ", petProfiles)
+            setPetProfileList(petProfiles);
         }
-    }
+    );
+    return () => unSubscribe();
+    }, []);
 
-    const handleDeletingPetProfile = (id) => {
-        const newPetProfileList = petProfileList.filter(petProfile => petProfile.id !== id);
-        setPetProfileList(newPetProfileList);
-        setSelectedPetProfile(null);
-    }
-
-    const handleEditClick = () => { 
-        setEditing(true);
-    }
-
-    const handleEditingPetProfileInList = (petProfileToEdit) => {
-        const editedPetProfileList = petProfileList.filter(petProfile => petProfile.id !== this.state.selectedPetProfile.id).concat(petProfileToEdit);
-        setPetProfileList(editedPetProfileList);
-        setEditing(false);
-        setSelectedPetProfile(null);
-    }
-
-    const handleAddingNewPetProfileToList = (newPetProfile) => {
-        const newPetProfileList = petProfileList.concat(newPetProfile);
-        setPetProfileList(newPetProfileList);
+    const handleAddingNewPetProfileToList = async (newPetProfile) => {
+        const collectionRef = collection(db, "petProfiles");
+        await addDoc(collectionRef, newPetProfile);
         setFormVisibleOnPage(false);
     }
 
-    const handleChangingSelectedPetProfile = (id) => {
-        const selection = petProfileList.filter(petProfile => petProfile.id === id)[0];
-        setSelectedPetProfile(selection);
-    }
-
     let currentlyVisibleState = null;
-    let buttonText = null;
-    if (editing) {
-        currentlyVisibleState = 
-            <EditPetProfileForm 
-                petProfile={selectedPetProfile} 
-                onEditPetProfile={handleEditingPetProfileInList} 
-            />
-        buttonText = "Return to Pet Profile List";
-    } else if (selectedPetProfile != null) {
-        currentlyVisibleState = 
-            <PetProfileDetail 
-                petProfile={selectedPetProfile} 
-                onClickingDelete={handleDeletingPetProfile} 
-                onClickingEdit={handleEditClick} 
-            />
-        buttonText = "Return to Pet Profile List";
-    } else if (formVisibleOnPage) {
-        currentlyVisibleState = 
-            <PetProfileForm 
-                onNewPetProfileCreation={handleAddingNewPetProfileToList} 
-            />
-        buttonText = "Return to Pet Profile List";
+    
+    if (petProfileList.length === 0) {
+        return (
+            <div>
+                <h1>No pets here!</h1>
+            </div>
+        )
     } else {
         currentlyVisibleState =
-            <PetProfileList 
-                petProfileList={petProfileList} 
-                onPetProfileSelection={handleChangingSelectedPetProfile} 
-            />
-    
-        buttonText = "Add Pet Profile";
+        <PetProfileList petProfiles={petProfileList} />
     }
 
     return (
         <div>
-            {currentlyVisibleState
-                
-            }
+            {currentlyVisibleState}
         </div>
-    );
+    )
 }
     
-
 export default PetProfileControl

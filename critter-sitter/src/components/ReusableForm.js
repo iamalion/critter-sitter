@@ -14,8 +14,7 @@ import db from '../firebase';
 import { collection, addDoc } from "firebase/firestore";
 
 function ReusableForm() {
-   
-    
+    // using useReducer to manage state of form
     const [petInfo, dispatch] = useReducer(petInfoReducer, initialPetInfo);
 
     // adding state to track if form has been submitted; only want to add to firebase if form has been submitted
@@ -23,28 +22,33 @@ function ReusableForm() {
   
     //  deconstructed petInfo object to clean up code below
     const { name, species, avatar, birthdayMonth, birthdayYear, microchip, insuranceSelect, insuranceProvider, funFact } = petInfo;
-  
+   
+    //  function to handle input change
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         dispatch({ type: 'UPDATE_FIELD', field: name, value });
     };
 
+    // function to handle avatar selection
     const handleAvatarSelect = (selectedAvatar: string) => {
         dispatch({ type: 'UPDATE_FIELD', field: 'avatar', value: selectedAvatar });
     };
     
+    //  function to handle next step
     const [step, setStep] = React.useState(1);
-
+    
     const maxStep = Object.keys(petInfo).length + 1;
     
     const nextStep = (e) => {
             setStep(step === maxStep ? maxStep : step + 1);
         };
-
+    
+    // function to handle previous step
     const prevStep = () => {
         setStep(step === 1 ? 1 : step - 1);
     };
 
+    // function to handle adding pet profile to firebase
     const handleAddingPetProfile = async (e) => {
         e.preventDefault();
         if (submitted) {
@@ -59,7 +63,7 @@ function ReusableForm() {
                 insuranceProvider: insuranceProvider,
                 funFact: funFact,
             };
-
+            // Add a new document with a generated id.
             try {
                 const docRef = await addDoc(collection(db, "petProfiles"), newPetProfile);
                 console.log("Document written with ID: ", docRef.id);
@@ -68,7 +72,7 @@ function ReusableForm() {
             }
         }
     };
-            
+        //  array of objects to hold steps and their corresponding components   
         const steps = [
             {label: 'Name',
             component: (
@@ -159,34 +163,33 @@ function ReusableForm() {
             },
         ];
 
-
-  return (
-    <>
-      <div>
-        <h2>Let's talk about your critter!</h2>
-        <form onSubmit={handleAddingPetProfile}>
-          {steps[step - 1] && (
-            <>
-              <h3>Step {step} of {steps.length}</h3>
-              {steps[step - 1].component}
-              {step !== 1 && 
-              <button onClick={prevStep}>
-                Back
-              </button>}
-              {step !== steps.length && 
-              <button onClick={nextStep}>
-                Next
-              </button>}
-              {step === steps.length &&
-              <button type="submit" onClick={() => setSubmitted(true)}>
-                Submit
-              </button>}
-            </>
-          )}
-        </form>
-      </div>
-    </>
-  );
+    return (
+        <>
+            <div>
+                <h2>Let's talk about your critter!</h2>
+                <form onSubmit={handleAddingPetProfile}>
+                {steps[step - 1] && (
+                    <>
+                        <h3>Step {step} of {steps.length}</h3>
+                        {steps[step - 1].component}
+                        {step !== 1 && 
+                        <button onClick={prevStep}>
+                            Back
+                        </button>}
+                        {step !== steps.length && 
+                        <button onClick={nextStep}>
+                            Next
+                        </button>}
+                        {step === steps.length &&
+                        <button type="submit" onClick={() => setSubmitted(true)}>
+                            Submit
+                        </button>}
+                    </>
+                )}
+                </form>
+            </div>
+        </>
+    );
 }
 
 export default ReusableForm;
