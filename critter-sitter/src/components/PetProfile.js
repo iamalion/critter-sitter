@@ -5,8 +5,9 @@ function PetProfile(props){
     return (
         <>
             <div onClick = {() => props.whenPetProfileClicked(props.id)}>
-                <h3>{props.name} the {props.species}</h3>
+                <h3>{props.name}</h3>
             </div>
+            <hr/>
         </>
     )
 }
