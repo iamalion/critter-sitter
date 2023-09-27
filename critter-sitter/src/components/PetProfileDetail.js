@@ -10,7 +10,7 @@ function PetProfileDetail(props){
     const [petInfo, setPetInfo] = useState(initialPetInfo, {});
     const navigate = useNavigate();
 
-    const onClickingEdit = (id) => {
+    const onClickingEdit = () => {
         navigate(`/edit/${id}`);
     }
 

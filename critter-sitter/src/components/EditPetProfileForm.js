@@ -13,6 +13,9 @@ function EditPetProfileForm(props) {
     const { id } = useParams();
     const { petProfile } = props;
 
+    // get from firebase
+    // don't have edit be own route, just a nested component
+
     // State to track form input values
     const [formData, setFormData] = useState({
         name: petProfile.name,
