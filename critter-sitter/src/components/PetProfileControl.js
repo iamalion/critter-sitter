@@ -24,6 +24,7 @@ function PetProfileControl() {
                 });
             }
             });
+            console.log("Fetched from Firestore: ", petProfiles)
             setPetProfileList(petProfiles);
         }
     );
