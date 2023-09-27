@@ -19,9 +19,9 @@ import avDog8Full from '../images/dogImages/avDog8Full.svg';
 
 function AvatarInput({ selectedAvatar, handleAvatarSelect, petInfo }) {
     
-    if (!petInfo){
-        return null;
-    }
+    // if (!petInfo){
+    //     return null;
+    // }
      const handleRadioChange = (value) => {
         handleAvatarSelect(value);
     };
@@ -37,7 +37,7 @@ function AvatarInput({ selectedAvatar, handleAvatarSelect, petInfo }) {
                         id="avCatWhite"
                         value={avCat1Full}
                         onChange={() => handleRadioChange(avCat1Full)}
-                        onClick={() => handleAvatarSelect(avCat1Full)}
+                        // onClick={() => handleAvatarSelect(avCat1Full)}
                         checked={selectedAvatar === avCat1Full}
                     />
                         <img className="avatar" src={avCat1Full} alt="White Cat Avatar" />

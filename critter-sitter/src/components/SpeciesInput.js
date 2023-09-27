@@ -1,6 +1,6 @@
 import React from 'react'
 
-function SpeciesInput({ species, setSpecies, petInfo, setPetInfo}) {
+function SpeciesInput({ species, setSpecies}) {
     return (
         <>       
         <input
