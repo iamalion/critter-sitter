@@ -1,7 +1,7 @@
 import React from "react";
 
 function InsuranceInput({ insuranceSelect, setInsuranceSelect, insuranceProvider, setInsuranceProvider, petInfo }) {
-    <label htmlFor="insuranceSelect">Does {petInfo.name} have pet insurance? </label>
+    
     return (
         <>
         <input
