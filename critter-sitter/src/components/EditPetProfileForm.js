@@ -7,8 +7,10 @@ import InsuranceInput from './InsuranceInput';
 import MicrochipInput from './MicrochipInput';
 import SpeciesInput from './SpeciesInput';
 import FunFact from './FunFact';
+import { useParams } from 'react-router-dom';
 
 function EditPetProfileForm(props) {
+    const { id } = useParams();
     const { petProfile } = props;
 
     // State to track form input values
@@ -106,7 +108,7 @@ function EditPetProfileForm(props) {
 
 EditPetProfileForm.propTypes = {
     onEditPetProfile: PropTypes.func,
-    petProfile: PropTypes.object, // Make sure to define the prop type
+    petProfile: PropTypes.object, 
 };
 
 export default EditPetProfileForm;

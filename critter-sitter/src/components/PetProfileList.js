@@ -12,7 +12,6 @@ function PetProfileList(props) {
             </div>
         );
     }
-
     return (
         <>
             {props.petProfiles.map((petProfile) => (
