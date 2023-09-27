@@ -17,12 +17,13 @@ function PetProfileControl() {
         const unSubscribe = onSnapshot(collection(db, "petProfiles"), (collectionSnapshot) => {
             const petProfiles = [];
             collectionSnapshot.forEach((doc) => {
+                if (!doc.data().deleted){
                 petProfiles.push({
                     ...doc.data(),
                     id: doc.id,
                 });
+            }
             });
-            console.log("Fetched: ", petProfiles)
             setPetProfileList(petProfiles);
         }
     );
