@@ -43,22 +43,21 @@ function EditPetProfileForm(props) {
 
     return (
         <form onSubmit={handleEditPetProfileFormSubmission}>
-            <label htmlFor="name">Name:</label>
+            <label htmlFor="name">Name: </label>
             <NameInput
-                // type="text"
-                name="name"
-                // value={formData.name}
-                onChange={handleInputChange}
+                name={formData.name}
+                setName={(value) => setFormData({ ...formData, name: value })}
+                petInfo={formData}
             />
         <br />
-            <label htmlFor="species">Species:</label>
+            <label htmlFor="species">Species: </label>
             <SpeciesInput
                 species={formData.species}
                 setSpecies={(value) => setFormData({ ...formData, species: value })}
                 petInfo={formData}
             />
         <br />
-            <label htmlFor="avatar">Pick an Avatar:</label>
+            <label htmlFor="avatar">Pick an Avatar: </label>
             <AvatarInput
                 species={formData.species}
                 avatar={formData.avatar}
@@ -67,7 +66,7 @@ function EditPetProfileForm(props) {
                 petInfo={formData}
             />
         <br />
-            <label htmlFor="birthdayMonth">Birthday:</label>
+            <label htmlFor="birthdayMonth">Birthday: </label>
             <BirthdayInput
                 birthdayMonth={formData.birthdayMonth}
                 setBirthdayMonth={(value) => setFormData({ ...formData, birthdayMonth: value })}
@@ -77,22 +76,23 @@ function EditPetProfileForm(props) {
                 petInfo={formData}
             />
         <br />    
-            <label htmlFor="microchip">Microchip:</label>
+            <label htmlFor="microchip">Microchip: </label>
             <MicrochipInput
                 microchip={formData.microchip}
                 setMicrochip={(value) => setFormData({ ...formData, microchip: value })}
                 petInfo={formData}
             />
         <br />
-            <label htmlFor="insuranceSelect">Insurance:</label>
+            <label htmlFor="insuranceSelect">Insurance: </label>
             <InsuranceInput
                 insuranceSelect={formData.insuranceSelect}
                 setInsuranceSelect={(value) => setFormData({ ...formData, insuranceSelect: value })}
                 insuranceProvider={formData.insuranceProvider}
+                setInsuranceProvider={(value) => setFormData({ ...formData, insuranceProvider: value })}
                 petInfo={formData}
             />
         <br />
-            <label htmlFor="funFact">Fun Fact:</label>
+            <label htmlFor="funFact">Fun Fact: </label>
             <FunFact
                 funFact={formData.funFact}
                 setFunFact={(value) => setFormData({ ...formData, funFact: value })}

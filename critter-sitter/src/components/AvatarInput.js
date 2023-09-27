@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import avCat1Full from '../images/catImages/avCat1Full.svg';
 import avCat2Full from '../images/catImages/avCat2Full.svg';
 import avCat3Full from '../images/catImages/avCat3Full.svg';
@@ -16,12 +17,15 @@ import avDog6Full from '../images/dogImages/avDog6Full.svg';
 import avDog7Full from '../images/dogImages/avDog7Full.svg';
 import avDog8Full from '../images/dogImages/avDog8Full.svg';
 
-function AvatarInput({species, setSpecies, avatar, selectedAvatar, handleAvatarSelect, petInfo, setPetInfo }) {
+function AvatarInput({ selectedAvatar, handleAvatarSelect, petInfo }) {
     
     if (!petInfo){
         return null;
     }
-    <label htmlFor="avatar">Let's pick an avatar for your {petInfo.species}, {petInfo.name}.</label>
+     const handleRadioChange = (value) => {
+        handleAvatarSelect(value);
+    };
+
     return (
         <>
         {/* <label htmlFor="avatar">Let's pick an avatar for your {petInfo.species}, {petInfo.name}.</label> */}
@@ -30,9 +34,10 @@ function AvatarInput({species, setSpecies, avatar, selectedAvatar, handleAvatarS
                 <label htmlFor="avCatWhite">
                     <input
                         type="radio"
-                        name="avatar"
+                        
                         id="avCatWhite"
                         value={avCat1Full}
+                        onChange={() => handleRadioChange(avCat1Full)}
                         onClick={() => handleAvatarSelect(avCat1Full)}
                         checked={selectedAvatar === avCat1Full}
                     />
@@ -41,7 +46,7 @@ function AvatarInput({species, setSpecies, avatar, selectedAvatar, handleAvatarS
                 <label htmlFor="avCatBlack">
                     <input
                         type="radio"
-                        name="avatar"
+                        
                         id="avCatBlack"
                         value={avCat2Full}
                         onClick={() => handleAvatarSelect(avCat2Full)}
@@ -52,7 +57,7 @@ function AvatarInput({species, setSpecies, avatar, selectedAvatar, handleAvatarS
                 <label htmlFor="avCatOrange">
                     <input
                         type="radio"
-                        name="avatar"
+                        
                         id="avCatOrange"
                         value={avCat3Full}
                         onClick={() => handleAvatarSelect(avCat3Full)}
@@ -63,7 +68,7 @@ function AvatarInput({species, setSpecies, avatar, selectedAvatar, handleAvatarS
                 <label htmlFor="avCatBlue">
                     <input
                         type="radio"
-                        name="avatar"
+                        
                         id="avCatBlue"
                         value={avCat4Full}
                         onClick={() => handleAvatarSelect(avCat4Full)}
@@ -74,7 +79,7 @@ function AvatarInput({species, setSpecies, avatar, selectedAvatar, handleAvatarS
                 <label htmlFor="avCatBrown">
                     <input
                         type="radio"
-                        name="avatar"
+                        
                         id="avCatBrown"
                         value={avCat5Full}
                         onClick={() => handleAvatarSelect(avCat5Full)}
@@ -85,7 +90,7 @@ function AvatarInput({species, setSpecies, avatar, selectedAvatar, handleAvatarS
                 <label htmlFor="avCatGrey">
                     <input
                         type="radio"
-                        name="avatar"
+                        
                         id="avCatGrey"
                         value={avCat6Full}
                         onClick={() => handleAvatarSelect(avCat6Full)}
@@ -96,7 +101,7 @@ function AvatarInput({species, setSpecies, avatar, selectedAvatar, handleAvatarS
                 <label htmlFor="avCatBlackWhite">
                     <input
                         type="radio"
-                        name="avatar"
+                        
                         id="avCatBlackWhite"
                         value={avCat7Full}
                         onClick={() => handleAvatarSelect(avCat7Full)}
@@ -107,7 +112,7 @@ function AvatarInput({species, setSpecies, avatar, selectedAvatar, handleAvatarS
                 <label htmlFor="avCatBrownWhite">
                     <input
                         type="radio"
-                        name="avatar"
+                        
                         id="avCatBrownWhite"
                         value={avCat8Full}
                         onClick={() => handleAvatarSelect(avCat8Full)}
@@ -122,7 +127,7 @@ function AvatarInput({species, setSpecies, avatar, selectedAvatar, handleAvatarS
                 <label htmlFor="avDogWhite">
                     <input
                         type="radio"
-                        name="avatar"
+                        
                         id="avDogWhite"
                         value={avDog1Full}
                         onClick={() => handleAvatarSelect(avDog1Full)}
@@ -133,7 +138,7 @@ function AvatarInput({species, setSpecies, avatar, selectedAvatar, handleAvatarS
                 <label htmlFor="avDogBlack">
                     <input
                         type="radio"
-                        name="avatar"
+                        
                         id="avDogBlack"
                         value={avDog2Full}
                         onClick={() => handleAvatarSelect(avDog2Full)}
@@ -144,7 +149,7 @@ function AvatarInput({species, setSpecies, avatar, selectedAvatar, handleAvatarS
                 <label htmlFor="avDogYellow">
                     <input
                         type="radio"
-                        name="avatar"
+                        
                         id="avDogYellow"
                         value={avDog3Full}
                         onClick={() => handleAvatarSelect(avDog3Full)}
@@ -155,7 +160,7 @@ function AvatarInput({species, setSpecies, avatar, selectedAvatar, handleAvatarS
                 <label htmlFor="avDogBlue">
                     <input
                         type="radio"
-                        name="avatar"
+                        
                         id="avDogBlue"
                         value={avDog4Full}
                         onClick={() => handleAvatarSelect(avDog4Full)}
@@ -166,7 +171,7 @@ function AvatarInput({species, setSpecies, avatar, selectedAvatar, handleAvatarS
                 <label htmlFor="avDogBrown">
                     <input
                         type="radio"
-                        name="avatar"
+                        
                         id="avDogBrown"
                         value={avDog5Full}
                         onClick={() => handleAvatarSelect(avDog5Full)}
@@ -177,7 +182,7 @@ function AvatarInput({species, setSpecies, avatar, selectedAvatar, handleAvatarS
                 <label htmlFor="avDogGrey">
                     <input
                         type="radio"
-                        name="avatar"
+                        
                         id="avDogGrey"
                         value={avDog6Full}
                         onClick={() => handleAvatarSelect(avDog6Full)}
@@ -188,7 +193,7 @@ function AvatarInput({species, setSpecies, avatar, selectedAvatar, handleAvatarS
                 <label htmlFor="avDogBlackWhite">
                     <input
                         type="radio"
-                        name="avatar"
+                        
                         id="avDogBlackWhite"
                         value={avDog7Full}
                         onClick={() => handleAvatarSelect(avDog7Full)}
@@ -199,7 +204,7 @@ function AvatarInput({species, setSpecies, avatar, selectedAvatar, handleAvatarS
                 <label htmlFor="avDogBrownWhite">
                     <input
                         type="radio"
-                        name="avatar"
+                        
                         id="avDogBrownWhite"
                         value={avDog8Full}
                         onClick={() => handleAvatarSelect(avDog8Full)}
@@ -211,6 +216,12 @@ function AvatarInput({species, setSpecies, avatar, selectedAvatar, handleAvatarS
             )}
         </>
     )
+}
+
+AvatarInput.propTypes = {
+    selectedAvatar: PropTypes.string.isRequired,
+    handleAvatarSelect: PropTypes.func.isRequired,
+    petInfo: PropTypes.object,
 }
 
 export default AvatarInput;
