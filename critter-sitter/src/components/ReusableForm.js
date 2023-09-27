@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import PropTypes from "prop-types";
 import NameInput from './NameInput';
 import SpeciesInput from './SpeciesInput';
 import AvatarInput from './AvatarInput';
@@ -18,7 +19,7 @@ function ReusableForm() {
     const [petInfo, dispatch] = useReducer(petInfoReducer, initialPetInfo);
 
     // adding state to track if form has been submitted; only want to add to firebase if form has been submitted
-    const [submitted, setSubmitted] = React.useState(false);
+    const [submitted, setSubmitted] = useState(false);
   
     //  deconstructed petInfo object to clean up code below
     const { name, species, avatar, birthdayMonth, birthdayYear, microchip, insuranceSelect, insuranceProvider, funFact } = petInfo;
@@ -66,7 +67,7 @@ function ReusableForm() {
             // Add a new document with a generated id.
             try {
                 const docRef = await addDoc(collection(db, "petProfiles"), newPetProfile);
-                console.log("Document written with ID: ", docRef.id);
+                setSubmitted(true);
             } catch (error) {
                 alert("Error adding document: ", error);
             }

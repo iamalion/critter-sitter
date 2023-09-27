@@ -6,14 +6,17 @@ import PetProfileList from './PetProfileList';
 import ReactDOM from 'react-dom'
 import GetStarted from './GetStarted'
 import ReusableForm from './ReusableForm'
+import PetProfileDetail from './PetProfileDetail';
 
 function App() {
   return (
     <Router>
         <Routes>
-        <Route path="/" element={<GetStarted />} />
-        <Route path="/add" element={<ReusableForm />} />
-        <Route path="/view" element={<PetProfileControl />} />
+          <Route path="/" element={<GetStarted />} />
+          <Route path="/add" element={<ReusableForm />} />
+          <Route path="/view" element={<PetProfileControl />} />
+          <Route path="/pet-profile/:id" element={<PetProfileDetail/>} />
+          
         </Routes>
     </Router>
   );

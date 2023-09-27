@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import PetProfileList from './PetProfileList'
 import PetProfileForm from './PetProfileForm'
 import PetProfileDetail from './PetProfileDetail'
+import PetProfile from './PetProfile'
 import EditPetProfileForm from './EditPetProfileForm'
 import { collection, onSnapshot, doc, addDoc, setDoc } from "firebase/firestore";
 import db from './../firebase'
