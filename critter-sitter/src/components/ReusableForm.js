@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
+import React from "react";
 import NameInput from './NameInput';
 import SpeciesInput from './SpeciesInput';
 import AvatarInput from './AvatarInput';
@@ -19,7 +18,7 @@ function ReusableForm() {
     const [petInfo, dispatch] = useReducer(petInfoReducer, initialPetInfo);
 
     // adding state to track if form has been submitted; only want to add to firebase if form has been submitted
-    const [submitted, setSubmitted] = useState(false);
+    const [submitted, setSubmitted] = React.useState(false);
   
     //  deconstructed petInfo object to clean up code below
     const { name, species, avatar, birthdayMonth, birthdayYear, microchip, insuranceSelect, insuranceProvider, funFact } = petInfo;
@@ -67,7 +66,7 @@ function ReusableForm() {
             // Add a new document with a generated id.
             try {
                 const docRef = await addDoc(collection(db, "petProfiles"), newPetProfile);
-                setSubmitted(true);
+                console.log("Document written with ID: ", docRef.id);
             } catch (error) {
                 alert("Error adding document: ", error);
             }
@@ -78,7 +77,6 @@ function ReusableForm() {
             {label: 'Name',
             component: (
                 <div>
-                    <label htmlFor="name">First up, what is your pet's name?</label>
                     <NameInput name={name} setName={(value) => dispatch({type: 'UPDATE_FIELD', field: 'name', value })} />
                 </div>
                 )
@@ -86,7 +84,6 @@ function ReusableForm() {
             {label: 'Species',
             component: (
                 <div>
-                    <p>Love it. Is {petInfo.name} a cat or a dog?</p>
                     <SpeciesInput 
                         species={species} 
                         setSpecies={(value) => dispatch({type: 'UPDATE_FIELD', field: 'species', value })} 
@@ -98,7 +95,6 @@ function ReusableForm() {
             {label: 'Avatar',
             component: (
                 <div>
-                     <label htmlFor="avatar">Let's pick an avatar for your {petInfo.species}, {petInfo.name}.</label>
                     <AvatarInput 
                         species={species} 
                         avatar={avatar} 
@@ -111,7 +107,6 @@ function ReusableForm() {
             {label: 'Birthday',
             component: (
                 <div>
-                    <label htmlFor="birthday">When is {petInfo.name}'s birthday? Your best guess is fine!</label>
                     <BirthdayInput 
                         birthdayMonth={birthdayMonth}
                         setBirthdayMonth={(value) => dispatch({type: 'UPDATE_FIELD', field: 'birthdayMonth', value })}
@@ -126,7 +121,6 @@ function ReusableForm() {
             {label: 'Microchip',
             component: (
                 <div>
-                    <label htmlFor="microchip">What is {petInfo.name}'s microchip number? <p>If they don't have one, or if you don't know, you can skip this step.</p></label>
                     <MicrochipInput 
                         microchip={microchip}
                         setMicrochip={(value) => dispatch({type: 'UPDATE_FIELD', field: 'microchip', value })}
@@ -138,7 +132,6 @@ function ReusableForm() {
             {label: 'Insurance',
             component: (
                 <div>
-                    <label htmlFor="insuranceSelect">Does {petInfo.name} have pet insurance? </label>
                     <InsuranceInput
                         insuranceSelect={insuranceSelect}
                         setInsuranceSelect={(value) => dispatch({type: 'UPDATE_FIELD', field: 'insuranceSelect', value })}
@@ -152,7 +145,6 @@ function ReusableForm() {
             {label: 'Fun Fact',
             component: (
                 <div>
-                    <label htmlFor="funFact">Tell us a fun fact about {petInfo.name}!</label>
                     <FunFact
                         funFact={funFact}
                         setFunFact={(value) => dispatch({type: 'UPDATE_FIELD', field: 'funFact', value })}

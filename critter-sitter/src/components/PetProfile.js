@@ -1,19 +1,30 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 
 function PetProfile(props){
     return (
         <>
-                <Link to={`/pet-profile/${props.id}`}>
+            {/* replacement code below this line */}
+            <div onClick = {() => props.whenPetProfileClicked(props.id)}>
+                <img className="avatar" src={props.avatar} alt={props.name + "'s Avatar"} />
+                <h3>{props.name}</h3>
+            </div>
+            </>
+    )
+}
+            /* replacement code above this line 
+        
+        
+     The code below is being commented out in favor of going back to older code that I know worked. 
+
+                {/* <Link to={`/pet-profile/${props.id}`}>
                 <div onClick = {() => props.whenPetProfileClicked(props.id)}>
                     <img className="avatar" src={props.avatar} alt={props.name + "'s Avatar"} />
                     <h3>{props.name}</h3>
                 </div>
-                </Link>
-        </> 
-    )
-}
+                </Link> */
+
 
 PetProfile.propTypes = {
     name: PropTypes.string,

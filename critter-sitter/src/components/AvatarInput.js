@@ -18,10 +18,7 @@ import avDog7Full from '../images/dogImages/avDog7Full.svg';
 import avDog8Full from '../images/dogImages/avDog8Full.svg';
 
 function AvatarInput({ selectedAvatar, handleAvatarSelect, petInfo }) {
-    
-    // if (!petInfo){
-    //     return null;
-    // }
+
      const handleRadioChange = (value) => {
         handleAvatarSelect(value);
     };
