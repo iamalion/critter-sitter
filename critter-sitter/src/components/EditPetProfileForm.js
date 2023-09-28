@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import AvatarInput from './AvatarInput';
 import NameInput from './NameInput';
@@ -13,21 +13,37 @@ function EditPetProfileForm(props) {
     const { id } = useParams();
     const { petProfile } = props;
 
-    // get from firebase
-    // don't have edit be own route, just a nested component
 
     // State to track form input values
     const [formData, setFormData] = useState({
-        name: petProfile.name,
-        species: petProfile.species,
-        avatar: petProfile.avatar,
-        birthdayMonth: petProfile.birthdayMonth,
-        birthdayYear: petProfile.birthdayYear,
-        microchip: petProfile.microchip || '', 
-        insuranceSelect: petProfile.insuranceSelect || '',
-        insuranceProvider: petProfile.insuranceProvider || '', 
-        funFact: petProfile.funFact || ''
+        name: '',
+        species: '',
+        avatar: '',
+        birthdayMonth: '',
+        birthdayYear: '',
+        microchip: '',
+        insuranceSelect: '',
+        insuranceProvider: '',
+        funFact: '',
     });
+
+    useEffect(() => {
+        
+        if (petProfile) {
+            setFormData({
+                
+                name: petProfile.name,
+                species: petProfile.species,
+                avatar: petProfile.avatar,
+                birthdayMonth: petProfile.birthdayMonth,
+                birthdayYear: petProfile.birthdayYear,
+                microchip: petProfile.microchip,
+                insuranceSelect: petProfile.insuranceSelect,
+                insuranceProvider: petProfile.insuranceProvider,
+                funFact: petProfile.funFact,
+            });
+        }
+    }, [petProfile]);
 
 
     const handleInputChange = (e) => {
@@ -42,10 +58,11 @@ function EditPetProfileForm(props) {
         e.preventDefault();
         props.onEditPetProfile({
             ...formData,
-            id: petProfile.id,
+            id: petProfile?.id,
         });
     };
 
+    console.log("Form data: ", formData)
     return (
         <form onSubmit={handleEditPetProfileFormSubmission}>
             <label htmlFor="name">Name: </label>
