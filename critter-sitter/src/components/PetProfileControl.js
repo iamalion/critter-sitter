@@ -23,22 +23,12 @@ function PetProfileControl() {
                 });
             }
             });
-            console.log("Fetched from Firestore: ", petProfiles)
             setPetProfileList(petProfiles);
         }
     );
     return () => unSubscribe();
     }, []);
 
-    // const handleClick = () => {
-    //     if (selectedPetProfile != null) {
-    //         setSelectedPetProfile(null);
-    //         setFormVisibleOnPage(false);
-    //         setEditing(false);
-    //     } else {
-    //         setFormVisibleOnPage(!formVisibleOnPage);
-    //     }
-    // }
 
     const handleAddingNewPetProfileToList = async (newPetProfile) => {
         const collectionRef = collection(db, "petProfiles");
@@ -48,7 +38,6 @@ function PetProfileControl() {
 
     const handleEditClick = () => {
         setEditing(true);
-        console.log("selected profile: ", selectedPetProfile)
     }
 
     const handleEditingPetProfileInList = async (petProfileToEdit) => {
@@ -65,31 +54,57 @@ function PetProfileControl() {
     }
 
     const handleChangingSelectedPetProfile = (id) => {
-        const selectedPetProfile = petProfileList.filter(petProfile => petProfile.id === id)[0];
+        const selectedPetProfile = petProfileList.find(petProfile => petProfile.id === id)[0];
+        console.log(selectedPetProfile);
         setSelectedPetProfile(selectedPetProfile);
-    }
-
-    let currentlyVisibleState = null;
-
-    if (editing) {
-        currentlyVisibleState = <EditPetProfileForm petProfile={selectedPetProfile} onEditPetProfile={handleEditingPetProfileInList} />
-        
-    } else if (selectedPetProfile != null) {
-        currentlyVisibleState = <PetProfileDetail petProfile={selectedPetProfile} onClickingDelete={handleDeletingPetProfile} onClickingEdit={handleEditClick} />
-        
-    } else if (formVisibleOnPage) {
-        currentlyVisibleState = <PetProfileForm onNewPetProfileCreation={handleAddingNewPetProfileToList} />
-        
-    } else {
-        currentlyVisibleState = <PetProfileList petProfiles={petProfileList} onProfileSelection={handleChangingSelectedPetProfile} />
-    
     }
 
     return (
         <div>
-            {currentlyVisibleState}
+          {editing ? (
+            <EditPetProfileForm
+              petProfile={selectedPetProfile}
+              onEditPetProfile={handleEditingPetProfileInList}
+            />
+          ) : selectedPetProfile != null ? (
+            <PetProfileDetail
+              petInfo={selectedPetProfile}
+              editing={editing}
+              onEditPetProfile={handleEditingPetProfileInList}
+              onClickingDelete={handleDeletingPetProfile}
+            />
+          ) : formVisibleOnPage ? (
+            <PetProfileForm onNewPetProfileCreation={handleAddingNewPetProfileToList} />
+          ) : (
+            <PetProfileList
+              petProfiles={petProfileList}
+              onProfileSelection={handleChangingSelectedPetProfile}
+            />
+          )}
         </div>
-    )
+      );
+
+    // let currentlyVisibleState = null;
+
+    // if (editing) {
+    //     currentlyVisibleState = <EditPetProfileForm petProfile={selectedPetProfile} onEditPetProfile={handleEditingPetProfileInList} />
+        
+    // } else if (selectedPetProfile != null) {
+    //     currentlyVisibleState = <PetProfileDetail petProfile={selectedPetProfile} onClickingDelete={handleDeletingPetProfile} onClickingEdit={handleEditClick} />
+        
+    // } else if (formVisibleOnPage) {
+    //     currentlyVisibleState = <PetProfileForm onNewPetProfileCreation={handleAddingNewPetProfileToList} />
+        
+    // } else {
+    //     currentlyVisibleState = <PetProfileList petProfiles={petProfileList} onProfileSelection={handleChangingSelectedPetProfile} />
+    
+    // }
+
+    // return (
+    //     <div>
+    //         {currentlyVisibleState}
+    //     </div>
+    // )
 }
     
 export default PetProfileControl

@@ -3,12 +3,11 @@ import PropTypes from "prop-types";
 import PetProfile from "./PetProfile";
 
 function PetProfileList(props) {
-    console.log("Received petProfiles: ", props.petProfiles);
 
     if (!props.petProfiles || props.petProfiles.length === 0) {
         return (
             <div>
-                <h1>No pets here!</h1>
+                <h1>Calling critters... here critter critter!</h1>
             </div>
         );
     }
@@ -16,7 +15,7 @@ function PetProfileList(props) {
         <>
             {props.petProfiles.map((petProfile) => (
                 <PetProfile
-                    whenPetProfileClicked={props.onProfileSelection}
+                    whenPetProfileClicked={() => props.onProfileSelection(petProfile.id)}
                     avatar={petProfile.avatar}
                     name={petProfile.name}
                     id={petProfile.id}

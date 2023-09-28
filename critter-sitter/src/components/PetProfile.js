@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom'
 function PetProfile(props){
     return (
         <>
-            
                 <Link to={`/pet-profile/${props.id}`}>
                 <div onClick = {() => props.whenPetProfileClicked(props.id)}>
                     <img className="avatar" src={props.avatar} alt={props.name + "'s Avatar"} />
