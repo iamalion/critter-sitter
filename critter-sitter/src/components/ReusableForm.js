@@ -13,6 +13,7 @@ import { initialPetInfo } from '../reducers/pet-info-reducer';
 import db from '../firebase';
 import { collection, addDoc } from "firebase/firestore";
 
+
 function ReusableForm() {
     // using useReducer to manage state of form
     const [petInfo, dispatch] = useReducer(petInfoReducer, initialPetInfo);
@@ -77,6 +78,7 @@ function ReusableForm() {
             {label: 'Name',
             component: (
                 <div>
+                    <p>First up, what's their name?</p>
                     <NameInput name={name} setName={(value) => dispatch({type: 'UPDATE_FIELD', field: 'name', value })} />
                 </div>
                 )
@@ -84,6 +86,7 @@ function ReusableForm() {
             {label: 'Species',
             component: (
                 <div>
+                    <p>Love it. And is {petInfo.name} a cat or a dog?</p>
                     <SpeciesInput 
                         species={species} 
                         setSpecies={(value) => dispatch({type: 'UPDATE_FIELD', field: 'species', value })} 
@@ -95,6 +98,7 @@ function ReusableForm() {
             {label: 'Avatar',
             component: (
                 <div>
+                    <p>Pick an avatar for your {petInfo.species}, {petInfo.name}.</p>
                     <AvatarInput 
                         species={species} 
                         avatar={avatar} 
@@ -107,6 +111,8 @@ function ReusableForm() {
             {label: 'Birthday',
             component: (
                 <div>
+                    <p>When is {petInfo.name}'s birthday?</p>
+                    <p>(Don't worry, we won't tell them you forgot.)</p>
                     <BirthdayInput 
                         birthdayMonth={birthdayMonth}
                         setBirthdayMonth={(value) => dispatch({type: 'UPDATE_FIELD', field: 'birthdayMonth', value })}
@@ -121,6 +127,8 @@ function ReusableForm() {
             {label: 'Microchip',
             component: (
                 <div>
+                    <p>Does {petInfo.name} have a microchip?</p>
+                    <p>If not, or if you don't know, you can skip this step.</p>
                     <MicrochipInput 
                         microchip={microchip}
                         setMicrochip={(value) => dispatch({type: 'UPDATE_FIELD', field: 'microchip', value })}
@@ -132,6 +140,7 @@ function ReusableForm() {
             {label: 'Insurance',
             component: (
                 <div>
+                    <p>Does {petInfo.name} have pet insurance?</p>
                     <InsuranceInput
                         insuranceSelect={insuranceSelect}
                         setInsuranceSelect={(value) => dispatch({type: 'UPDATE_FIELD', field: 'insuranceSelect', value })}
@@ -145,6 +154,7 @@ function ReusableForm() {
             {label: 'Fun Fact',
             component: (
                 <div>
+                    <p>Finally, tell us a fun fact about {petInfo.name}!</p>
                     <FunFact
                         funFact={funFact}
                         setFunFact={(value) => dispatch({type: 'UPDATE_FIELD', field: 'funFact', value })}
