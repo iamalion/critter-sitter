@@ -24,6 +24,7 @@ function SignIn(){
         signOut(auth)
             .then(() => {
                 setSignOutSuccess(`Sign Out Successful!`);
+                navigate("/");
             })
             .catch((error) => {
                 setSignOutSuccess(`Sign Out Failed: ${error.message}`);

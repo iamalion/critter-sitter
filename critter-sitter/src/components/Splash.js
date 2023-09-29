@@ -1,6 +1,21 @@
 import React from 'react';
+import splashPage from '../images/splash/splashPage.svg'
+
 
 function Splash() {
+  const splashStyle = {
+    backgroundImage: `url(${splashPage})`,
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
+    minHeight: '100vh', // Ensures the background covers the entire viewport
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    // color: 'white', // Text color on top of the background
+    padding: '20px', // Add padding to center the content
+  };
   return (
     <div>
       
