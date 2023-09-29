@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // Import Link for navigation
+import { Link } from 'react-router-dom'; 
 
-function GetStarted() {
+function HomePage() {
   return (
     <div>
       
@@ -17,4 +17,4 @@ function GetStarted() {
   );
 }
 
-export default GetStarted;
+export default HomePage;
