@@ -13,12 +13,11 @@ function PetProfileList(props) {
 
     return (
         <>
-            <hr />
             {props.petProfiles.map((petProfile) => (
                 <PetProfile
                     whenPetProfileClicked={props.onProfileSelection}
                     name={petProfile.name}
-                    species={petProfile.species}
+                    avatar={petProfile.avatar}
                     id={petProfile.id}
                     key={petProfile.id}
                 />

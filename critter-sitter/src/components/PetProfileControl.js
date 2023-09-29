@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import PetProfileList from './PetProfileList'
 import PetProfileForm from './PetProfileForm'
 import PetProfileDetail from './PetProfileDetail'
+import PetProfile from './PetProfile'
+import EditPetProfileForm from './EditPetProfileForm'
 import { collection, onSnapshot, doc, addDoc, setDoc } from "firebase/firestore";
 import db from './../firebase'
 
@@ -15,18 +17,29 @@ function PetProfileControl() {
         const unSubscribe = onSnapshot(collection(db, "petProfiles"), (collectionSnapshot) => {
             const petProfiles = [];
             collectionSnapshot.forEach((doc) => {
+                if (!doc.data().deleted){
                 petProfiles.push({
                     ...doc.data(),
                     id: doc.id,
                 });
+            }
             });
-            console.log("Fetched: ", petProfiles)
+            console.log("Fetched from Firestore: ", petProfiles)
             setPetProfileList(petProfiles);
         }
     );
     return () => unSubscribe();
     }, []);
 
+    const handleClick = () => {
+        if (selectedPetProfile != null) {
+            setSelectedPetProfile(null);
+            setFormVisibleOnPage(false);
+            setEditing(false);
+        } else {
+            setFormVisibleOnPage(!formVisibleOnPage);
+        }
+    }
 
     const handleAddingNewPetProfileToList = async (newPetProfile) => {
         const collectionRef = collection(db, "petProfiles");
@@ -57,20 +70,20 @@ function PetProfileControl() {
     }
 
     let currentlyVisibleState = null;
-    
+    let buttonText = null;
 
     if (editing) {
-        currentlyVisibleState = <PetProfileForm petProfile={selectedPetProfile} onEditPetProfile={handleEditingPetProfileInList} />
-        
+        currentlyVisibleState = <EditPetProfileForm petProfile={selectedPetProfile} onEditPetProfile={handleEditingPetProfileInList} />
+        buttonText = "Return to Pet Profiles";
     } else if (selectedPetProfile != null) {
         currentlyVisibleState = <PetProfileDetail petProfile={selectedPetProfile} onClickingDelete={handleDeletingPetProfile} onClickingEdit={handleEditClick} />
-        
+        buttonText = "Return to Pet Profiles";
     } else if (formVisibleOnPage) {
         currentlyVisibleState = <PetProfileForm onNewPetProfileCreation={handleAddingNewPetProfileToList} />
-        
+        buttonText = "Return to Pet Profiles";
     } else {
         currentlyVisibleState = <PetProfileList petProfiles={petProfileList} onProfileSelection={handleChangingSelectedPetProfile} />
-        
+        buttonText = "Add Pet Profile";
     }
 
     return (
