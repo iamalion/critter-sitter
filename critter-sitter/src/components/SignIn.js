@@ -48,7 +48,9 @@ function SignIn(){
     <br />
     <button type='submit'>Sign In</button>
     </form>
+    <p>{signInSuccess}</p>
     <button onClick={doSignOut}>Sign Out</button>
+    <p>{signOutSuccess}</p>
     </>
   );
 }
