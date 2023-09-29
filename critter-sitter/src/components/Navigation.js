@@ -5,7 +5,8 @@ function Navigation() {
         <>
             <h1>Critter Sitter</h1>
             <nav>
-                <a href="/">Home</a>
+                <a href="/">Splash</a>
+                <a href="/home">Home</a>
                 <a href="/view">View</a>
                 <a href="/add">Add</a>
                 <a href ="/sign-in">Sign In</a>

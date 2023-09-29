@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import PetProfileList from './PetProfileList'
 import PetProfileForm from './PetProfileForm'
 import PetProfileDetail from './PetProfileDetail'
-import PetProfile from './PetProfile'
 import EditPetProfileForm from './EditPetProfileForm'
 import { collection, onSnapshot, doc, addDoc, setDoc } from "firebase/firestore";
 import { db, auth } from '../firebase';
@@ -68,46 +67,46 @@ function PetProfileControl() {
         const selectedPetProfile = petProfileList.filter(petProfile => petProfile.id === id)[0];
         setSelectedPetProfile(selectedPetProfile);
     }
-    // let currentlyVisibleState = null;
+    let currentlyVisibleState = null;
+    if (auth.currentUser == null){
+        console.log("The user is: " + auth.currentUser)
+        currentlyVisibleState =
+        <h2>You must be signed in to view this page.</h2>
+        
+    } else if (auth.currentUser != null) {
+        if (editing) {
+            currentlyVisibleState = 
+                <EditPetProfileForm 
+                    petProfile={selectedPetProfile} 
+                    onEditPetProfile={handleEditingPetProfileInList}
+                />
+        } else if (selectedPetProfile != null) {
+            currentlyVisibleState = 
+                <PetProfileDetail 
+                    petProfile={selectedPetProfile} 
+                    onClickingDelete={handleDeletingPetProfile}
+                    onClickingEdit={handleEditClick} 
+                />
+        } else if (formVisibleOnPage) {
+            currentlyVisibleState = 
+                <PetProfileForm 
+                    onNewPetProfileCreation={handleAddingNewPetProfileToList} 
+                />
+        } else {
+            currentlyVisibleState = 
+                <PetProfileList 
+                    petProfiles={petProfileList} 
+                    onProfileSelection={handleChangingSelectedPetProfile} 
+                />
+        }
+    }
 
-    // if (auth.currentUser == null) {
-    //     <>
-    //     <h2>You must be signed in to view this page.</h2>
-    //     </>
-    // } else if (auth.currentUser != null) {
-
-    // } else if (editing) {
-    // currentlyVisibleState = 
-    //     <EditPetProfileForm 
-    //         petProfile={selectedPetProfile} 
-    //         onEditPetProfile={handleEditingPetProfileInList}
-    //     />
-
-    // } else if (selectedPetProfile != null) {
-    //     currentlyVisibleState = 
-    //         <PetProfileDetail 
-    //             petProfile={selectedPetProfile} 
-    //             onClickingDelete={handleDeletingPetProfile}
-    //             onClickingEdit={handleEditClick} 
-    //         />
-
-    // } else if (formVisibleOnPage) {
-    //     currentlyVisibleState = 
-    //         <PetProfileForm 
-    //             onNewPetProfileCreation={handleAddingNewPetProfileToList} 
-    //         />
-    // } else {
-    //     currentlyVisibleState = 
-    //         <PetProfileList 
-    //             petProfiles={petProfileList} 
-    //             onProfileSelection={handleChangingSelectedPetProfile} 
-    //         />
-    //     }
-    // return (
-    //     <div>
-    //         {currentlyVisibleState}
-    //     </div>
-    // )
+    return (
+        <>
+            {currentlyVisibleState}
+            <button onClick={handleClick}>{formVisibleOnPage ? "Return to Pet Profiles" : "Add Pet Profile"}</button>
+        </>
+    );
 }
 
     

@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { auth } from "../firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 
 function SignUp(){
+    const navigate = useNavigate();
     const [signUpSuccess, setSignUpSuccess] = useState(null);
     const [passwordMatchError, setPasswordMatchError] = useState(null);
     function doSignUp(e) {
@@ -20,6 +22,7 @@ function SignUp(){
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 setSignUpSuccess(`Sign Up Successful!`);
+                navigate("/home");
             })
             .catch((error) => {
                setSignUpSuccess(`Sign Up Failed: ${error.message}`)

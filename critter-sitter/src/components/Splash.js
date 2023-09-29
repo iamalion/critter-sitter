@@ -1,6 +1,6 @@
 import React from 'react';
 
-function HomePage() {
+function Splash() {
   return (
     <div>
       
@@ -16,4 +16,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default Splash;
