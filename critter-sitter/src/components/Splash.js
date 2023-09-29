@@ -1,10 +1,10 @@
 import React from 'react';
-import splashPage from '../images/splash/splashPage.svg'
+import splashPageImgNew from '../images/splash/splashPageImgNew.svg'
 
 
 function Splash() {
   const splashStyle = {
-    backgroundImage: `url(${splashPage})`,
+    backgroundImage: `url(${splashPageImgNew})`,
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
@@ -12,14 +12,15 @@ function Splash() {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'center',
+    // justifyContent: 'center',
     // color: 'white', // Text color on top of the background
     padding: '20px', // Add padding to center the content
   };
   return (
-    <div>
+      <div style={splashStyle}>
       
       <h1>Track those tails!</h1>
+  
 
       <p>Critter Sitter is the ultimate pet parent's companion. Whether you're the proud owner of a fiesty Fido or a fluffy Fifi, this app is your go-to solution for staying on top of all your pet's needs. With Critter Sitter, you can effortlessly track feeding schedules, daily walks, grooming and vet appointments, and more!
       </p>
