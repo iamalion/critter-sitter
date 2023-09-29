@@ -7,11 +7,13 @@ import GetStarted from './GetStarted'
 import ReusableForm from './ReusableForm'
 import PetProfileDetail from './PetProfileDetail';
 import EditPetProfileForm from './EditPetProfileForm';
+import Navigation from './Navigation';
 
 
 function App() {
   return (
     <Router>
+      <Navigation />
         <Routes>
           <Route path="/" element={<GetStarted />} />
           <Route path="/add" element={<ReusableForm />} />
