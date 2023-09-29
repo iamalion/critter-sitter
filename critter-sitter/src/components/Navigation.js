@@ -10,6 +10,7 @@ function Navigation() {
                 <a href="/add">Add</a>
                 <a href ="/sign-in">Sign In</a>
                 <a href ="/sign-up">Sign Up</a>
+                <hr />
             </nav>
         </>
     );
