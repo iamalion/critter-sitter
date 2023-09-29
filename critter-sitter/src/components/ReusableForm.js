@@ -10,7 +10,7 @@ import Confirmation from './Confirmation';
 import { useReducer } from 'react';
 import petInfoReducer from '../reducers/pet-info-reducer';
 import { initialPetInfo } from '../reducers/pet-info-reducer';
-import db from '../firebase';
+import { db, auth } from '../firebase';
 import { collection, addDoc } from "firebase/firestore";
 
 

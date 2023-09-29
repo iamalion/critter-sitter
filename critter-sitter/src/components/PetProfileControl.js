@@ -5,7 +5,7 @@ import PetProfileDetail from './PetProfileDetail'
 import PetProfile from './PetProfile'
 import EditPetProfileForm from './EditPetProfileForm'
 import { collection, onSnapshot, doc, addDoc, setDoc } from "firebase/firestore";
-import db from './../firebase'
+import { db } from '../firebase';
 
 function PetProfileControl() {
     const [formVisibleOnPage, setFormVisibleOnPage] = useState(false);
