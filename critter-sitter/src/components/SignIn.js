@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { auth } from "../firebase";
 import { signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
+import { Button } from "./Button.style.js";
 
 function SignIn(){ 
     const navigate = useNavigate();
@@ -51,7 +53,7 @@ function SignIn(){
         placeholder='Password'
     />
     <br />
-    <button type='submit'>Sign In</button>
+    <Button type='submit'>Sign In</Button>
     </form>
     <p>{signInSuccess}</p>
     <button onClick={doSignOut}>Sign Out</button>

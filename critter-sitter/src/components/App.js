@@ -15,6 +15,7 @@ const rootElement = document.getElementById('root') || document.body;
 
 function App() {
   return (
+    <div className="App">
     <Router>
       <Navigation />
         <Routes>
@@ -28,6 +29,7 @@ function App() {
           <Route path="/home" element={<UserLanding />} authenticated={toBeRequired} />
         </Routes>
     </Router>
+    </div>
   );
 }
 
