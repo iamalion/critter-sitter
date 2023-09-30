@@ -1,10 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { auth } from "../firebase";
 
 function UserLanding() {
-    if (auth.currentUser === null) {
-        console.log("the user is: " + auth.currentUser)
+    const [user, setUser] = useState(null);
+
+    useEffect(() => {
+        const unsubscribe = auth.onAuthStateChanged((authUser) => {
+            if (authUser) {
+                setUser(authUser);
+            } else {
+                setUser(null);
+            }
+        });
+
+        return () => unsubscribe();
+    }
+    , []);
+
+    if (user === null) {
         
         return (
         <>
@@ -14,7 +28,7 @@ function UserLanding() {
         );
     }
     return (
-      <h2>Welcome!</h2>
+      `Welcome ${user.email}!`
     );
 }
 

@@ -4,7 +4,7 @@ import PetProfileForm from './PetProfileForm'
 import PetProfileDetail from './PetProfileDetail'
 import EditPetProfileForm from './EditPetProfileForm'
 import { collection, onSnapshot, doc, addDoc, setDoc } from "firebase/firestore";
-import { db, auth } from '../firebase';
+import { db, auth } from './../firebase';
 
 function PetProfileControl() {
     const [formVisibleOnPage, setFormVisibleOnPage] = useState(false);
@@ -68,6 +68,7 @@ function PetProfileControl() {
         setSelectedPetProfile(selectedPetProfile);
     }
     let currentlyVisibleState = null;
+    
     if (auth.currentUser == null){
         console.log("The user is: " + auth.currentUser)
         currentlyVisibleState =

@@ -13,8 +13,9 @@ function SignIn(){
         const password = e.target.password.value;
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-                setSignInSuccess(`Sign In Successful!`);
-                navigate("/home");
+                
+                setSignInSuccess(`Sign In Successful! Welcome ${userCredential.user.email}`);
+                // navigate("/home");
             })
             .catch((error) => {
                setSignInSuccess(`Sign In Failed: ${error.message}`)
