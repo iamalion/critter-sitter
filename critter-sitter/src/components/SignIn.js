@@ -3,7 +3,7 @@ import { auth } from "../firebase";
 import { signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { Button } from "./Button.style.js";
+import { Button } from "../styles/Button.style.js";
 
 function SignIn(){ 
     const navigate = useNavigate();

@@ -24,9 +24,6 @@ function Splash() {
       </p>
       <p>Experience peace of mind and pet care made easy with Critter Sitter. Sign up now and give your furry family member the attention they deserve! 
       </p>
-      <a href="/sign-up">Sign up</a>
-      <p>or</p>
-      <a href="/sign-in">Sign in</a>
 
     </div>
   );

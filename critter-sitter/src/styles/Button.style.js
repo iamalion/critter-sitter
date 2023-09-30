@@ -14,6 +14,11 @@ export const Button = styled.button`
     &:hover {
         background-color: #FF69B4;
     }
+    &:active {
+        background-color: #FF69B4;
+        
+
+    }
 `;
 
 export const ButtonContainer = styled.div`

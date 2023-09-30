@@ -1,33 +1,35 @@
 import React from 'react';
-// import { auth } from '../firebase';
 import useAuthState from '../hooks/authState';
+import { NavBar, NavLinks, Logo } from '../styles/Navigation.style';
 
 function Navigation() {
     const user = useAuthState();
 
     if (user === null) {
         return (
-            <>
-                <h1>Critter Sitter</h1>
-                <nav>
-                    <a href="/sign-up">Sign up</a>
-                    <a href="/sign-in">Sign in</a>
-                    <hr />
-                </nav>
-            </>
+            <NavBar>
+                <Logo className="someText">Critter Sitter</Logo>
+                    <NavLinks>
+                        <a href="/sign-up">Sign up</a>
+                        <a href="/sign-in">Sign in</a>
+                        <hr />
+                    </NavLinks>
+            </NavBar>
         );
     }
 
     return (
         <>
-            <h1>Critter Sitter</h1>
-            <nav>
-                <a href="/">Splash</a>
-                <a href="/home">Home</a>
-                <a href="/view">View</a>
-                <a href="/add">Add</a>
-                <hr />
-            </nav>
+        <NavBar>
+            <Logo>Critter Sitter</Logo>
+                <NavLinks>
+                    <a href="/">Splash</a>
+                    <a href="/home">Home</a>
+                    <a href="/view">View</a>
+                    <a href="/add">Add</a>
+                </NavLinks>
+            </NavBar>
+            <p>Signed in as {user.email}</p>
         </>
     );
 }
