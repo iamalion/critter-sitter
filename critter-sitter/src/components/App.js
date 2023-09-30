@@ -6,7 +6,7 @@ import Navigation from './Navigation';
 import Splash from './Splash'
 import SignIn from './SignIn';
 import SignUp from './SignUp';
-import ReusableForm from './NewPetProfileForm'
+import NewPetProfileForm from './NewPetProfileForm'
 import PetProfileDetail from './PetProfileDetail';
 import UserLanding from './UserLanding';
 import { toBeRequired } from '@testing-library/jest-dom/matchers';
@@ -22,7 +22,7 @@ function App() {
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/sign-in" element={<SignIn />} />
           
-          <Route path="/add" element={<ReusableForm />} />
+          <Route path="/add" element={<NewPetProfileForm />} />
           <Route path="/view" element={<PetProfileControl />} />
           <Route path="/pet-profile/:id" element={<PetProfileDetail />} />
           <Route path="/home" element={<UserLanding />} authenticated={toBeRequired} />

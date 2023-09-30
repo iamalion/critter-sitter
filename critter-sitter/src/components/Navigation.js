@@ -1,21 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { auth } from '../firebase';
+import React from 'react';
+// import { auth } from '../firebase';
+import useAuthState from '../hooks/authState';
 
 function Navigation() {
-    const [user, setUser] = useState(null);
-
-    useEffect(() => {
-        const unsubscribe = auth.onAuthStateChanged((authUser) => {
-            if (authUser) {
-                setUser(authUser);
-            } else {
-                setUser(null);
-            }
-        });
-
-        return () => unsubscribe();
-    }
-    , []);
+    const user = useAuthState();
 
     if (user === null) {
         return (
