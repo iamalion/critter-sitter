@@ -1,21 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import avCat1Full from '../images/catImages/avCat1Full.svg';
-import avCat2Full from '../images/catImages/avCat2Full.svg';
-import avCat3Full from '../images/catImages/avCat3Full.svg';
-import avCat4Full from '../images/catImages/avCat4Full.svg';
-import avCat5Full from '../images/catImages/avCat5Full.svg';
-import avCat6Full from '../images/catImages/avCat6Full.svg';
-import avCat7Full from '../images/catImages/avCat7Full.svg';
-import avCat8Full from '../images/catImages/avCat8Full.svg';
-import avDog1Full from '../images/dogImages/avDog1Full.svg'; 
-import avDog2Full from '../images/dogImages/avDog2Full.svg';
-import avDog3Full from '../images/dogImages/avDog3Full.svg';
-import avDog4Full from '../images/dogImages/avDog4Full.svg';
-import avDog5Full from '../images/dogImages/avDog5Full.svg';
-import avDog6Full from '../images/dogImages/avDog6Full.svg';
-import avDog7Full from '../images/dogImages/avDog7Full.svg';
-import avDog8Full from '../images/dogImages/avDog8Full.svg';
+import avCat1Full from '../../images/catImages/avCat1Full.svg'
+import avCat2Full from '../../images/catImages/avCat2Full.svg';
+import avCat3Full from '../../images/catImages/avCat3Full.svg';
+import avCat4Full from '../../images/catImages/avCat4Full.svg';
+import avCat5Full from '../../images/catImages/avCat5Full.svg';
+import avCat6Full from '../../images/catImages/avCat6Full.svg';
+import avCat7Full from '../../images/catImages/avCat7Full.svg';
+import avCat8Full from '../../images/catImages/avCat8Full.svg';
+import avDog1Full from '../../images/dogImages/avDog1Full.svg'; 
+import avDog2Full from '../../images/dogImages/avDog2Full.svg';
+import avDog3Full from '../../images/dogImages/avDog3Full.svg';
+import avDog4Full from '../../images/dogImages/avDog4Full.svg';
+import avDog5Full from '../../images/dogImages/avDog5Full.svg';
+import avDog6Full from '../../images/dogImages/avDog6Full.svg';
+import avDog7Full from '../../images/dogImages/avDog7Full.svg';
+import avDog8Full from '../../images/dogImages/avDog8Full.svg';
 
 function AvatarInput({ selectedAvatar, handleAvatarSelect, petInfo }) {
 

@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import AvatarInput from './AvatarInput';
-import NameInput from './NameInput';
-import BirthdayInput from './BirthdayInput';
-import InsuranceInput from './InsuranceInput';
-import MicrochipInput from './MicrochipInput';
-import SpeciesInput from './SpeciesInput';
-import FunFact from './FunFact';
+import AvatarInput from './steps/AvatarInput';
+import NameInput from './steps/NameInput';
+import BirthdayInput from './steps/BirthdayInput';
+import InsuranceInput from './steps/InsuranceInput';
+import MicrochipInput from './steps/MicrochipInput';
+import SpeciesInput from './steps/SpeciesInput';
+import FunFact from './steps/FunFact';
 
 function EditPetProfileForm(props) {
     const { petProfile } = props;
