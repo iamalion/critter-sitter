@@ -14,7 +14,7 @@ import { db, auth } from '../firebase';
 import { collection, addDoc } from "firebase/firestore";
 
 
-function ReusableForm() {
+function NewPetProfileForm() {
     // using useReducer to manage state of form
     const [petInfo, dispatch] = useReducer(petInfoReducer, initialPetInfo);
 
@@ -202,4 +202,4 @@ function ReusableForm() {
     );
 }
 
-export default ReusableForm;
+export default NewPetProfileForm;

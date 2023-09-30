@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import PetProfileList from './PetProfileList'
-import PetProfileForm from './PetProfileForm'
 import PetProfileDetail from './PetProfileDetail'
 import EditPetProfileForm from './EditPetProfileForm'
 import { collection, onSnapshot, doc, addDoc, setDoc } from "firebase/firestore";
 import { db, auth } from './../firebase';
+import NewPetProfileForm from './NewPetProfileForm';
 
 function PetProfileControl() {
     const [formVisibleOnPage, setFormVisibleOnPage] = useState(false);
@@ -68,7 +68,7 @@ function PetProfileControl() {
         setSelectedPetProfile(selectedPetProfile);
     }
     let currentlyVisibleState = null;
-    
+
     if (auth.currentUser == null){
         console.log("The user is: " + auth.currentUser)
         currentlyVisibleState =
@@ -90,7 +90,7 @@ function PetProfileControl() {
                 />
         } else if (formVisibleOnPage) {
             currentlyVisibleState = 
-                <PetProfileForm 
+                <NewPetProfileForm 
                     onNewPetProfileCreation={handleAddingNewPetProfileToList} 
                 />
         } else {
