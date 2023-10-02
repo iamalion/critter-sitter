@@ -1,6 +1,10 @@
 import React, { useReducer } from 'react';
 import PropTypes from 'prop-types';
 import { initialPetInfo } from '../reducers/pet-info-reducer';
+import { Card } from '../styles/Card.style.js';
+import { ButtonContainer, SmallButton } from '../styles/Button.style.js';
+import { AvatarName } from '../styles/Avatar.style.js';
+import { Paragraph } from '../styles/Paragraph.style.js';
 
 function PetProfileDetail(props){
     const { petProfile, onClickingDelete, onClickingEdit } = props;
@@ -8,14 +12,18 @@ function PetProfileDetail(props){
 
     return (
         <>
+        <Card>
             <img className="avatar" src={petInfo.avatar} alt="Selected Avatar"></img>
-            <h1>{petInfo.name} the {petInfo.species}</h1>
-            <p>Birthday: {petInfo.birthdayMonth}/{petInfo.birthdayYear}</p>
-            <p>Microchip: {petInfo.microchip ? petInfo.microchip : `n/a`}</p>
-            <p>Insurance: {petInfo.insuranceProvider ? petInfo.insuranceProvider : `n/a`}</p>
-            <p>Fun Fact: {petInfo.funFact ? petInfo.funFact : `${petInfo.name} has so many fun facts I can't pick one!`}</p>
-            <button onClick={()=> onClickingEdit(petProfile.id)}>Update Pet Profile</button>
-            <button onClick={()=> onClickingDelete(petProfile.id)}>Delete Pet Profile</button>
+            <AvatarName>{petInfo.name} the {petInfo.species}</AvatarName>
+            <Paragraph>{petInfo.funFact ? petInfo.funFact : `${petInfo.name} has so many fun facts I can't pick one!`}</Paragraph>
+            <Paragraph>Birthday: {petInfo.birthdayMonth}/{petInfo.birthdayYear}</Paragraph>
+            <Paragraph>Microchip: {petInfo.microchip ? petInfo.microchip : `n/a`}</Paragraph>
+            <Paragraph>Insurance: {petInfo.insuranceProvider ? petInfo.insuranceProvider : `n/a`}</Paragraph>
+            </Card>
+            <ButtonContainer>            <SmallButton onClick={()=> onClickingEdit(petProfile.id)}>Update Pet Profile</SmallButton>
+            <SmallButton onClick={()=> onClickingDelete(petProfile.id)}>Delete Pet Profile</SmallButton>
+            </ButtonContainer>
+        
         </>
     )
 }   
