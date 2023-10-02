@@ -1,18 +1,21 @@
 import React from "react";
 import PropTypes from "prop-types";
 import PetProfile from "./PetProfile";
+import { Card } from "../styles/Card.style.js"
+import { Container } from "../styles/Container.style.js"
 
 function PetProfileList(props) {
     if (!props.petProfiles || props.petProfiles.length === 0) {
         return (
-            <div>
+            <Container>
                 <h1>Here critter critter...!</h1>
-            </div>
+            </Container>
         );
     }
 
     return (
         <>
+        <Container>
             {props.petProfiles.map((petProfile) => (
                 <PetProfile
                     whenPetProfileClicked={props.onProfileSelection}
@@ -22,6 +25,7 @@ function PetProfileList(props) {
                     key={petProfile.id}
                 />
             ))}
+            </Container>
         </>
     );
 }

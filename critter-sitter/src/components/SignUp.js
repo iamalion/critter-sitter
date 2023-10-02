@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import { Button } from "../styles/Button.style.js";
+import { CommonInput, Container, Form } from "../styles/Container.style.js";
 
 function SignUp(){
     const navigate = useNavigate();
@@ -35,21 +37,22 @@ function SignUp(){
 
     return (
         <>
+        <Container>
         <h2>Sign Up</h2>
         
-        <form onSubmit={doSignUp}>
+        <Form onSubmit={doSignUp}>
         <label htmlFor="email">Email</label>
         
-            <input
+            <CommonInput
                 type='text'
                 id="email"
                 name='email'
                 placeholder='Email'
                 onChange={clearPasswordMatchError} 
             />
-            <br />
+            
             <label>Password</label>
-            <input
+            <CommonInput
                 type='password'
                 id="password"
                 name='password'
@@ -57,7 +60,7 @@ function SignUp(){
                 onChange={clearPasswordMatchError}  
             />
             <label>Confirm Password</label>
-            <input
+            <CommonInput
                 type='password'
                 id="confirmPassword"
                 name='confirmPassword'
@@ -65,10 +68,11 @@ function SignUp(){
                 onChange={clearPasswordMatchError} 
             />
             
-            <button type='submit'>Sign Up</button>
+            <Button type='submit'>Sign Up</Button>
             <p>{signUpSuccess}</p>
             <p style={{color: "red"}}>{passwordMatchError}</p>
-        </form>
+        </Form>
+        </Container>
         </>
     );
 }

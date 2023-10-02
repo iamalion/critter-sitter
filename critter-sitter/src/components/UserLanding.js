@@ -1,5 +1,6 @@
 import React from 'react';
 import useAuthState from '../hooks/authState';
+import PetProfileControl from './PetProfileControl';
 
 function UserLanding() {
     const user = useAuthState();
@@ -13,7 +14,7 @@ function UserLanding() {
         );
     }
     return (
-      `Welcome ${user.email}!`
+      <PetProfileControl />
     );
 }
 

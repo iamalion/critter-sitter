@@ -104,7 +104,6 @@ function PetProfileControl() {
     return (
         <>
             {currentlyVisibleState}
-            <button onClick={handleClick}>{formVisibleOnPage ? "Return to Pet Profiles" : "Add Pet Profile"}</button>
         </>
     );
 }

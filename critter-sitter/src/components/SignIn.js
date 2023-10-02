@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { auth } from "../firebase";
 import { signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
 import { Button } from "../styles/Button.style.js";
+import { Container, Form, CommonInput } from "../styles/Container.style.js";
 
 function SignIn(){ 
     const navigate = useNavigate();
@@ -17,7 +17,7 @@ function SignIn(){
             .then((userCredential) => {
                 
                 setSignInSuccess(`Sign In Successful! Welcome ${userCredential.user.email}`);
-                // navigate("/home");
+                navigate("/home");
             })
             .catch((error) => {
                setSignInSuccess(`Sign In Failed: ${error.message}`)
@@ -35,10 +35,13 @@ function SignIn(){
         }
   return (
     <>
+    <Container>
     <h2>Sign In</h2>
-    <form onSubmit={doSignIn}>
+
+    <Form onSubmit={doSignIn}>
     <label htmlFor="email">Email</label>
-    <input
+    
+    <CommonInput
         type='email'
         id="email"
         name='email'
@@ -46,7 +49,7 @@ function SignIn(){
     />
     <br />
     <label>Password</label>
-    <input
+    <CommonInput
         type='password'
         id="password"
         name='password'
@@ -54,10 +57,10 @@ function SignIn(){
     />
     <br />
     <Button type='submit'>Sign In</Button>
-    </form>
-    <p>{signInSuccess}</p>
-    <button onClick={doSignOut}>Sign Out</button>
-    <p>{signOutSuccess}</p>
+    </Form>
+    {signInSuccess}
+   
+    </Container>
     </>
   );
 }
