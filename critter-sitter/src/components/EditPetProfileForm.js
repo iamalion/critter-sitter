@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import AvatarInput from './steps/AvatarInput';
-import NameInput from './steps/NameInput';
 import BirthdayInput from './steps/BirthdayInput';
-import InsuranceInput from './steps/InsuranceInput';
-import MicrochipInput from './steps/MicrochipInput';
-import SpeciesInput from './steps/SpeciesInput';
-import FunFact from './steps/FunFact';
+import { Container, Form, CommonInput } from '../styles/Container.style.js';
+import { RadioButton, RadioLabel } from '../styles/Radio.style.js';
+import { Button } from '../styles/Button.style.js';
 
 function EditPetProfileForm(props) {
     const { petProfile } = props;
@@ -42,20 +40,43 @@ function EditPetProfileForm(props) {
     };
 
     return (
-        <form onSubmit={handleEditPetProfileFormSubmission}>
+        <Container>
+        <Form onSubmit={handleEditPetProfileFormSubmission}>
             <label htmlFor="name">Name: </label>
-            <NameInput
-                name={formData.name}
-                setName={(value) => setFormData({ ...formData, name: value })}
-                petInfo={formData}
-            />
+            <CommonInput
+                    type='text'
+                    id="name"
+                    name='name'
+                    placeholder='Name'
+                    value={formData.name}
+                    onChange={handleInputChange}
+                />
         <br />
             <label htmlFor="species">Species: </label>
-            <SpeciesInput
-                species={formData.species}
-                setSpecies={(value) => setFormData({ ...formData, species: value })}
-                petInfo={formData}
-            />
+            <div>
+                <RadioLabel>
+                    <RadioButton
+                        type="radio"
+                        name="species"
+                        id="cat"
+                        value="cat"
+                        checked={formData.species === 'cat'}
+                        onChange={handleInputChange}
+                    />
+                    Cat
+                </RadioLabel>
+                <RadioLabel>
+                    <RadioButton
+                        type="radio"
+                        name="species"
+                        id="dog"
+                        value="dog"
+                        checked={formData.species === 'dog'}
+                        onChange={handleInputChange}
+                    />
+                    Dog
+                </RadioLabel>
+            </div>
         <br />
             <label htmlFor="avatar">Pick an Avatar: </label>
             <AvatarInput
@@ -77,30 +98,72 @@ function EditPetProfileForm(props) {
             />
         <br />    
             <label htmlFor="microchip">Microchip: </label>
-            <MicrochipInput
-                microchip={formData.microchip}
-                setMicrochip={(value) => setFormData({ ...formData, microchip: value })}
-                petInfo={formData}
-            />
+            <CommonInput
+                    type='text'
+                    id="microchip"
+                    name='microchip'
+                    placeholder='Microchip'
+                    value={formData.microchip}
+                    onChange={handleInputChange}
+                />
         <br />
             <label htmlFor="insuranceSelect">Insurance: </label>
-            <InsuranceInput
-                insuranceSelect={formData.insuranceSelect}
-                setInsuranceSelect={(value) => setFormData({ ...formData, insuranceSelect: value })}
-                insuranceProvider={formData.insuranceProvider}
-                setInsuranceProvider={(value) => setFormData({ ...formData, insuranceProvider: value })}
-                petInfo={formData}
-            />
+            <div>
+                <RadioLabel>
+                    <RadioButton
+                        type="radio"
+                        name="insuranceSelect"
+                        id="yes"
+                        value="yes"
+                        checked={formData.insuranceSelect === 'yes'}
+                        onChange={handleInputChange}
+                    />
+                    Yes
+                </RadioLabel>
+                <RadioLabel>
+                    <RadioButton
+
+                        type="radio"
+                        name="insuranceSelect"
+                        id="no"
+                        value="no"
+                        checked={formData.insuranceSelect === 'no'}
+                        onChange={handleInputChange}
+                    />
+                    No
+                </RadioLabel>
+            </div>
+        <br />
+            <label htmlFor="insuranceProvider">Insurance Provider: </label>
+            <CommonInput
+                    type='text'
+                    id="insuranceProvider"
+                    name='insuranceProvider'
+                    placeholder='Insurance Provider'
+                    value={formData.insuranceProvider}
+                    onChange={handleInputChange}
+                />
+
+        
         <br />
             <label htmlFor="funFact">Fun Fact: </label>
-            <FunFact
+            <CommonInput
+                    type='text'
+                    id="funFact"
+                    name='funFact'
+                    placeholder='Fun Fact'
+                    value={formData.funFact}
+                    onChange={handleInputChange}
+                />
+            {/* <FunFact
                 funFact={formData.funFact}
                 setFunFact={(value) => setFormData({ ...formData, funFact: value })}
                 petInfo={formData}
-            />
+            /> */}
         <br />
-            <button type="submit">Update Pet Profile</button>
-        </form>
+            <Button type="submit">Save Pet Profile</Button>
+        </Form>
+        </Container>
     );
 }
 

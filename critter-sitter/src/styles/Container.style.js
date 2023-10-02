@@ -22,3 +22,9 @@ export const CommonInput = styled.input`
     padding: 5px;
     margin: 10px 0;
 `
+
+export const Radio = styled.input`
+    margin: 10px;
+    border: 1px solid #FFB6C1;
+    background-color: #FFB6C1;
+`

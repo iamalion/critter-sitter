@@ -11,6 +11,7 @@ function Navigation() {
     const user = useAuthState();
     const [signOutSuccess, setSignOutSuccess] = useState(null);
     const navigate = useNavigate();
+
     function doSignOut() {
         signOut(auth)
             .then(() => {
@@ -42,13 +43,13 @@ function Navigation() {
                 <NavLinks>
                     <NavLink href="/">Splash</NavLink>
                     <NavLink href="/home">Home</NavLink>
-                    {/* <NavLink href="/view">View</NavLink> */}
+                
                     <NavLink href="/add">Add New Pet</NavLink>
                 </NavLinks>
             </NavBar>
             <UserInfoContainer>
                 <UserInfoText>Signed in as {user.email}</UserInfoText>
-                <SmallButton onclick={doSignOut}>Sign Out</SmallButton>
+                <SmallButton onClick={doSignOut}>Sign Out</SmallButton>
             </UserInfoContainer>
             
         </>
