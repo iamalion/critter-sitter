@@ -14,17 +14,20 @@ export const RadioLabel = styled.label`
     color: #FFFFFF;
     transition: background-color 0.2s ease;
     cursor: pointer;
+    user-select: none;
 
     &:hover {
         background-color: #FF69B4;
     }
+  
 `;
 
 export const RadioButton = styled.input`
     position: absolute;
     opacity: 0;
     cursor: pointer;
-    &:checked ~ ${RadioLabel} {
+    user-select: none;
+    &:checked + span {
         background-color: #FF69B4;
     }
 `;

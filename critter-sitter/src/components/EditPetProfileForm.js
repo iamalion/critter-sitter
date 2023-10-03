@@ -75,27 +75,27 @@ function EditPetProfileForm(props) {
         <br />
             <label htmlFor="species">Species: </label>
             <div>
-                <RadioLabel>
+                <RadioLabel htmlFor="cat">
                     <RadioButton
                         type="radio"
                         name="species"
                         id="cat"
                         value="cat"
-                        checked={formData.species === 'cat'}
+                        // checked={formData.species === 'cat'}
                         onChange={handleInputChange}
                     />
-                    Cat
+                    <span>Cat</span>
                 </RadioLabel>
-                <RadioLabel>
+                <RadioLabel htmlFor="dog">
                     <RadioButton
                         type="radio"
                         name="species"
                         id="dog"
                         value="dog"
-                        checked={formData.species === 'dog'}
+                        // checked={formData.species === 'dog'}
                         onChange={handleInputChange}
                     />
-                    Dog
+                    <span>Dog</span>
                 </RadioLabel>
             </div>
         <br />

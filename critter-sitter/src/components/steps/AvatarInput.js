@@ -18,7 +18,6 @@ import avDog7 from '../../images/dogImages/avDog7.svg';
 import avDog8 from '../../images/dogImages/avDog8.svg';
 
 function AvatarInput({ selectedAvatar, handleAvatarSelect, petInfo }) {
-
      const handleRadioChange = (value) => {
         handleAvatarSelect(value);
     };
@@ -34,8 +33,8 @@ function AvatarInput({ selectedAvatar, handleAvatarSelect, petInfo }) {
                         id="avCatWhite"
                         value={avCat1}
                         onChange={() => handleRadioChange(avCat1)}
-                        // onClick={() => handleAvatarSelect(avCat1)}
                         checked={selectedAvatar === avCat1}
+                    
                     />
                         <img className="avatar" src={avCat1} alt="White Cat Avatar" />
                 </label>
@@ -45,7 +44,7 @@ function AvatarInput({ selectedAvatar, handleAvatarSelect, petInfo }) {
                         
                         id="avCatBlack"
                         value={avCat2}
-                        onClick={() => handleAvatarSelect(avCat2)}
+                        onChange={() => handleRadioChange(avCat2)}
                         checked = {selectedAvatar === avCat2}
                     />
                         <img className="avatar" src={avCat2} alt="Black Cat Avatar" />
@@ -56,7 +55,7 @@ function AvatarInput({ selectedAvatar, handleAvatarSelect, petInfo }) {
                         
                         id="avCatOrange"
                         value={avCat3}
-                        onClick={() => handleAvatarSelect(avCat3)}
+                        onChange = {() => handleRadioChange(avCat3)}
                         checked = {selectedAvatar === avCat3}
                     />
                         <img className="avatar" src={avCat3} alt="Orange Cat Avatar" />
@@ -67,7 +66,7 @@ function AvatarInput({ selectedAvatar, handleAvatarSelect, petInfo }) {
                         
                         id="avCatBlue"
                         value={avCat4}
-                        onClick={() => handleAvatarSelect(avCat4)}
+                        onChange = {() => handleRadioChange(avCat4)}
                         checked = {selectedAvatar === avCat4}
                     />
                         <img className="avatar" src={avCat4} alt="Blue Cat Avatar" />
@@ -78,7 +77,7 @@ function AvatarInput({ selectedAvatar, handleAvatarSelect, petInfo }) {
                         
                         id="avCatBrown"
                         value={avCat5}
-                        onClick={() => handleAvatarSelect(avCat5)}
+                        onChange = {() => handleRadioChange(avCat5)}
                         checked = {selectedAvatar === avCat5}
                     />
                         <img className="avatar" src={avCat5} alt="Brown Cat Avatar" />
@@ -89,7 +88,7 @@ function AvatarInput({ selectedAvatar, handleAvatarSelect, petInfo }) {
                         
                         id="avCatGrey"
                         value={avCat6}
-                        onClick={() => handleAvatarSelect(avCat6)}
+                        onChange = {() => handleRadioChange(avCat6)}
                         checked = {selectedAvatar === avCat6}
                     />
                         <img className="avatar" src={avCat6} alt="Grey Cat Avatar" />
@@ -97,10 +96,9 @@ function AvatarInput({ selectedAvatar, handleAvatarSelect, petInfo }) {
                 <label htmlFor="avCatBlackWhite">
                     <input
                         type="radio"
-                        
                         id="avCatBlackWhite"
                         value={avCat7}
-                        onClick={() => handleAvatarSelect(avCat7)}
+                        onChange={() => handleRadioChange(avCat7)}
                         checked = {selectedAvatar === avCat7}
                     />
                         <img className="avatar" src={avCat7} alt="Black and White Cat Avatar" />
@@ -111,7 +109,7 @@ function AvatarInput({ selectedAvatar, handleAvatarSelect, petInfo }) {
                         
                         id="avCatBrownWhite"
                         value={avCat8}
-                        onClick={() => handleAvatarSelect(avCat8)}
+                        onChange = {() => handleRadioChange(avCat8)}
                         checked = {selectedAvatar === avCat8}
                     />
                         <img className="avatar" src={avCat8} alt="Brown and White Cat Avatar" />
@@ -126,7 +124,7 @@ function AvatarInput({ selectedAvatar, handleAvatarSelect, petInfo }) {
                         
                         id="avDogWhite"
                         value={avDog1}
-                        onClick={() => handleAvatarSelect(avDog1)}
+                        onChange={() => handleAvatarSelect(avDog1)}
                         checked = {selectedAvatar === avDog1}
                     />
                         <img className="avatar" src={avDog1} alt="White Dog Avatar" />
@@ -134,10 +132,9 @@ function AvatarInput({ selectedAvatar, handleAvatarSelect, petInfo }) {
                 <label htmlFor="avDogBlack">
                     <input
                         type="radio"
-                        
                         id="avDogBlack"
                         value={avDog2}
-                        onClick={() => handleAvatarSelect(avDog2)}
+                        onChange={() => handleAvatarSelect(avDog2)}
                         checked = {selectedAvatar === avDog2}
                     />
                         <img className="avatar" src={avDog2} alt="Black Dog Avatar" />
@@ -145,10 +142,9 @@ function AvatarInput({ selectedAvatar, handleAvatarSelect, petInfo }) {
                 <label htmlFor="avDogYellow">
                     <input
                         type="radio"
-                        
                         id="avDogYellow"
                         value={avDog3}
-                        onClick={() => handleAvatarSelect(avDog3)}
+                        onChange={() => handleAvatarSelect(avDog3)}
                         checked = {selectedAvatar === avDog3}
                     />
                         <img className="avatar" src={avDog3} alt="Yellow Dog Avatar" />
@@ -156,10 +152,9 @@ function AvatarInput({ selectedAvatar, handleAvatarSelect, petInfo }) {
                 <label htmlFor="avDogBlue">
                     <input
                         type="radio"
-                        
                         id="avDogBlue"
                         value={avDog4}
-                        onClick={() => handleAvatarSelect(avDog4)}
+                        onChange={() => handleAvatarSelect(avDog4)}
                         checked = {selectedAvatar === avDog4}
                     />
                         <img className="avatar" src={avDog4} alt="Blue Dog Avatar" />
@@ -167,10 +162,9 @@ function AvatarInput({ selectedAvatar, handleAvatarSelect, petInfo }) {
                 <label htmlFor="avDogBrown">
                     <input
                         type="radio"
-                        
                         id="avDogBrown"
                         value={avDog5}
-                        onClick={() => handleAvatarSelect(avDog5)}
+                        onChange={() => handleAvatarSelect(avDog5)}
                         checked = {selectedAvatar === avDog5}
                     />
                         <img className="avatar" src={avDog5} alt="Brown Dog Avatar" />
@@ -178,10 +172,9 @@ function AvatarInput({ selectedAvatar, handleAvatarSelect, petInfo }) {
                 <label htmlFor="avDogGrey">
                     <input
                         type="radio"
-                        
                         id="avDogGrey"
                         value={avDog6}
-                        onClick={() => handleAvatarSelect(avDog6)}
+                        onChange={() => handleAvatarSelect(avDog6)}
                         checked = {selectedAvatar === avDog6}
                     />
                         <img className="avatar" src={avDog6} alt="Grey Dog Avatar" />
@@ -189,10 +182,9 @@ function AvatarInput({ selectedAvatar, handleAvatarSelect, petInfo }) {
                 <label htmlFor="avDogBlackWhite">
                     <input
                         type="radio"
-                        
                         id="avDogBlackWhite"
                         value={avDog7}
-                        onClick={() => handleAvatarSelect(avDog7)}
+                        onChange={() => handleAvatarSelect(avDog7)}
                         checked = {selectedAvatar === avDog7}
                     />
                         <img className="avatar" src={avDog7} alt="Black and White Dog Avatar" />
@@ -200,10 +192,9 @@ function AvatarInput({ selectedAvatar, handleAvatarSelect, petInfo }) {
                 <label htmlFor="avDogBrownWhite">
                     <input
                         type="radio"
-                        
                         id="avDogBrownWhite"
                         value={avDog8}
-                        onClick={() => handleAvatarSelect(avDog8)}
+                        onChange={() => handleAvatarSelect(avDog8)}
                         checked = {selectedAvatar === avDog8}
                     />
                         <img className="avatar" src={avDog8} alt="Brown and White Dog Avatar" />

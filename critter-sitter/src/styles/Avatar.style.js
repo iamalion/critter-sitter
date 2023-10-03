@@ -21,23 +21,6 @@ export const AvatarName = styled.h3`
     letter-spacing: 2px;
 
 `;
-export const AvatarButton = styled.button`
-    border-radius: 50%;
-    border: none;
-    background-color: #FFB6C1;
-    padding: 0;
-    margin: 5px;
-    overflow: hidden;
-    cursor: pointer;
-    &:hover {
-        background-color: #FF69B4;
-    }
-    &:active {
-        background-color: #FF69B4;
-        transform: scale(.95);
-    
-    }
-`;
 
 export const AvatarImage = styled.img`
   width: 100%;
