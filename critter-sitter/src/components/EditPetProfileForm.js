@@ -7,11 +7,9 @@ import { RadioButton, RadioLabel } from '../styles/Radio.style.js';
 import { Button } from '../styles/Button.style.js';
 import { updateDoc, doc } from "firebase/firestore";
 import { db } from '../firebase';
-import { useNavigate } from 'react-router';
 
 function EditPetProfileForm(props) {
     const { petProfile } = props;
-    const navigate = useNavigate();
 
     // State to track form input values
     const [formData, setFormData] = useState({
@@ -39,7 +37,7 @@ function EditPetProfileForm(props) {
         e.preventDefault();
     
         // Create a reference to the specific pet profile document
-        const petProfileDocRef = doc(db, "petProfiles", petProfile);
+        const petProfileDocRef = doc(db, "petProfiles", petProfile.uid);
     
         // Update the document with the new data
         try {
@@ -52,12 +50,10 @@ function EditPetProfileForm(props) {
                 microchip: formData.microchip,
                 insuranceSelect: formData.insuranceSelect,
                 insuranceProvider: formData.insuranceProvider,
-                funFact: formData.funFact,
-                
+                funFact: formData.funFact
             });
     
             console.log("Document successfully updated!");
-            navigate("/home");
             props.onEditPetProfile();
         } catch (error) {
             console.error("Error updating document: ", error);
@@ -79,27 +75,27 @@ function EditPetProfileForm(props) {
         <br />
             <label htmlFor="species">Species: </label>
             <div>
-                <RadioLabel htmlFor="cat">
+                <RadioLabel>
                     <RadioButton
                         type="radio"
                         name="species"
                         id="cat"
                         value="cat"
-                        // checked={formData.species === 'cat'}
+                        checked={formData.species === 'cat'}
                         onChange={handleInputChange}
                     />
-                    <span>Cat</span>
+                    Cat
                 </RadioLabel>
-                <RadioLabel htmlFor="dog">
+                <RadioLabel>
                     <RadioButton
                         type="radio"
                         name="species"
                         id="dog"
                         value="dog"
-                        // checked={formData.species === 'dog'}
+                        checked={formData.species === 'dog'}
                         onChange={handleInputChange}
                     />
-                    <span>Dog</span>
+                    Dog
                 </RadioLabel>
             </div>
         <br />
@@ -182,7 +178,6 @@ function EditPetProfileForm(props) {
                 />
         <br />
             <Button type="submit">Save Pet Profile</Button>
-        
         </Form>
         </Container>
     );
@@ -190,7 +185,7 @@ function EditPetProfileForm(props) {
 
 EditPetProfileForm.propTypes = {
     onEditPetProfile: PropTypes.func,
-    petProfile: PropTypes.object,
+    petProfile: PropTypes.object, // Make sure to define the prop type
 };
 
 export default EditPetProfileForm;

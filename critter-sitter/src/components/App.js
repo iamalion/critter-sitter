@@ -10,7 +10,7 @@ import PetProfileDetail from './PetProfileDetail';
 import UserLanding from './UserLanding';
 import { toBeRequired } from '@testing-library/jest-dom/matchers';
 
-// const rootElement = document.getElementById('root') || document.body;
+const rootElement = document.getElementById('root') || document.body;
 
 function App() {
   return (

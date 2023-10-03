@@ -30,15 +30,15 @@ function PetProfileControl() {
     return () => unSubscribe();
     }, []);
 
-    // const handleClick = () => {
-    //     if (selectedPetProfile != null) {
-    //         setSelectedPetProfile(null);
-    //         setFormVisibleOnPage(false);
-    //         setEditing(false);
-    //     } else {
-    //         setFormVisibleOnPage(!formVisibleOnPage);
-    //     }
-    // }
+    const handleClick = () => {
+        if (selectedPetProfile != null) {
+            setSelectedPetProfile(null);
+            setFormVisibleOnPage(false);
+            setEditing(false);
+        } else {
+            setFormVisibleOnPage(!formVisibleOnPage);
+        }
+    }
 
     const handleAddingNewPetProfileToList = async (newPetProfile) => {
         const collectionRef = collection(db, "petProfiles");

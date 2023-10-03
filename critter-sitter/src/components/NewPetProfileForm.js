@@ -14,7 +14,6 @@ import { db, auth } from '../firebase';
 import { collection, addDoc } from "firebase/firestore";
 import { BackButton, NextButton, SubmitButton } from '../styles/Button.style.js';
 import { Container } from '../styles/Container.style.js';
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { FaArrowCircleLeft, FaArrowCircleRight, FaCheckCircle } from 'react-icons/fa';
 
 
