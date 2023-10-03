@@ -15,8 +15,9 @@ function PetProfileControl() {
     useEffect(() => {
         const unSubscribe = onSnapshot(collection(db, "petProfiles"), (collectionSnapshot) => {
             const petProfiles = [];
+            const currentUser = auth.currentUser;
             collectionSnapshot.forEach((doc) => {
-                if (!doc.data().deleted){
+                if (!doc.data().deleted && currentUser && doc.data().uid === currentUser.uid){
                 petProfiles.push({
                     ...doc.data(),
                     id: doc.id,

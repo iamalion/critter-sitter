@@ -8,7 +8,6 @@ export const Container = styled.div`
     padding: 20px;
 
 `
-
 export const Form = styled.form`
     text-align: left;
     width: 50%;

@@ -12,6 +12,8 @@ import petInfoReducer from '../reducers/pet-info-reducer';
 import { initialPetInfo } from '../reducers/pet-info-reducer';
 import { db, auth } from '../firebase';
 import { collection, addDoc } from "firebase/firestore";
+import { SmallButton } from '../styles/Button.style.js';
+import { Container, Form } from '../styles/Container.style.js';
 
 
 function NewPetProfileForm() {
@@ -63,12 +65,14 @@ function NewPetProfileForm() {
                 insuranceSelect: insuranceSelect,
                 insuranceProvider: insuranceProvider,
                 funFact: funFact,
+                uid: auth.currentUser.uid,
             };
             // Add a new document with a generated id.
             try {
                 const docRef = await addDoc(collection(db, "petProfiles"), newPetProfile);
                 console.log("Document written with ID: ", docRef.id);
             } catch (error) {
+                console.error("Error adding document: ", error);
                 alert("Error adding document: ", error);
             }
         }
@@ -175,29 +179,31 @@ function NewPetProfileForm() {
 
     return (
         <>
+            <Container>
             <div>
                 <h2>Let's talk about your critter!</h2>
-                <form onSubmit={handleAddingPetProfile}>
+                <Form onSubmit={handleAddingPetProfile}>
                 {steps[step - 1] && (
                     <>
                         <h3>Step {step} of {steps.length}</h3>
                         {steps[step - 1].component}
                         {step !== 1 && 
-                        <button onClick={prevStep}>
+                        <SmallButton onClick={prevStep}>
                             Back
-                        </button>}
+                        </SmallButton>}
                         {step !== steps.length && 
-                        <button onClick={nextStep}>
+                        <SmallButton onClick={nextStep}>
                             Next
-                        </button>}
+                        </SmallButton>}
                         {step === steps.length &&
-                        <button type="submit" onClick={() => setSubmitted(true)}>
+                        <SmallButton type="submit" onClick={() => setSubmitted(true)}>
                             Submit
-                        </button>}
+                        </SmallButton>}
                     </>
                 )}
-                </form>
+                </Form>
             </div>
+            </Container>
         </>
     );
 }
