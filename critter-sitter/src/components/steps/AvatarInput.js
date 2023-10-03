@@ -16,7 +16,6 @@ import avDog5 from '../../images/dogImages/avDog5.svg';
 import avDog6 from '../../images/dogImages/avDog6.svg';
 import avDog7 from '../../images/dogImages/avDog7.svg';
 import avDog8 from '../../images/dogImages/avDog8.svg';
-import { Avatar, AvatarButton } from '../../styles/Avatar.style.js';
 
 function AvatarInput({ selectedAvatar, handleAvatarSelect, petInfo }) {
 
@@ -27,9 +26,9 @@ function AvatarInput({ selectedAvatar, handleAvatarSelect, petInfo }) {
     return (
         <>
         {petInfo.species === 'cat' ? (
-            <>  
+            <>
                 <label htmlFor="avCatWhite">
-                    <AvatarButton
+                    <input
                         type="radio"
                         
                         id="avCatWhite"
@@ -40,9 +39,8 @@ function AvatarInput({ selectedAvatar, handleAvatarSelect, petInfo }) {
                     />
                         <img className="avatar" src={avCat1} alt="White Cat Avatar" />
                 </label>
-                
                 <label htmlFor="avCatBlack">
-                    <AvatarButton
+                    <input
                         type="radio"
                         
                         id="avCatBlack"
@@ -53,7 +51,7 @@ function AvatarInput({ selectedAvatar, handleAvatarSelect, petInfo }) {
                         <img className="avatar" src={avCat2} alt="Black Cat Avatar" />
                 </label>
                 <label htmlFor="avCatOrange">
-                    <AvatarButton
+                    <input
                         type="radio"
                         
                         id="avCatOrange"
@@ -64,7 +62,7 @@ function AvatarInput({ selectedAvatar, handleAvatarSelect, petInfo }) {
                         <img className="avatar" src={avCat3} alt="Orange Cat Avatar" />
                 </label>
                 <label htmlFor="avCatBlue">
-                    <AvatarButton
+                    <input
                         type="radio"
                         
                         id="avCatBlue"
@@ -75,7 +73,7 @@ function AvatarInput({ selectedAvatar, handleAvatarSelect, petInfo }) {
                         <img className="avatar" src={avCat4} alt="Blue Cat Avatar" />
                 </label>
                 <label htmlFor="avCatBrown">
-                    <AvatarButton
+                    <input
                         type="radio"
                         
                         id="avCatBrown"
@@ -86,7 +84,7 @@ function AvatarInput({ selectedAvatar, handleAvatarSelect, petInfo }) {
                         <img className="avatar" src={avCat5} alt="Brown Cat Avatar" />
                 </label>
                 <label htmlFor="avCatGrey">
-                    <AvatarButton
+                    <input
                         type="radio"
                         
                         id="avCatGrey"
@@ -97,7 +95,7 @@ function AvatarInput({ selectedAvatar, handleAvatarSelect, petInfo }) {
                         <img className="avatar" src={avCat6} alt="Grey Cat Avatar" />
                 </label>
                 <label htmlFor="avCatBlackWhite">
-                    <AvatarButton
+                    <input
                         type="radio"
                         
                         id="avCatBlackWhite"
@@ -108,7 +106,7 @@ function AvatarInput({ selectedAvatar, handleAvatarSelect, petInfo }) {
                         <img className="avatar" src={avCat7} alt="Black and White Cat Avatar" />
                 </label>
                 <label htmlFor="avCatBrownWhite">
-                    <AvatarButton
+                    <input
                         type="radio"
                         
                         id="avCatBrownWhite"
@@ -123,7 +121,7 @@ function AvatarInput({ selectedAvatar, handleAvatarSelect, petInfo }) {
             ) : (
                 <>
                 <label htmlFor="avDogWhite">
-                    <AvatarButton
+                    <input
                         type="radio"
                         
                         id="avDogWhite"
@@ -134,7 +132,7 @@ function AvatarInput({ selectedAvatar, handleAvatarSelect, petInfo }) {
                         <img className="avatar" src={avDog1} alt="White Dog Avatar" />
                 </label>
                 <label htmlFor="avDogBlack">
-                    <AvatarButton
+                    <input
                         type="radio"
                         
                         id="avDogBlack"
@@ -145,7 +143,7 @@ function AvatarInput({ selectedAvatar, handleAvatarSelect, petInfo }) {
                         <img className="avatar" src={avDog2} alt="Black Dog Avatar" />
                 </label>
                 <label htmlFor="avDogYellow">
-                    <AvatarButton
+                    <input
                         type="radio"
                         
                         id="avDogYellow"
@@ -156,7 +154,7 @@ function AvatarInput({ selectedAvatar, handleAvatarSelect, petInfo }) {
                         <img className="avatar" src={avDog3} alt="Yellow Dog Avatar" />
                 </label>
                 <label htmlFor="avDogBlue">
-                    <AvatarButton
+                    <input
                         type="radio"
                         
                         id="avDogBlue"
@@ -167,7 +165,7 @@ function AvatarInput({ selectedAvatar, handleAvatarSelect, petInfo }) {
                         <img className="avatar" src={avDog4} alt="Blue Dog Avatar" />
                 </label>
                 <label htmlFor="avDogBrown">
-                    <AvatarButton
+                    <input
                         type="radio"
                         
                         id="avDogBrown"
@@ -178,7 +176,7 @@ function AvatarInput({ selectedAvatar, handleAvatarSelect, petInfo }) {
                         <img className="avatar" src={avDog5} alt="Brown Dog Avatar" />
                 </label>
                 <label htmlFor="avDogGrey">
-                    <AvatarButton
+                    <input
                         type="radio"
                         
                         id="avDogGrey"
@@ -189,7 +187,7 @@ function AvatarInput({ selectedAvatar, handleAvatarSelect, petInfo }) {
                         <img className="avatar" src={avDog6} alt="Grey Dog Avatar" />
                 </label>
                 <label htmlFor="avDogBlackWhite">
-                    <AvatarButton
+                    <input
                         type="radio"
                         
                         id="avDogBlackWhite"
@@ -200,7 +198,7 @@ function AvatarInput({ selectedAvatar, handleAvatarSelect, petInfo }) {
                         <img className="avatar" src={avDog7} alt="Black and White Dog Avatar" />
                 </label>
                 <label htmlFor="avDogBrownWhite">
-                    <AvatarButton
+                    <input
                         type="radio"
                         
                         id="avDogBrownWhite"
@@ -223,4 +221,3 @@ AvatarInput.propTypes = {
 }
 
 export default AvatarInput;
-
