@@ -16,16 +16,19 @@ function PetProfileList(props) {
     return (
         <>
         <Container>
-            {props.petProfiles.map((petProfile) => (
-                <PetProfile
-                    whenPetProfileClicked={props.onProfileSelection}
-                    name={petProfile.name}
-                    avatar={petProfile.avatar}
-                    id={petProfile.id}
-                    key={petProfile.id}
-                />
-            ))}
-            </Container>
+        {props.petProfiles.map((petProfile) => (
+          <div
+            key={petProfile.id}
+            onClick={() => props.onProfileSelection(petProfile.id)} 
+          >
+            <PetProfile
+              name={petProfile.name}
+              avatar={petProfile.avatar}
+              id={petProfile.id}
+            />
+          </div>
+        ))}
+      </Container>
         </>
     );
 }

@@ -1,10 +1,11 @@
 import React from 'react';
+import { CommonInput } from '../../styles/Container.style.js'
 
 function FunFact({ funFact, setFunFact, petInfo }) {
     
     return ( 
         <>
-        <input
+        <CommonInput
             type="longtext"
             name="funFact"
             id="funFact"

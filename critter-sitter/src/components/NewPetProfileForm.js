@@ -13,7 +13,7 @@ import { initialPetInfo } from '../reducers/pet-info-reducer';
 import { db, auth } from '../firebase';
 import { collection, addDoc } from "firebase/firestore";
 import { SmallButton } from '../styles/Button.style.js';
-import { Container, Form } from '../styles/Container.style.js';
+import { CommonInput, Container, Form } from '../styles/Container.style.js';
 
 
 function NewPetProfileForm() {
@@ -131,8 +131,8 @@ function NewPetProfileForm() {
             {label: 'Microchip',
             component: (
                 <div>
-                    <p>Does {petInfo.name} have a microchip?</p>
-                    <p>If not, or if you don't know, you can skip this step.</p>
+                    <p>What is {petInfo.name}'s microchip number?</p>
+                    <p>If they don't have one, or if you don't know, you can skip this step.</p>
                     <MicrochipInput 
                         microchip={microchip}
                         setMicrochip={(value) => dispatch({type: 'UPDATE_FIELD', field: 'microchip', value })}
@@ -182,7 +182,7 @@ function NewPetProfileForm() {
             <Container>
             <div>
                 <h2>Let's talk about your critter!</h2>
-                <Form onSubmit={handleAddingPetProfile}>
+                <form onSubmit={handleAddingPetProfile}>
                 {steps[step - 1] && (
                     <>
                         <h3>Step {step} of {steps.length}</h3>
@@ -201,7 +201,7 @@ function NewPetProfileForm() {
                         </SmallButton>}
                     </>
                 )}
-                </Form>
+                </form>
             </div>
             </Container>
         </>

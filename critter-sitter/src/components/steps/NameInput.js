@@ -5,14 +5,13 @@ function NameInput({ name, setName }) {
 
   return (
     <>
-  
       <CommonInput
         type="text"
         placeholder="Fluffy"
         value={name}
         onChange={(e) => setName(e.target.value)}
       />
-      
+  
     </>
   )
 }

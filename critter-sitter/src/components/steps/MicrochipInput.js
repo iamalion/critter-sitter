@@ -1,10 +1,11 @@
 import React from 'react';
+import { CommonInput } from '../../styles/Container.style.js'
 
 function MicrochipInput({ microchip, setMicrochip, petInfo }) {
     
     return (
         <>
-            <input
+            <CommonInput
                 type="text"
                 name="microchip"
                 id="microchip"
