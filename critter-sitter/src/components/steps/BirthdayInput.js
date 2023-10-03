@@ -1,12 +1,13 @@
 import React from 'react';
 import { generateYears } from '../../utils/utils';
+import { SelectInput } from '../../styles/Birthday.style';
 
 function BirthdayInput({ birthdayMonth, setBirthdayMonth,birthdayYear, setbirthdayYear, handleInputChange, petInfo }) {
     
     
     return (
         <>
-        <select
+        <SelectInput
                 name="birthdayMonth"
                 id="birthdayMonth"
                 value={petInfo.birthdayMonth}
@@ -25,9 +26,9 @@ function BirthdayInput({ birthdayMonth, setBirthdayMonth,birthdayYear, setbirthd
                 <option value="10">October</option>
                 <option value="11">November</option>
                 <option value="12">December</option>
-            </select>
+            </SelectInput>
 
-            <select
+            <SelectInput
                 name="birthdayYear"
                 id="birthdayYear"
                 value={petInfo.birthdayYear}
@@ -35,7 +36,7 @@ function BirthdayInput({ birthdayMonth, setBirthdayMonth,birthdayYear, setbirthd
             >
             <option value="">Year</option>
             {generateYears()}
-            </select>
+            </SelectInput>
         </>
     )
 }

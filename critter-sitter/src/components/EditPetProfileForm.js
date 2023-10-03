@@ -5,6 +5,8 @@ import BirthdayInput from './steps/BirthdayInput';
 import { Container, Form, CommonInput } from '../styles/Container.style.js';
 import { RadioButton, RadioLabel } from '../styles/Radio.style.js';
 import { Button } from '../styles/Button.style.js';
+import { updateDoc, doc } from "firebase/firestore";
+import { db } from '../firebase';
 
 function EditPetProfileForm(props) {
     const { petProfile } = props;
@@ -31,12 +33,31 @@ function EditPetProfileForm(props) {
         });
     };
 
-    const handleEditPetProfileFormSubmission = (e) => {
+    const handleEditPetProfileFormSubmission = async (e) => {
         e.preventDefault();
-        props.onEditPetProfile({
-            ...formData,
-            id: petProfile.id,
-        });
+    
+        // Create a reference to the specific pet profile document
+        const petProfileDocRef = doc(db, "petProfiles", petProfile.uid);
+    
+        // Update the document with the new data
+        try {
+            await updateDoc(petProfileDocRef, {
+                name: formData.name,
+                species: formData.species,
+                avatar: formData.avatar,
+                birthdayMonth: formData.birthdayMonth,
+                birthdayYear: formData.birthdayYear,
+                microchip: formData.microchip,
+                insuranceSelect: formData.insuranceSelect,
+                insuranceProvider: formData.insuranceProvider,
+                funFact: formData.funFact
+            });
+    
+            console.log("Document successfully updated!");
+            props.onEditPetProfile();
+        } catch (error) {
+            console.error("Error updating document: ", error);
+        }
     };
 
     return (
@@ -155,11 +176,6 @@ function EditPetProfileForm(props) {
                     value={formData.funFact}
                     onChange={handleInputChange}
                 />
-            {/* <FunFact
-                funFact={formData.funFact}
-                setFunFact={(value) => setFormData({ ...formData, funFact: value })}
-                petInfo={formData}
-            /> */}
         <br />
             <Button type="submit">Save Pet Profile</Button>
         </Form>
