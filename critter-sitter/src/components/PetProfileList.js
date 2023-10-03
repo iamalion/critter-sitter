@@ -25,6 +25,7 @@ function PetProfileList(props) {
               name={petProfile.name}
               avatar={petProfile.avatar}
               id={petProfile.id}
+              whenPetProfileClicked={props.onProfileSelection}
             />
           </div>
         ))}
