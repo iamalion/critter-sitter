@@ -1,5 +1,4 @@
 import React from 'react';
-import { createGlobalStyle } from 'styled-components';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import PetProfileControl from './PetProfileControl';
 import Navigation from './Navigation';
@@ -11,7 +10,7 @@ import PetProfileDetail from './PetProfileDetail';
 import UserLanding from './UserLanding';
 import { toBeRequired } from '@testing-library/jest-dom/matchers';
 
-const rootElement = document.getElementById('root') || document.body;
+// const rootElement = document.getElementById('root') || document.body;
 
 function App() {
   return (

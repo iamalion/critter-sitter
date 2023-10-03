@@ -23,7 +23,8 @@ export const Button = styled.button`
 
 export const ButtonContainer = styled.div`
     display: flex;
-    justify-content: space-evenly;
+    justify-content: flex-start;
+    align-items: center;
     margin-top: 10px;
 `;
 
@@ -46,5 +47,33 @@ export const SmallButton = styled.button`
         transform: scale(.95);
     
     }
+`;
+
+export const NextButton = styled.button`
+    text-align: center;
+    color: #FFB6C1;
+    border: none;
+    background-color: #FFFFFF;
+    font-size: 50px;
+    cursor: pointer;
+
+`;
+
+export const BackButton = styled.button`
+    text-align: center;
+    color: #FFB6C1;
+    border: none;
+    background-color: #FFFFFF;
+    font-size: 50px;
+    cursor: pointer;
+`;
+
+export const SubmitButton = styled.button`
+    text-align: center;
+    color: #FFB6C1;
+    border: none;
+    background-color: #FFFFFF;
+    font-size: 50px;
+    cursor: pointer;
 `;
  

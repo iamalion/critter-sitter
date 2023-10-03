@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, CommonInput, Form } from '../../styles/Container.style.js'
+import {  CommonInput } from '../../styles/Container.style.js'
 
 function NameInput({ name, setName }) {
 

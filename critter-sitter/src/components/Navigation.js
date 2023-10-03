@@ -5,11 +5,11 @@ import { signOut } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import { NavBar, NavLinks, NavLink, Logo } from '../styles/Navigation.style';
 import { SmallButton } from '../styles/Button.style';
-import { UserInfoContainer, UserInfoText, SignOutButton } from '../styles/UserInfo.style';
+import { UserInfoContainer, UserInfoText } from '../styles/UserInfo.style';
 
 function Navigation() {
     const user = useAuthState();
-    const [signOutSuccess, setSignOutSuccess] = useState(null);
+    const [ signOutSuccess, setSignOutSuccess] = useState(null);
     const navigate = useNavigate();
 
     function doSignOut() {
