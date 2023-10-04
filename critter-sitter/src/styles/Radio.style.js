@@ -18,6 +18,11 @@ export const RadioLabel = styled.label`
 
     &:hover {
         background-color: #FF69B4;
+        transform: scale(1.05);
+    }
+    
+    input[type="radio"]:checked {
+        background-color: #FF69B4;
     }
   
 `;

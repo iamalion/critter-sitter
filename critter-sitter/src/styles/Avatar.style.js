@@ -13,8 +13,7 @@ export const AvatarOption = styled.label`
     img {
         width: 100%;
         border-radius: 50%;
-        background-color: #FFB6C1;
-        border: 2px solid transparent;
+        border: 2px solid transparent
         transition: border-color 0.2s ease-in-out;
         ${props => props.selected && `
             border-color: #FF69B4;
@@ -25,7 +24,9 @@ export const AvatarOption = styled.label`
         }
     }
     input[type="radio"]:checked + img {
-        border-color: #FF69B4;
+        border: 2px solid #FF69B4;
+        background-color: #FFB6C1;
+        border-width: 3px;
     }
 
     input[type="radio"] {
