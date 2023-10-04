@@ -28,8 +28,8 @@ function Navigation() {
             <NavBar>
                 <Logo className="someText">Critter Sitter</Logo>
                     <NavLinks>
-                        <a href="/sign-up">Sign up</a>
-                        <a href="/sign-in">Sign in</a>
+                        <NavLink href="/sign-up">Sign up</NavLink>
+                        <NavLink href="/sign-in">Sign in</NavLink>
                         <hr />
                     </NavLinks>
             </NavBar>

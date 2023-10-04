@@ -39,86 +39,80 @@ function AvatarInput({ selectedAvatar, handleAvatarSelect, petInfo }) {
                     />
                     <img className="avatar" src={avCat1} alt="White Cat Avatar" />
                 </AvatarOption>
+                <AvatarOption checked={selectedAvatar === avCat2}>
+                    <input
+                    type="radio"
+                    id="avCatBlack"
+                    value={avCat2}
+                    onChange={() => handleRadioChange(avCat2)}
+                    checked={selectedAvatar === avCat2}
+                    />
+                    <img className="avatar" src={avCat2} alt="Black Cat Avatar" />
+                </AvatarOption>
                 
-                <label htmlFor="avCatBlack">
+                <AvatarOption checked={selectedAvatar === avCat3}>
                     <input
-                        type="radio"
-                        
-                        id="avCatBlack"
-                        value={avCat2}
-                        onClick={() => handleAvatarSelect(avCat2)}
-                        checked = {selectedAvatar === avCat2}
+                    type="radio"
+                    id="avCatOrange"
+                    value={avCat3}
+                    onChange={() => handleRadioChange(avCat3)}
+                    checked={selectedAvatar === avCat3}
                     />
-                        <img className="avatar" src={avCat2} alt="Black Cat Avatar" />
-                </label>
-                <label htmlFor="avCatOrange">
+                    <img className="avatar" src={avCat3} alt="Orange Cat Avatar" />
+                </AvatarOption>
+                <AvatarOption checked={selectedAvatar === avCat4}>
                     <input
-                        type="radio"
-                        
-                        id="avCatOrange"
-                        value={avCat3}
-                        onClick={() => handleAvatarSelect(avCat3)}
-                        checked = {selectedAvatar === avCat3}
+                    type="radio"
+                    id="avCatBlue"
+                    value={avCat4}
+                    onChange={() => handleRadioChange(avCat4)}
+                    checked={selectedAvatar === avCat4}
                     />
-                        <img className="avatar" src={avCat3} alt="Orange Cat Avatar" />
-                </label>
-                <label htmlFor="avCatBlue">
+                    <img className="avatar" src={avCat4} alt="Blue Cat Avatar" />
+                </AvatarOption>
+                <AvatarOption checked={selectedAvatar === avCat5}>
                     <input
-                        type="radio"
-                        
-                        id="avCatBlue"
-                        value={avCat4}
-                        onClick={() => handleAvatarSelect(avCat4)}
-                        checked = {selectedAvatar === avCat4}
+                    type="radio"
+                    id="avCatBrown"
+                    value={avCat5}
+                    onChange={() => handleRadioChange(avCat5)}
+                    checked={selectedAvatar === avCat5}
                     />
-                        <img className="avatar" src={avCat4} alt="Blue Cat Avatar" />
-                </label>
-                <label htmlFor="avCatBrown">
+                    <img className="avatar" src={avCat5} alt="Brown Cat Avatar" />
+                </AvatarOption>
+                <AvatarOption checked={selectedAvatar === avCat6}>
                     <input
-                        type="radio"
-                        
-                        id="avCatBrown"
-                        value={avCat5}
-                        onClick={() => handleAvatarSelect(avCat5)}
-                        checked = {selectedAvatar === avCat5}
+                    type="radio"
+                    id="avCatGrey"
+                    value={avCat6}
+                    onChange={() => handleRadioChange(avCat6)}
+                    checked={selectedAvatar === avCat6}
                     />
-                        <img className="avatar" src={avCat5} alt="Brown Cat Avatar" />
-                </label>
-                <label htmlFor="avCatGrey">
+                    <img className="avatar" src={avCat6} alt="Grey Cat Avatar" />
+                </AvatarOption>
+                <AvatarOption checked={selectedAvatar === avCat7}>
                     <input
-                        type="radio"
-                        
-                        id="avCatGrey"
-                        value={avCat6}
-                        onClick={() => handleAvatarSelect(avCat6)}
-                        checked = {selectedAvatar === avCat6}
+                    type="radio"
+                    id="avCatBlackWhite"
+                    value={avCat7}
+                    onChange={() => handleRadioChange(avCat7)}
+                    checked={selectedAvatar === avCat7}
                     />
-                        <img className="avatar" src={avCat6} alt="Grey Cat Avatar" />
-                </label>
-                <label htmlFor="avCatBlackWhite">
+                    <img className="avatar" src={avCat7} alt="Black and White Cat Avatar" />
+                </AvatarOption>
+                <AvatarOption checked={selectedAvatar === avCat8}>
                     <input
-                        type="radio"
-                        
-                        id="avCatBlackWhite"
-                        value={avCat7}
-                        onClick={() => handleAvatarSelect(avCat7)}
-                        checked = {selectedAvatar === avCat7}
+                    type="radio"
+                    id="avCatBrownWhite"
+                    value={avCat8}
+                    onChange={() => handleRadioChange(avCat8)}
+                    checked={selectedAvatar === avCat8}
                     />
-                        <img className="avatar" src={avCat7} alt="Black and White Cat Avatar" />
-                </label>
-                <label htmlFor="avCatBrownWhite">
-                    <input
-                        type="radio"
+                    <img className="avatar" src={avCat8} alt="Brown and White Cat Avatar" />
+                </AvatarOption>
+            
+            </>
                         
-                        id="avCatBrownWhite"
-                        value={avCat8}
-                        onClick={() => handleAvatarSelect(avCat8)}
-                        checked = {selectedAvatar === avCat8}
-                    />
-                        <img className="avatar" src={avCat8} alt="Brown and White Cat Avatar" />
-                </label>
-                
-                </>
             ) : (
                 <>
                 <label htmlFor="avDogWhite">

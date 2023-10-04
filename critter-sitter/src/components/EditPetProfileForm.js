@@ -108,6 +108,8 @@ function EditPetProfileForm(props) {
             </div>
         <br />
             <label htmlFor="avatar">Pick an Avatar: </label>
+            <br />
+            <br />
             <AvatarInput
                 species={formData.species}
                 avatar={formData.avatar}

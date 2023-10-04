@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const AvatarWrapper = styled.div`
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 20px;
 `;
 
 export const AvatarOption = styled.label`
