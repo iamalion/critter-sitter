@@ -19,7 +19,6 @@ export const RadioLabel = styled.label`
     &:hover {
         background-color: #FF69B4;
     }
-
   
 `;
 
@@ -28,4 +27,7 @@ export const RadioButton = styled.input`
     opacity: 0;
     cursor: pointer;
     user-select: none;
-    `;
+    &:checked + span {
+        background-color: #FF69B4;
+    }
+`;

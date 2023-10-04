@@ -1,4 +1,5 @@
 import React from 'react';
+import { createGlobalStyle } from 'styled-components';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import PetProfileControl from './PetProfileControl';
 import Navigation from './Navigation';

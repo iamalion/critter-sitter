@@ -1,10 +1,9 @@
 import React from 'react'
-import { RadioButton, RadioLabel } from '../../styles/Radio.style.js'
 
 function SpeciesInput({ species, setSpecies}) {
     return (
         <>       
-        <RadioButton
+        <input
             type="radio"
             name="species"
             id="cat"
@@ -12,8 +11,8 @@ function SpeciesInput({ species, setSpecies}) {
             onChange={(e) => setSpecies(e.target.value)}
             checked={species === 'cat'}
         />
-        <RadioLabel htmlFor="cat"><span>Cat</span></RadioLabel>
-        <RadioButton
+        <label htmlFor="cat">Cat</label>
+        <input
             type="radio"
             name="species"
             id="dog"
@@ -21,7 +20,7 @@ function SpeciesInput({ species, setSpecies}) {
             onChange={(e) => setSpecies(e.target.value)}
             checked={species === 'dog'}
         />
-        <RadioLabel htmlFor="dog"><span>Dog</span></RadioLabel>
+        <label htmlFor="dog">Dog</label>
         </>
     )
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import PetProfile from "./PetProfile";
+import { Card } from "../styles/Card.style.js"
 import { Container } from "../styles/Container.style.js"
 
 function PetProfileList(props) {

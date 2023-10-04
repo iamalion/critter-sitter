@@ -5,6 +5,7 @@ import EditPetProfileForm from './EditPetProfileForm'
 import { collection, onSnapshot, doc, addDoc, setDoc } from "firebase/firestore";
 import { db, auth } from './../firebase';
 import NewPetProfileForm from './NewPetProfileForm';
+import { updateDoc } from 'firebase/firestore';
 
 function PetProfileControl() {
     const [formVisibleOnPage, setFormVisibleOnPage] = useState(false);
@@ -27,8 +28,11 @@ function PetProfileControl() {
             setPetProfileList(petProfiles);
         }
     );
+    
     return () => unSubscribe();
     }, []);
+
+
 
     const handleClick = () => {
         if (selectedPetProfile != null) {
@@ -47,14 +51,23 @@ function PetProfileControl() {
     }
 
     const handleEditClick = () => {
-        setEditing(true);
+        if (selectedPetProfile != null){
+            setEditing(true);
+        } else {
+           
+        }
     }
 
     const handleEditingPetProfileInList = async (petProfileToEdit) => {
-        const docRef = doc(db, "petProfiles", petProfileToEdit.id);
-        await setDoc(docRef, petProfileToEdit);
-        setSelectedPetProfile(null);
-        setEditing(false);
+        console.log("petProfileToEdit: " + petProfileToEdit);
+        try {
+            const docRef = doc(db, "petProfiles", petProfileToEdit.id);
+            await updateDoc(docRef, petProfileToEdit);
+            setSelectedPetProfile(null);
+            setEditing(false);
+        } catch (error) {
+            console.error("Error updating document: ", error);
+        }
     }
 
     const handleDeletingPetProfile = async (id) => {

@@ -6,7 +6,7 @@ import { Container, Form, CommonInput } from '../styles/Container.style.js';
 import { RadioButton, RadioLabel } from '../styles/Radio.style.js';
 import { Button } from '../styles/Button.style.js';
 import { updateDoc, doc } from "firebase/firestore";
-import { db } from '../firebase';
+import { auth, db } from '../firebase';
 
 function EditPetProfileForm(props) {
     const { petProfile } = props;
@@ -21,7 +21,8 @@ function EditPetProfileForm(props) {
         microchip: petProfile.microchip || '', 
         insuranceSelect: petProfile.insuranceSelect || '',
         insuranceProvider: petProfile.insuranceProvider || '', 
-        funFact: petProfile.funFact || ''
+        funFact: petProfile.funFact || '',
+        // id: auth.currentUser.uid,
     });
 
 
@@ -33,32 +34,39 @@ function EditPetProfileForm(props) {
         });
     };
 
-    const handleEditPetProfileFormSubmission = async (e) => {
+    // const handleEditPetProfileFormSubmission = (e) => {
+    //     e.preventDefault();
+    //     props.onEditPetProfile({
+    //         ...formData,
+    //         id: petProfile.id,
+    //     });
+    // }
+
+    const handleEditPetProfileFormSubmission = (e) => {
         e.preventDefault();
-    
-        // Create a reference to the specific pet profile document
-        const petProfileDocRef = doc(db, "petProfiles", petProfile.uid);
-    
-        // Update the document with the new data
-        try {
-            await updateDoc(petProfileDocRef, {
-                name: formData.name,
-                species: formData.species,
-                avatar: formData.avatar,
-                birthdayMonth: formData.birthdayMonth,
-                birthdayYear: formData.birthdayYear,
-                microchip: formData.microchip,
-                insuranceSelect: formData.insuranceSelect,
-                insuranceProvider: formData.insuranceProvider,
-                funFact: formData.funFact
-            });
-    
+        const updatedPetProfile = {
+            name: formData.name,
+            species: formData.species,
+            avatar: formData.avatar,
+            birthdayMonth: formData.birthdayMonth,
+            birthdayYear: formData.birthdayYear,
+            microchip: formData.microchip,
+            insuranceSelect: formData.insuranceSelect,
+            insuranceProvider: formData.insuranceProvider,
+            funFact: formData.funFact
+        };
+
+        const petProfileRef = doc(db, "petProfiles", petProfile.id);
+        updateDoc(petProfileRef, updatedPetProfile)
+        .then(() => {
             console.log("Document successfully updated!");
-            props.onEditPetProfile();
-        } catch (error) {
+            // props.onEditPetProfile(updatedPetProfile);
+        })
+        .catch((error) => {
             console.error("Error updating document: ", error);
-        }
-    };
+        });
+    }
+ 
 
     return (
         <Container>

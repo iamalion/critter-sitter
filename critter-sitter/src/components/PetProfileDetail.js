@@ -8,7 +8,7 @@ import { Paragraph } from '../styles/Paragraph.style.js';
 
 function PetProfileDetail(props){
     const { petProfile, onClickingDelete, onClickingEdit } = props;
-    const [petInfo] = useReducer(initialPetInfo, petProfile);
+    const [petInfo, dispatch] = useReducer(initialPetInfo, petProfile);
 
     return (
         <>
@@ -20,9 +20,8 @@ function PetProfileDetail(props){
             <Paragraph>Microchip: {petInfo.microchip ? petInfo.microchip : `n/a`}</Paragraph>
             <Paragraph>Insurance: {petInfo.insuranceProvider ? petInfo.insuranceProvider : `n/a`}</Paragraph>
             </Card>
-            <ButtonContainer>            
-                <SmallButton onClick={()=> onClickingEdit(petProfile.id)}>Update Pet Profile</SmallButton>
-                <SmallButton onClick={()=> onClickingDelete(petProfile.id)}>Delete Pet Profile</SmallButton>
+            <ButtonContainer>            <SmallButton onClick={()=> onClickingEdit(petProfile.id)}>Update Pet Profile</SmallButton>
+            <SmallButton onClick={()=> onClickingDelete(petProfile.id)}>Delete Pet Profile</SmallButton>
             </ButtonContainer>
         
         </>

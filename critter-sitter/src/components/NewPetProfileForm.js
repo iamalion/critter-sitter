@@ -12,9 +12,8 @@ import petInfoReducer from '../reducers/pet-info-reducer';
 import { initialPetInfo } from '../reducers/pet-info-reducer';
 import { db, auth } from '../firebase';
 import { collection, addDoc } from "firebase/firestore";
-import { BackButton, NextButton, SubmitButton } from '../styles/Button.style.js';
-import { Container } from '../styles/Container.style.js';
-import { FaArrowCircleLeft, FaArrowCircleRight, FaCheckCircle } from 'react-icons/fa';
+import { SmallButton } from '../styles/Button.style.js';
+import { CommonInput, Container, Form } from '../styles/Container.style.js';
 
 
 function NewPetProfileForm() {
@@ -188,23 +187,18 @@ function NewPetProfileForm() {
                     <>
                         <h3>Step {step} of {steps.length}</h3>
                         {steps[step - 1].component}
-                        
-                            {step !== 1 && 
-                            <BackButton onClick={prevStep}>
-                                <FaArrowCircleLeft />
-                                {/* Back */}
-                            </BackButton>}
-                            {step !== steps.length && 
-                            <NextButton onClick={nextStep}>
-                                <FaArrowCircleRight />
-                                {/* Next */}
-                            </NextButton>}
-                            
-                            {step === steps.length &&
-                            <SubmitButton type="submit" onClick={() => setSubmitted(true)}>
-                                <FaCheckCircle />
-                            </SubmitButton>}
-                        
+                        {step !== 1 && 
+                        <SmallButton onClick={prevStep}>
+                            Back
+                        </SmallButton>}
+                        {step !== steps.length && 
+                        <SmallButton onClick={nextStep}>
+                            Next
+                        </SmallButton>}
+                        {step === steps.length &&
+                        <SmallButton type="submit" onClick={() => setSubmitted(true)}>
+                            Submit
+                        </SmallButton>}
                     </>
                 )}
                 </form>
