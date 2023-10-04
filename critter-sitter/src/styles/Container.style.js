@@ -8,6 +8,14 @@ export const Container = styled.div`
     padding: 20px;
 
 `
+export const ContainerRow = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 20px;
+`;
+
 export const Form = styled.form`
     text-align: left;
     width: 50%;

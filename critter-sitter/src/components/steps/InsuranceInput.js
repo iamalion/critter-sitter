@@ -1,11 +1,13 @@
 import React from "react";
 import { CommonInput } from "../../styles/Container.style";
 import { RadioLabel, RadioButton } from "../../styles/Radio.style";
+import { ContainerRow } from "../../styles/Container.style";
 
 function InsuranceInput({ insuranceSelect, setInsuranceSelect, insuranceProvider, setInsuranceProvider, petInfo }) {
     
     return (
         <>
+        <ContainerRow>
         <RadioLabel>
             <RadioButton
                 type="radio"
@@ -28,6 +30,7 @@ function InsuranceInput({ insuranceSelect, setInsuranceSelect, insuranceProvider
             {/* <label htmlFor="no">No</label> */}
             No
         </RadioLabel>
+        </ContainerRow>
         <br />
         {insuranceSelect === "yes" ? (
             <>

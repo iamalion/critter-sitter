@@ -93,6 +93,14 @@ export const SubmitButton = styled.button`
     background-color: #FFFFFF;
     font-size: 50px;
     cursor: pointer;
+    &:hover .fa-icon{
+        color: #FF69B4;
+    }
+    &:active .fa-icon{ 
+        color: #FF69B4;
+        transform: scale(.95);
+    
+    }
 
 `;
  
