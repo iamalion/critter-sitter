@@ -60,7 +60,7 @@ function EditPetProfileForm(props) {
         updateDoc(petProfileRef, updatedPetProfile)
         .then(() => {
             console.log("Document successfully updated!");
-            // props.onEditPetProfile(updatedPetProfile);
+            window.location.reload();
         })
         .catch((error) => {
             console.error("Error updating document: ", error);
