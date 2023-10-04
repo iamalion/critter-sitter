@@ -13,5 +13,4 @@ export const Card = styled.div`
     justify-content: space-evenly;
     box-shadow: 5px 5px 5px lightgray;
     cursor: pointer;
-
 `

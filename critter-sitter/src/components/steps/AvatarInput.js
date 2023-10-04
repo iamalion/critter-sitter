@@ -16,6 +16,7 @@ import avDog5 from '../../images/dogImages/avDog5.svg';
 import avDog6 from '../../images/dogImages/avDog6.svg';
 import avDog7 from '../../images/dogImages/avDog7.svg';
 import avDog8 from '../../images/dogImages/avDog8.svg';
+import { AvatarWrapper, AvatarOption } from '../../styles/Avatar.style.js';
 
 function AvatarInput({ selectedAvatar, handleAvatarSelect, petInfo }) {
 
@@ -25,20 +26,20 @@ function AvatarInput({ selectedAvatar, handleAvatarSelect, petInfo }) {
 
     return (
         <>
+        <AvatarWrapper>
         {petInfo.species === 'cat' ? (
             <>
-                <label htmlFor="avCatWhite">
+                <AvatarOption checked={selectedAvatar === avCat1}>
                     <input
-                        type="radio"
-                        
-                        id="avCatWhite"
-                        value={avCat1}
-                        onChange={() => handleRadioChange(avCat1)}
-                        // onClick={() => handleAvatarSelect(avCat1)}
-                        checked={selectedAvatar === avCat1}
+                    type="radio"
+                    id="avCatWhite"
+                    value={avCat1}
+                    onChange={() => handleRadioChange(avCat1)}
+                    checked={selectedAvatar === avCat1}
                     />
-                        <img className="avatar" src={avCat1} alt="White Cat Avatar" />
-                </label>
+                    <img className="avatar" src={avCat1} alt="White Cat Avatar" />
+                </AvatarOption>
+                
                 <label htmlFor="avCatBlack">
                     <input
                         type="radio"
@@ -210,6 +211,7 @@ function AvatarInput({ selectedAvatar, handleAvatarSelect, petInfo }) {
                 </label>
             </>
             )}
+            </AvatarWrapper>
         </>
     )
 }

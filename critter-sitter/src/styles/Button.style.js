@@ -20,12 +20,10 @@ export const Button = styled.button`
     
     }
 `;
-
 export const ButtonContainer = styled.div`
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    margin-top: 10px;
+    flex-direction: row;
+    justify-content: center;
 `;
 
 export const SmallButton = styled.button`

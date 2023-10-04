@@ -1,5 +1,38 @@
 import styled from "styled-components";
 
+export const AvatarWrapper = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+`;
+
+export const AvatarOption = styled.label`
+    position: relative;
+    cursor: pointer;
+
+    img {
+        width: 100%;
+        border-radius: 50%;
+        background-color: #FFB6C1;
+        border: 2px solid transparent;
+        transition: border-color 0.2s ease-in-out;
+        ${props => props.selected && `
+            border-color: #FF69B4;
+        `}
+        &:hover {
+            border-color: #FF69B4;
+            transform: scale(1.05);
+        }
+    }
+    input[type="radio"]:checked + img {
+        border-color: #FF69B4;
+    }
+
+    input[type="radio"] {
+        display: none;
+    }
+`;
+
 export const AvatarContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
@@ -15,10 +48,10 @@ export const Avatar = styled.img`
 `;
 
 export const AvatarName = styled.h3`
-    font-family: 'Luckiest Guy', cursive;
-    margin: 0;
+    font-family: 'Luckiest Guy', cursive;;
     font-size: 30px;
     letter-spacing: 2px;
+    text-align: center;
 
 `;
 export const AvatarButton = styled.button`
