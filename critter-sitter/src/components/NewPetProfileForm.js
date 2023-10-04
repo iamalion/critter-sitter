@@ -12,8 +12,10 @@ import petInfoReducer from '../reducers/pet-info-reducer';
 import { initialPetInfo } from '../reducers/pet-info-reducer';
 import { db, auth } from '../firebase';
 import { collection, addDoc } from "firebase/firestore";
-import { SmallButton } from '../styles/Button.style.js';
+import { SmallButton, BackButton, NextButton, ButtonContainer } from '../styles/Button.style.js';
 import { CommonInput, Container, Form } from '../styles/Container.style.js';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowAltCircleLeft, faArrowAltCircleRight } from '@fortawesome/free-solid-svg-icons';
 
 
 function NewPetProfileForm() {
@@ -187,14 +189,18 @@ function NewPetProfileForm() {
                     <>
                         <h3>Step {step} of {steps.length}</h3>
                         {steps[step - 1].component}
+                        <ButtonContainer>
                         {step !== 1 && 
-                        <SmallButton onClick={prevStep}>
-                            Back
-                        </SmallButton>}
+                        <BackButton onClick={prevStep}>
+                            <FontAwesomeIcon icon={faArrowAltCircleLeft} className="fa-icon" />
+                            
+                        </BackButton>}
                         {step !== steps.length && 
-                        <SmallButton onClick={nextStep}>
-                            Next
-                        </SmallButton>}
+                        <NextButton onClick={nextStep}>
+                            <FontAwesomeIcon icon={faArrowAltCircleRight} className="fa-icon" />
+                        </NextButton>}
+
+                        </ButtonContainer>
                         {step === steps.length &&
                         <SmallButton type="submit" onClick={() => setSubmitted(true)}>
                             Submit

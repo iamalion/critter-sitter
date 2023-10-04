@@ -26,20 +26,7 @@ function PetProfileDetail(props){
                 <Paragraph><strong>Insurance: </strong>{petInfo.insuranceProvider ? petInfo.insuranceProvider : `n/a`}</Paragraph>
             </Card>
         </Container>
-
-        {/* <Container>
-            <Card>
-                <AvatarContainer>
-                    <Avatar src={petInfo.avatar} alt="Selected Avatar" />
-                    <AvatarName>{petInfo.name} the {petInfo.species}</AvatarName>
-                </AvatarContainer>
-                <Paragraph>{petInfo.funFact ? petInfo.funFact : `${petInfo.name} has so many fun facts I can't pick one!`}</Paragraph>
-                <Paragraph>Birthday: {petInfo.birthdayMonth}/{petInfo.birthdayYear}</Paragraph>
-                <Paragraph>Microchip: {petInfo.microchip ? petInfo.microchip : `n/a`}</Paragraph>
-                <Paragraph>Insurance: {petInfo.insuranceProvider ? petInfo.insuranceProvider : `n/a`}</Paragraph>
-            </Card>
-            </Container> */}
-            <ButtonContainer>            
+            <ButtonContainer>           
                 <SmallButton onClick={()=> onClickingEdit(petProfile.id)}>Update Pet Profile</SmallButton>
                 <SmallButton onClick={()=> onClickingDelete(petProfile.id)}>Delete Pet Profile</SmallButton>
             </ButtonContainer>

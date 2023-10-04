@@ -21,9 +21,13 @@ export const Button = styled.button`
     }
 `;
 export const ButtonContainer = styled.div`
+    margin-top: 50px;
     display: flex;
     flex-direction: row;
     justify-content: center;
+    height: 30px;
+    border-radius: 5px;
+    
 `;
 
 export const SmallButton = styled.button`
@@ -54,7 +58,14 @@ export const NextButton = styled.button`
     background-color: #FFFFFF;
     font-size: 50px;
     cursor: pointer;
-
+    &:hover .fa-icon{
+        color: #FF69B4;
+    }
+    &:active .fa-icon{ 
+        color: #FF69B4;
+        transform: scale(.95);
+    
+    }
 `;
 
 export const BackButton = styled.button`
@@ -64,6 +75,15 @@ export const BackButton = styled.button`
     background-color: #FFFFFF;
     font-size: 50px;
     cursor: pointer;
+    &:hover .fa-icon{
+        color: #FF69B4;
+    }
+    &:active .fa-icon{ 
+        color: #FF69B4;
+        transform: scale(.95);
+    
+    }
+    
 `;
 
 export const SubmitButton = styled.button`
@@ -73,5 +93,6 @@ export const SubmitButton = styled.button`
     background-color: #FFFFFF;
     font-size: 50px;
     cursor: pointer;
+
 `;
  

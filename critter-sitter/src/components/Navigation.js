@@ -30,7 +30,7 @@ function Navigation() {
                     <NavLinks>
                         <NavLink href="/sign-up">Sign up</NavLink>
                         <NavLink href="/sign-in">Sign in</NavLink>
-                        <hr />
+                        
                     </NavLinks>
             </NavBar>
         );

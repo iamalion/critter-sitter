@@ -1,5 +1,5 @@
 import React from "react";
-import { CommonInput, Radio } from "../../styles/Container.style";
+import { CommonInput } from "../../styles/Container.style";
 import { RadioLabel, RadioButton } from "../../styles/Radio.style";
 
 function InsuranceInput({ insuranceSelect, setInsuranceSelect, insuranceProvider, setInsuranceProvider, petInfo }) {
