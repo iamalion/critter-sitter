@@ -115,94 +115,86 @@ function AvatarInput({ selectedAvatar, handleAvatarSelect, petInfo }) {
                         
             ) : (
                 <>
-                <label htmlFor="avDogWhite">
+                <AvatarOption checked={selectedAvatar === avDog1}>
                     <input
-                        type="radio"
-                        
-                        id="avDogWhite"
-                        value={avDog1}
-                        onClick={() => handleAvatarSelect(avDog1)}
-                        checked = {selectedAvatar === avDog1}
+                    type="radio"
+                    id="avDogWhite"
+                    value={avDog1}
+                    onChange={() => handleRadioChange(avDog1)}
+                    checked={selectedAvatar === avDog1}
                     />
-                        <img className="avatar" src={avDog1} alt="White Dog Avatar" />
-                </label>
-                <label htmlFor="avDogBlack">
+                    <img className="avatar" src={avDog1} alt="White Dog Avatar" />
+                </AvatarOption>
+                <AvatarOption checked={selectedAvatar === avDog2}>
                     <input
-                        type="radio"
-                        
-                        id="avDogBlack"
-                        value={avDog2}
-                        onClick={() => handleAvatarSelect(avDog2)}
-                        checked = {selectedAvatar === avDog2}
+                    type="radio"
+                    id="avDogBlack"
+                    value={avDog2}
+                    onChange={() => handleRadioChange(avDog2)}
+                    checked={selectedAvatar === avDog2}
                     />
-                        <img className="avatar" src={avDog2} alt="Black Dog Avatar" />
-                </label>
-                <label htmlFor="avDogYellow">
+                    <img className="avatar" src={avDog2} alt="Black Dog Avatar" />
+                </AvatarOption>
+                <AvatarOption checked={selectedAvatar === avDog3}>
                     <input
-                        type="radio"
-                        
-                        id="avDogYellow"
-                        value={avDog3}
-                        onClick={() => handleAvatarSelect(avDog3)}
-                        checked = {selectedAvatar === avDog3}
+                    type="radio"
+                    id="avDogOrange"
+                    value={avDog3}
+                    onChange={() => handleRadioChange(avDog3)}
+                    checked={selectedAvatar === avDog3}
                     />
-                        <img className="avatar" src={avDog3} alt="Yellow Dog Avatar" />
-                </label>
-                <label htmlFor="avDogBlue">
+                    <img className="avatar" src={avDog3} alt="Orange Dog Avatar" />
+                </AvatarOption>
+                <AvatarOption checked={selectedAvatar === avDog4}>
                     <input
-                        type="radio"
-                        
-                        id="avDogBlue"
-                        value={avDog4}
-                        onClick={() => handleAvatarSelect(avDog4)}
-                        checked = {selectedAvatar === avDog4}
+                    type="radio"
+                    id="avDogBlue"
+                    value={avDog4}
+                    onChange={() => handleRadioChange(avDog4)}
+                    checked={selectedAvatar === avDog4}
                     />
-                        <img className="avatar" src={avDog4} alt="Blue Dog Avatar" />
-                </label>
-                <label htmlFor="avDogBrown">
+                    <img className="avatar" src={avDog4} alt="Blue Dog Avatar" />
+                </AvatarOption>
+                <AvatarOption checked={selectedAvatar === avDog5}>
                     <input
-                        type="radio"
-                        
-                        id="avDogBrown"
-                        value={avDog5}
-                        onClick={() => handleAvatarSelect(avDog5)}
-                        checked = {selectedAvatar === avDog5}
+                    type="radio"
+                    id="avDogBrown"
+                    value={avDog5}
+                    onChange={() => handleRadioChange(avDog5)}
+                    checked={selectedAvatar === avDog5}
                     />
-                        <img className="avatar" src={avDog5} alt="Brown Dog Avatar" />
-                </label>
-                <label htmlFor="avDogGrey">
+                    <img className="avatar" src={avDog5} alt="Brown Dog Avatar" />
+                </AvatarOption>
+                <AvatarOption checked={selectedAvatar === avDog6}>
                     <input
-                        type="radio"
-                        
-                        id="avDogGrey"
-                        value={avDog6}
-                        onClick={() => handleAvatarSelect(avDog6)}
-                        checked = {selectedAvatar === avDog6}
+                    type="radio"
+                    id="avDogGrey"
+                    value={avDog6}
+                    onChange={() => handleRadioChange(avDog6)}
+                    checked={selectedAvatar === avDog6}
                     />
-                        <img className="avatar" src={avDog6} alt="Grey Dog Avatar" />
-                </label>
-                <label htmlFor="avDogBlackWhite">
+                    <img className="avatar" src={avDog6} alt="Grey Dog Avatar" />
+                </AvatarOption>
+                <AvatarOption checked={selectedAvatar === avDog7}>
                     <input
-                        type="radio"
-                        
-                        id="avDogBlackWhite"
-                        value={avDog7}
-                        onClick={() => handleAvatarSelect(avDog7)}
-                        checked = {selectedAvatar === avDog7}
+                    type="radio"
+                    id="avDogBlackWhite"
+                    value={avDog7}
+                    onChange={() => handleRadioChange(avDog7)}
+                    checked={selectedAvatar === avDog7}
                     />
-                        <img className="avatar" src={avDog7} alt="Black and White Dog Avatar" />
-                </label>
-                <label htmlFor="avDogBrownWhite">
+                    <img className="avatar" src={avDog7} alt="Black and White Dog Avatar" />
+                </AvatarOption>
+                <AvatarOption checked={selectedAvatar === avDog8}>
                     <input
-                        type="radio"
-                        
-                        id="avDogBrownWhite"
-                        value={avDog8}
-                        onClick={() => handleAvatarSelect(avDog8)}
-                        checked = {selectedAvatar === avDog8}
+                    type="radio"
+                    id="avDogBrownWhite"
+                    value={avDog8}
+                    onChange={() => handleRadioChange(avDog8)}
+                    checked={selectedAvatar === avDog8}
                     />
-                        <img className="avatar" src={avDog8} alt="Brown and White Dog Avatar" />
-                </label>
+                    <img className="avatar" src={avDog8} alt="Brown and White Dog Avatar" />
+                </AvatarOption>
             </>
             )}
             </AvatarWrapper>
