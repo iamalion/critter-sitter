@@ -103,4 +103,22 @@ export const SubmitButton = styled.button`
     }
 
 `;
+
+export const FaButton = styled.button`
+text-align: center;
+    color: #FFB6C1;
+    border: none;
+    background-color: #FFFFFF;
+    font-size: 50px;
+    cursor: pointer;
+    &:hover .fa-icon{
+        color: #FF69B4;
+    }
+    &:active .fa-icon{ 
+        color: #FF69B4;
+        transform: scale(.95);
+    
+    }
+`;
+
  
