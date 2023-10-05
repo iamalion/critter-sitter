@@ -1,7 +1,7 @@
 import React, { useReducer } from 'react';
 import PropTypes from 'prop-types';
 import { initialPetInfo } from '../reducers/pet-info-reducer';
-import { Card } from '../styles/Card.style.js';
+import { Card, SmallCard } from '../styles/Card.style.js';
 import { ButtonContainer, SmallButton, FaButton } from '../styles/Button.style.js';
 import { Avatar, AvatarName, AvatarContainer } from '../styles/Avatar.style.js';
 import { Paragraph } from '../styles/Paragraph.style.js';
@@ -13,7 +13,10 @@ import { faHeartPulse, faCalendarDay, faDog, faCat, faWandMagicSparkles, faCamer
 
 function PetProfileDetail(props){
     const { petProfile, onClickingDelete, onClickingEdit } = props;
-    const [petInfo, dispatch] = useReducer(initialPetInfo, petProfile);
+    const [petInfo, 
+        // cleaning up unused code
+        // dispatch
+    ] = useReducer(initialPetInfo, petProfile);
 
 
     return (
@@ -41,19 +44,21 @@ function PetProfileDetail(props){
         <br/>
         <br/>
         <ContainerRow>
-            <>
-            <FaButton><FontAwesomeIcon icon={faHeartPulse}  /></FaButton>
+            <><SmallCard><FaButton><FontAwesomeIcon icon={faHeartPulse} className="fa-icon"  /></FaButton>
+            <Paragraph>
+            </Paragraph></SmallCard>
             
-            <FaButton><FontAwesomeIcon icon={faCalendarDay}  /></FaButton>
+            
+            <SmallCard><FaButton><FontAwesomeIcon icon={faCalendarDay} className="fa-icon" /></FaButton></SmallCard>
             <div>
                 {petInfo.species === 'dog' ? (
-                    <FaButton><FontAwesomeIcon icon={faDog}  /></FaButton>
+                    <SmallCard><FaButton><FontAwesomeIcon icon={faDog} className="fa-icon" /></FaButton></SmallCard>
                 ) : (
-                    <FaButton><FontAwesomeIcon icon={faCat}  /></FaButton>
+                    <SmallCard><FaButton><FontAwesomeIcon icon={faCat} className="fa-icon" /></FaButton></SmallCard>
                 )}
             </div>
-            <FaButton><FontAwesomeIcon icon={faWandMagicSparkles}  /></FaButton>
-            <FaButton><FontAwesomeIcon icon={faCameraRetro}  /></FaButton>
+            <SmallCard><FaButton><FontAwesomeIcon icon={faWandMagicSparkles} className="fa-icon" /></FaButton></SmallCard>
+            <SmallCard><FaButton><FontAwesomeIcon icon={faCameraRetro} className="fa-icon" /></FaButton></SmallCard>
             
             </>
         </ContainerRow>

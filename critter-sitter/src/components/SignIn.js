@@ -1,14 +1,18 @@
 import React, { useState } from "react";
 import { auth } from "../firebase";
-import { signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { signInWithEmailAndPassword, 
+    // cleaning up unused code
+    // signOut 
+} from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../styles/Button.style.js";
 import { Container, Form, CommonInput } from "../styles/Container.style.js";
 
 function SignIn(){ 
     const navigate = useNavigate();
-    const [signInSuccess, setSignInSuccess] = useState(null); 
-    const [signOutSuccess, setSignOutSuccess] = useState(null);
+    const [signInSuccess, setSignInSuccess] = useState(null);
+    // cleaning up unused code 
+    // const [signOutSuccess, setSignOutSuccess] = useState(null);
     function doSignIn(e) {
         e.preventDefault();
         const email = e.target.email.value;
@@ -23,16 +27,17 @@ function SignIn(){
                setSignInSuccess(`Sign In Failed: ${error.message}`)
             });
         }
-    function doSignOut() {
-        signOut(auth)
-            .then(() => {
-                setSignOutSuccess(`Sign Out Successful!`);
-                navigate("/");
-            })
-            .catch((error) => {
-                setSignOutSuccess(`Sign Out Failed: ${error.message}`);
-            });
-        }
+    // cleaning up unused code
+    // function doSignOut() {
+    //     signOut(auth)
+    //         .then(() => {
+    //             setSignOutSuccess(`Sign Out Successful!`);
+    //             navigate("/");
+    //         })
+    //         .catch((error) => {
+    //             setSignOutSuccess(`Sign Out Failed: ${error.message}`);
+    //         });
+    //     }
   return (
     <>
     <Container>

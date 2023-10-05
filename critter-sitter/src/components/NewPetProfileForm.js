@@ -13,7 +13,7 @@ import { initialPetInfo } from '../reducers/pet-info-reducer';
 import { db, auth } from '../firebase';
 import { collection, addDoc } from "firebase/firestore";
 import { SubmitButton, BackButton, NextButton, ButtonContainer } from '../styles/Button.style.js';
-import { CommonInput, Container, Form } from '../styles/Container.style.js';
+import { Container } from '../styles/Container.style.js';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowAltCircleLeft, faArrowAltCircleRight, faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from "react-router-dom";
