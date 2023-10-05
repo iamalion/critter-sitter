@@ -8,10 +8,12 @@ import { Paragraph } from '../styles/Paragraph.style.js';
 import { Container, ContainerRow } from '../styles/Container.style';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeartPulse, faCalendarDay, faDog, faCat, faWandMagicSparkles, faCameraRetro } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from 'react-router-dom';
 
 
 
 function PetProfileDetail(props){
+    const navigate = useNavigate();
     const { petProfile, onClickingDelete, onClickingEdit } = props;
     const [petInfo, 
         // cleaning up unused code
@@ -44,7 +46,9 @@ function PetProfileDetail(props){
         <br/>
         <br/>
         <ContainerRow>
-            <><SmallCard><FaButton><FontAwesomeIcon icon={faHeartPulse} className="fa-icon"  /></FaButton>
+            <><SmallCard><FaButton><FontAwesomeIcon icon={faHeartPulse} className="fa-icon"  
+            onClick={() => navigate('/health')}
+            /></FaButton>
             <Paragraph>
             </Paragraph></SmallCard>
             

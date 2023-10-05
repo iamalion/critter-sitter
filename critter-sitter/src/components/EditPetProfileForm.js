@@ -22,7 +22,6 @@ function EditPetProfileForm(props) {
         insuranceSelect: petProfile.insuranceSelect || '',
         insuranceProvider: petProfile.insuranceProvider || '', 
         funFact: petProfile.funFact || '',
-        // id: auth.currentUser.uid,
     });
 
 
