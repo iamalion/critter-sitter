@@ -28,6 +28,7 @@ function PetProfileControl() {
             }
             });
             setPetProfileList(petProfiles);
+            console.log("petProfiles: " + petProfiles);
         }
     );
     
@@ -81,6 +82,7 @@ function PetProfileControl() {
     const handleChangingSelectedPetProfile = (id) => {
         const selectedPetProfile = petProfileList.filter(petProfile => petProfile.id === id)[0];
         setSelectedPetProfile(selectedPetProfile);
+        console.log("selectedPetProfile: " + selectedPetProfile);
     }
     let currentlyVisibleState = null;
 

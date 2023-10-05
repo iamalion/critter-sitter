@@ -3,8 +3,13 @@ import PropTypes from "prop-types";
 import PetProfile from "./PetProfile";
 import { Card } from "../styles/Card.style.js"
 import { Container } from "../styles/Container.style.js"
+import { useNavigate } from "react-router-dom";
 
 function PetProfileList(props) {
+    const navigate = useNavigate();
+    const handleProfileSelection = (id) => {
+      navigate(`/pet-profile/${id}`);
+    };
     if (!props.petProfiles || props.petProfiles.length === 0) {
         return (
             <Container>
@@ -19,7 +24,7 @@ function PetProfileList(props) {
         {props.petProfiles.map((petProfile) => (
           <div
             key={petProfile.id}
-            onClick={() => props.onProfileSelection(petProfile.id)} 
+            onClick={() => handleProfileSelection(petProfile.id)} 
           >
             <PetProfile
               name={petProfile.name}

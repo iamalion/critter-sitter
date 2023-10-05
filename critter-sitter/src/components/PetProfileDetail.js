@@ -1,6 +1,8 @@
 import React, { useReducer } from 'react';
+import { useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { initialPetInfo } from '../reducers/pet-info-reducer';
+import PetInfoCard from './PetInfoCard';
 import { Card } from '../styles/Card.style.js';
 import { ButtonContainer, SmallButton, FaButton } from '../styles/Button.style.js';
 import { Avatar, AvatarName, AvatarContainer } from '../styles/Avatar.style.js';
@@ -13,7 +15,10 @@ import { faHeartPulse, faCalendarDay, faDog, faCat, faWandMagicSparkles, faCamer
 
 function PetProfileDetail(props){
     const { petProfile, onClickingDelete, onClickingEdit } = props;
+    console.log("Pet profile: " , petProfile);
     const [petInfo, dispatch] = useReducer(initialPetInfo, petProfile);
+    console.log("Pet info: ", petInfo);
+    // const { id } = useParams();
 
 
     return (
@@ -45,13 +50,13 @@ function PetProfileDetail(props){
             <FaButton><FontAwesomeIcon icon={faHeartPulse}  /></FaButton>
             
             <FaButton><FontAwesomeIcon icon={faCalendarDay}  /></FaButton>
-            <div>
+            {/* <div>
                 {petInfo.species === 'dog' ? (
                     <FaButton><FontAwesomeIcon icon={faDog}  /></FaButton>
                 ) : (
                     <FaButton><FontAwesomeIcon icon={faCat}  /></FaButton>
                 )}
-            </div>
+            </div> */}
             <FaButton><FontAwesomeIcon icon={faWandMagicSparkles}  /></FaButton>
             <FaButton><FontAwesomeIcon icon={faCameraRetro}  /></FaButton>
             
