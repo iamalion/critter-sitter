@@ -27,7 +27,6 @@ function App() {
           <Route path="/view" element={<PetProfileControl />} />
           <Route path="/pet-profile/:id" element={<PetProfileDetail />} />
           <Route path="/home" element={<UserLanding />} authenticated={toBeRequired} />
-          <Route path="/pet-details/:id" element={<PetProfileDetail />} />
         </Routes>
     </Router>
     </div>
