@@ -41,7 +41,7 @@ function Navigation() {
         <NavBar>
             <Logo>Critter Sitter</Logo>
                 <NavLinks>
-                    <NavLink href="/">Splash</NavLink>
+                    {/* <NavLink href="/">Splash</NavLink> */}
                     <NavLink href="/home">Home</NavLink>
                 
                     <NavLink href="/add">Add New Pet</NavLink>

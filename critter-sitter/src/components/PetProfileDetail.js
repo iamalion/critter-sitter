@@ -15,59 +15,106 @@ import { useNavigate } from 'react-router-dom';
 function PetProfileDetail(props){
     const navigate = useNavigate();
     const { petProfile, onClickingDelete, onClickingEdit } = props;
-    const [petInfo, 
-        // cleaning up unused code
-        // dispatch
-    ] = useReducer(initialPetInfo, petProfile);
+    const [petInfo] = useReducer(initialPetInfo, petProfile);
 
 
     return (
-        <>
+      <>
         <Container>
-            <Card>
-                <AvatarContainer>
-                <Avatar className="avatar" src={petInfo.avatar} alt={petInfo.name + "'s Avatar"} />
-                <AvatarName>{petInfo.name}</AvatarName>
-        
-                </AvatarContainer>
-                <Paragraph><em>{petInfo.funFact ? petInfo.funFact : `${petInfo.name} has so many fun facts I can't pick one!`}</em></Paragraph>
-                <Paragraph><strong>Birthday: </strong> {petInfo.birthdayMonth}/{petInfo.birthdayYear}</Paragraph>
-                <Paragraph><strong>Microchip: </strong> {petInfo.microchip ? petInfo.microchip : `n/a`}</Paragraph>
-                <Paragraph><strong>Insurance: </strong>{petInfo.insuranceProvider ? petInfo.insuranceProvider : `n/a`}</Paragraph>
-            </Card>
-        </Container>
-            <ButtonContainer>           
-                <SmallButton onClick={()=> onClickingEdit(petProfile.id)}>Update Pet Profile</SmallButton>
-                <SmallButton onClick={()=> onClickingDelete(petProfile.id)}>Delete Pet Profile</SmallButton>
-            </ButtonContainer>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <ContainerRow>
-            <><SmallCard><FaButton><FontAwesomeIcon icon={faHeartPulse} className="fa-icon"  
-            onClick={() => navigate('/health')}
-            /></FaButton>
+          <Card>
+            <AvatarContainer>
+              <Avatar
+                className="avatar"
+                src={petInfo.avatar}
+                alt={petInfo.name + "'s Avatar"}
+              />
+              <AvatarName>{petInfo.name}</AvatarName>
+            </AvatarContainer>
             <Paragraph>
-            </Paragraph></SmallCard>
-            
-            
-            <SmallCard><FaButton><FontAwesomeIcon icon={faCalendarDay} className="fa-icon" /></FaButton></SmallCard>
+              <em>
+                {petInfo.funFact
+                  ? petInfo.funFact
+                  : `${petInfo.name} has so many fun facts I can't pick one!`}
+              </em>
+            </Paragraph>
+            <Paragraph>
+              <strong>Birthday: </strong> {petInfo.birthdayMonth}/
+              {petInfo.birthdayYear}
+            </Paragraph>
+            <Paragraph>
+              <strong>Microchip: </strong>{' '}
+              {petInfo.microchip ? petInfo.microchip : `n/a`}
+            </Paragraph>
+            <Paragraph>
+              <strong>Insurance: </strong>
+              {petInfo.insuranceProvider ? petInfo.insuranceProvider : `n/a`}
+            </Paragraph>
+          </Card>
+        </Container>
+        <ButtonContainer>
+          <SmallButton onClick={() => onClickingEdit(petProfile.id)}>
+            Update Pet Profile
+          </SmallButton>
+
+          <SmallButton onClick={() => onClickingDelete(petProfile.id)}>
+            Delete Pet Profile
+          </SmallButton>
+        </ButtonContainer>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <ContainerRow>
+          <>
+            <SmallCard>
+              <FaButton>
+                <FontAwesomeIcon
+                  icon={faHeartPulse}
+                  className="fa-icon"
+                  onClick={() => navigate('/health')}
+                />
+              </FaButton>
+              <Paragraph></Paragraph>
+            </SmallCard>
+
+            <SmallCard>
+              <FaButton>
+                <FontAwesomeIcon icon={faCalendarDay} className="fa-icon" />
+              </FaButton>
+            </SmallCard>
             <div>
-                {petInfo.species === 'dog' ? (
-                    <SmallCard><FaButton><FontAwesomeIcon icon={faDog} className="fa-icon" /></FaButton></SmallCard>
-                ) : (
-                    <SmallCard><FaButton><FontAwesomeIcon icon={faCat} className="fa-icon" /></FaButton></SmallCard>
-                )}
+              {petInfo.species === 'dog' ? (
+                <SmallCard>
+                  <FaButton>
+                    <FontAwesomeIcon icon={faDog} className="fa-icon" />
+                  </FaButton>
+                </SmallCard>
+              ) : (
+                <SmallCard>
+                  <FaButton>
+                    <FontAwesomeIcon icon={faCat} className="fa-icon" />
+                  </FaButton>
+                </SmallCard>
+              )}
             </div>
-            <SmallCard><FaButton><FontAwesomeIcon icon={faWandMagicSparkles} className="fa-icon" /></FaButton></SmallCard>
-            <SmallCard><FaButton><FontAwesomeIcon icon={faCameraRetro} className="fa-icon" /></FaButton></SmallCard>
-            
-            </>
+            <SmallCard>
+              <FaButton>
+                <FontAwesomeIcon
+                  icon={faWandMagicSparkles}
+                  className="fa-icon"
+                />
+              </FaButton>
+            </SmallCard>
+            <SmallCard>
+              <FaButton>
+                <FontAwesomeIcon icon={faCameraRetro} className="fa-icon" />
+              </FaButton>
+            </SmallCard>
+          </>
         </ContainerRow>
-        </>
-    )
+      </>
+    );
 }   
 
 PetProfileDetail.propTypes = {

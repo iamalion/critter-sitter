@@ -1,5 +1,4 @@
 import React from 'react';
-import { createGlobalStyle } from 'styled-components';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import PetProfileControl from './PetProfileControl';
 import Navigation from './Navigation';
@@ -15,8 +14,9 @@ import HealthForm from './HealthForm';
 const rootElement = document.getElementById('root') || document.body;
 
 function App() {
+
   return (
-    <div className="App">
+    <div>
     <Router>
       <Navigation />
         <Routes>

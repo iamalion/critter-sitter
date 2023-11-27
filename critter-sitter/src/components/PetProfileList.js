@@ -1,11 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import PetProfile from "./PetProfile";
-// cleaning up unused code
-// import { Card } from "../styles/Card.style.js"
 import { Container } from "../styles/Container.style.js"
 
 function PetProfileList(props) {
+
     if (!props.petProfiles || props.petProfiles.length === 0) {
         return (
             <Container>
@@ -13,14 +12,14 @@ function PetProfileList(props) {
             </Container>
         );
     }
-
+    
     return (
         <>
         <Container>
         {props.petProfiles.map((petProfile) => (
           <div
             key={petProfile.id}
-            onClick={() => props.onProfileSelection(petProfile.id)} 
+            onClick={() => props.onProfileSelection(petProfile.id)}
           >
             <PetProfile
               name={petProfile.name}
@@ -37,7 +36,7 @@ function PetProfileList(props) {
 
 PetProfileList.propTypes = {
     petProfiles: PropTypes.array,
-    onProfileSelection: PropTypes.func
+    onProfileSelection: PropTypes.func,
 };
 
 export default PetProfileList;

@@ -35,3 +35,8 @@ export const Radio = styled.input`
     border: 1px solid #FFB6C1;
     background-color: #FFB6C1;
 `
+export const Paragraph = styled.p`
+  margin-top: 5px;
+  margin-bottom: 5px;
+  text-align: center;
+`;

@@ -6,16 +6,12 @@ import { collection, onSnapshot, doc, addDoc, setDoc } from "firebase/firestore"
 import { db, auth } from './../firebase';
 import NewPetProfileForm from './NewPetProfileForm';
 import { updateDoc } from 'firebase/firestore';
-// cleaning up unused code
-// import { useNavigate } from 'react-router-dom';
 
 function PetProfileControl() {
     const [formVisibleOnPage, setFormVisibleOnPage] = useState(false);
     const [petProfileList, setPetProfileList] = useState([]);
     const [selectedPetProfile, setSelectedPetProfile] = useState(null);
     const [editing, setEditing] = useState(false);
-    // cleaning up unused code
-    // const navigate = useNavigate();
 
     useEffect(() => {
         const unSubscribe = onSnapshot(collection(db, "petProfiles"), (collectionSnapshot) => {
